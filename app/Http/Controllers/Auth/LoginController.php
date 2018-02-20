@@ -53,7 +53,12 @@ class LoginController extends Controller
 
 elseif (Auth::attempt(['email'=> $request->username, 'password' => $request->password])) {
 
-        return redirect()->route('home');
+        if(auth()->user()->type=='seeker')
+            return redirect()->route('seekfund');
+        else
+
+            return redirect()->route('home');
+
 } 
 
 

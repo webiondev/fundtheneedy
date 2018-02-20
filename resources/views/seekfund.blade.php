@@ -21,8 +21,8 @@
                         <select id="category" name="category" class="form form-control" >
                           <option selected="" disabled="">Select Category</option>
                           <option value="health">Health</option>
-                          <option value="env">Environment</option>
-                          <option value="natural">Natural Disaster</option>
+                          <option value="environment">Environment</option>
+                          <option value="natural disaster">Natural Disaster</option>
                           <option value="Education">Education</option>
                           <option value="community">Community Development</option>
                           <option value="orphan">Orphan</option>
@@ -80,36 +80,6 @@
 
                   </div>
 
-                <!-- <script type="text/javascript">
-                  
-                  //   show=function (){
-                  //     executed=false;
-                  //    var focused=document.getElementById("deadl").append("Deadline to fullfil your need");
-
-                     
-                      
-                  // }
-                 
-                    var show = (function() {
-                      var executed = false;
-                      return function() {
-                          if (!executed) {
-                              executed = true;
-                              document.getElementById("deadl").append("Deadline to fullfil your need");
-                          }
-                      };
-                  })();   
-
-                     var show2 = (function() {
-                      var executed = false;
-                      return function() {
-                          if (!executed) {
-                              executed = true;
-                              document.getElementById("pic").append("A picture to represent the need");
-                          }
-                      };
-                  })();     
-                    
-                </script> -->
+            
 
 @endsection

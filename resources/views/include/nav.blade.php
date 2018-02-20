@@ -2,10 +2,19 @@
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                        <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="{{ auth()->user()->file}}" />
+                        <div class="dropdown profile-element"> 
+
+                            @if (\Request::route()->getName()=='editthis')
+                            <img alt="image" class="img-circle" src="../img/{{auth()->user()->file}}" />
                              </span>
-                             <?php var_dump(auth()->user()->file)?>
+                            @else 
+
+                            <span>
+                            <img alt="image" class="img-circle" src="img/{{auth()->user()->file}}" />
+                             </span>
+
+                            @endif 
+                            
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> {{Auth::user()->name}}</strong>
                              </span> <span class="text-muted text-xs block">{{Auth::user()->type}}</b></span> </span> </a>
@@ -85,26 +94,9 @@
                   <li ><a href=""> About Us </a></li>
                   <li ><a href=""> Our Vision </a></li> 
                   <li ><a href=""> Contact </a></li>
+                  <li ><a href=""> Terms of Service </a></li>
                   
 
-             <!--  -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="bbc.com">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">new messages</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="mailbox.html">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> total messages
-                                    <span class="pull-right text-muted small">time since message</span>
-                                </div>
-                            </a>
-                        </li>
-                        
-                     
-                    </ul>
-                </li>
 
 
                 <li>
@@ -118,7 +110,7 @@
 
             </ul>
 
-           
+          
             
    
         </nav>

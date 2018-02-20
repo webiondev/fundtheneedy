@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'country'=>'required|string|max:255',
             'type'=>'required',
             'occupation'=>'required|string|max:255',
-            'file' => 'required | image | max:128',
+            'file' => 'required | image',
 
         ]);
     }
@@ -80,9 +80,9 @@ class RegisterController extends Controller
           $request= Req::capture();  // This gives you the current 
 
          //    //get file
-         //    $file =  $request->file('file')->store("public"); 
+            // $file =  $request->file('file')->store("public"); 
           
-         //    return $file;
+            // return $file;
 
          $file =$request->file('file');      
     
@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
                 $file->file = $filename;
                 //$file->save();  
-                return $file;
+                return $file->file;
         }
  
     protected function create(array $data)
@@ -100,7 +100,7 @@ class RegisterController extends Controller
         $file=$this->uploadfile();
         
         
-        $file=explode("/", $file);
+        //$file=explode("/", $file);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -109,7 +109,8 @@ class RegisterController extends Controller
             'country'=>$data['country'],
             'type'=>$data['type'],
             'occupation'=>$data['occupation'],
-            'file'=>$file[1],
+            //'file'=>$file[1],
+            'file'=>$file,
             
         ]);
     }

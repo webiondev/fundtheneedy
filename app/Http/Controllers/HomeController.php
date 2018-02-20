@@ -13,6 +13,7 @@ use Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
@@ -52,8 +53,58 @@ class HomeController extends Controller
     }
      public function profile_me()
     {
-        return view('profile_me');
+
+        $user=User::where('id', '=', auth()->user()->id)->get();
+        return view('profile_me')->with('user', $user);
     }
+
+     public function editprofile(Request $request)
+    {
+
+     $validated=$request->validate( [
+        'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|max:12',
+            'city' => 'required|string|max:20',
+            'country' => 'required|string|max:20',
+            'occupation'=>'required|string|max:20',
+            'file' => 'required|image',
+
+
+        ]);;
+
+         $file = $request->file('file');
+           // $file=explode("/", $file);
+
+
+             $filename = time() . '.' . $file->getClientOriginalExtension();
+            $location = public_path('img/'. $filename);
+            $file=Image::make($file)->resize(128,128)->save($location);
+
+            $file->file = $filename;
+         
+            try {
+            if(DB::table('users')->where('id', '=', auth()->user()->id)
+    ->update(array('name' => $validated['name'],'email' => $validated['email'],'password' => Hash::make($validated['password']),'city' => $validated['city'],'country' => $validated['country'],'occupation' => $validated['occupation'],
+     'file' => $file->file))){
+                   $user=User::find(auth()->user()->id); 
+                  return redirect::to('profile_me')->with('user', $user);
+              }
+          }
+
+        catch (\Illuminate\Database\QueryException $e) {
+            
+           $notification = array(
+            'message' => 'Email already exists!', 
+            'alert-type' => 'error'
+        );  
+
+           return Redirect::to('profile_me')->with($notification);
+
+}
+        }
+
+
 
       public function fav()
     {
@@ -72,13 +123,24 @@ class HomeController extends Controller
        $data = User::join('need', 'users.id', '=', 'need.user_id')
        
         ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')
-        ->get();
+        ->paginate(3);
          return view('seeker')->with('data',$data) ;
     }
 
-    public function test($id){
+    public function profileThis($id){
 
-        return view('test')->with('id', $id);
+       
+
+        // $data= User::join('need', 'users.id', '=', 'need.user_id')->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->where('users.id','=', $id)->get();
+
+        $data=DB::table('users')
+        ->join('need', function($join)
+        {   
+            $join->on('users.id', '=', 'need.user_id')
+                 ->where('need.id', '=', $id);
+        })
+        ->get();
+        return view('profile_this')->with('data', $data);
 
     }
 
@@ -112,34 +174,74 @@ class HomeController extends Controller
             'category' => 'required',
             'deadline' => 'required|date',
             'verify'=>'required',
-            'file' => 'required | image | min:400|max:1260',
+            'file' => 'required | image',
 
 
         ]);
 
-           $file = $request->file('file')->store("public");
-           $file=explode("/", $file);
+            $file = $request->file('file');
+           // $file=explode("/", $file);
 
+
+             $filename = time() . '.' . $file->getClientOriginalExtension();
+            $location = public_path('img/'. $filename);
+            $file=Image::make($file)->resize(350,350)->save($location);
+
+            $file->file = $filename;
            $need=new Need;
            $need->fill($validated);
            $need->fill(['user_id'=> \Auth::user()->id]);
-           $need->fill(['file'=>$file[1]]);
+           $need->fill(['file'=>$file->file]);
            
            if($need->save()) {
 
            return Redirect::to('listplea')->with($notification);
 
       }
+
+
         
 
     }
 
     public function listplea(){//once seeker adds his plea
 
-        $data=Need::where('user_id', '=', auth()->user()->id)->get();
+        $data=Need::where('user_id', '=', auth()->user()->id)->paginate(3);
 
         return view ('myplea')->with('data', $data);
     }
+
+    public function editthis($data){
+
+
+        $data=User::join('need', 'users.id', '=', 'need.user_id')
+       
+        ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->where('category', '=', $data)->first();
+
+         return view('editthis')->with('data',$data) ;
+
+    }
+
+     public function deleteplea($id){
+
+            $notification = array(
+            'message' => 'Plea delete success!', 
+            'alert-type' => 'success'
+        );
+           
+            $need=Need::find($id);
+
+            if($need->delete())
+
+                return Redirect::to('listplea')->with($notification);
+
+      }
+
+
+        
+
+
+
     public function mygift()
     
     {
