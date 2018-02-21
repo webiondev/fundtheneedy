@@ -8,7 +8,7 @@
                             <img alt="image" class="img-circle" src="../img/{{auth()->user()->file}}" />
                              </span>
                             @else 
-
+  
                             <span>
                             <img alt="image" class="img-circle" src="img/{{auth()->user()->file}}" />
                              </span>
@@ -17,13 +17,12 @@
                             
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> {{Auth::user()->name}}</strong>
+
                              </span> <span class="text-muted text-xs block">{{Auth::user()->type}}</b></span> </span> </a>
+                               
                             
                         </div>
 
-                        <div class="logo-element">
-                            IN+
-                        </div>
                     </li>
 
                  
@@ -33,7 +32,8 @@
                         <ul class="nav nav-second-level">
                                 <li><a href="{{Route('profile_me')}}">Profile</a></li>
                                 <li><a href="{{Route('fav')}}">Favourites</a></li>
-                                <li><a href="{{Route('message')}}">Messages</a></li>
+                               <!--  <i class="fa fa-bell"></i>  <span class="label label-primary">8</span> -->
+                                <li ><a href="{{Route('mymessage')}}">Messages<sup style="color:red">{{Session::get('count')}}</sup></a></li>
                                 <li class="divider"></li>
                                 <li>
                                   <li><a href="{{Route('logout')}}">Logout</a></li>

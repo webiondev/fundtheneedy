@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Need;
 use App\User;
+use App\Message;
 use Validator;
 use Input;
 use Redirect;
 use Auth;
 use Hash;
+use Session;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -22,6 +24,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -36,7 +39,9 @@ class HomeController extends Controller
    
     public function index()
     {
-        return view('update');
+        $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
+        Session::put('count', $count);
+        return view('update')->with('count_',$count);
     }
 
     public function seekerthis($id)//same as listplea but return with user name and need table data
@@ -110,9 +115,11 @@ class HomeController extends Controller
     {
         return view('fav');
     }
-      public function message()
+      public function listmessage()
     {
-        return view('message');
+        $messages=Message::where('to_', "=", auth()->user()->id)->count();
+        return view('message')->with('data', $messages);
+
     }
 
      public function seeker()
@@ -129,29 +136,68 @@ class HomeController extends Controller
 
     public function profileThis($id){
 
-       
-
-        // $data= User::join('need', 'users.id', '=', 'need.user_id')->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->where('users.id','=', $id)->get();
+     
 
         $data=DB::table('users')
-        ->join('need', function($join)
+        ->join('need', function($join) use ($id)
         {   
             $join->on('users.id', '=', 'need.user_id')
                  ->where('need.id', '=', $id);
         })
         ->get();
+
         return view('profile_this')->with('data', $data);
 
     }
+     public function askseekeracc($id){
 
-    //   public function showall()
-    // {
 
-    //      $data=Need::all();   
-    //      return view('seeker')->with('data',$data) ;
-    // }
+        $message=new Message;
 
-        public function showlocal()
+       
+         $message->fill(['from'=>auth()->user()->id,
+            'to_'=>$id,
+            'message'=>'I am interested in helping you. please give me your bank account',
+            'date'=>date('Y-m-d')]);
+         if($message->save())
+           return redirect()->back()->with('message', 'message sent');
+
+    }
+
+    public function askseekerinfo($id){
+
+
+        $message=new Message;
+
+       
+         $message->fill(['from'=>auth()->user()->id,
+            'to_'=>$id,
+            'message'=>'I am interested in helping you. please give me your contact info',
+            'date'=>date('Y-m-d')]);
+         if($message->save())
+           return redirect()->back()->with('message', 'message sent');
+
+    }
+
+     public function askseekerver($id){
+
+
+        $message=new Message;
+
+       
+         $message->fill(['from'=>auth()->user()->id,
+            'to_'=>$id,
+            'message'=>'I am interested in helping you. please give me your claim\'s verification. You can email me '.auth()->user()->email,
+            'date'=>date('Y-m-d')]);
+         if($message->save())
+           return redirect()->back()->with('message', 'message sent');
+
+
+    }
+    
+
+    public function showlocal()
+    
     {
 
          // $data=DB::table();   
@@ -165,12 +211,15 @@ class HomeController extends Controller
 
     public function addplea(Request $request){
 
-            $notification = array(
-            'message' => 'Plea added success!', 
-            'alert-type' => 'success'
-        );
+        //load the messages for this user because this is the first landing page for user
+         $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
+        Session::put('count', $count);
+
+        //add new plea
+
+         
             $validated=$request->validate( [
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
             'category' => 'required',
             'deadline' => 'required|date',
             'verify'=>'required',
@@ -195,7 +244,7 @@ class HomeController extends Controller
            
            if($need->save()) {
 
-           return Redirect::to('listplea')->with($notification);
+            return redirect()->back()->with('message', 'plea added!');
 
       }
 
@@ -224,16 +273,12 @@ class HomeController extends Controller
 
      public function deleteplea($id){
 
-            $notification = array(
-            'message' => 'Plea delete success!', 
-            'alert-type' => 'success'
-        );
            
             $need=Need::find($id);
 
             if($need->delete())
 
-                return Redirect::to('listplea')->with($notification);
+                return redirect()->back()->with('message', 'deleted');
 
       }
 

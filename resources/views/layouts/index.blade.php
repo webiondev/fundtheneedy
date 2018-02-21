@@ -5,7 +5,9 @@
 <body>
 
     <div id="wrapper">
-       	
+
+      
+
 	@include('include.nav')  
 
     @yield('content') 

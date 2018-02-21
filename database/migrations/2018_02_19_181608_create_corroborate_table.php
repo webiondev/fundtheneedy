@@ -15,8 +15,8 @@ class CreateCorroborateTable extends Migration
     {
         Schema::create('corroborate', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('corroborate_by');
-            $table->integer('corroborate_for');
+            $table->integer('corroborate_by')->unsigned();
+            $table->integer('corroborate_for')->unsigned();
             $table->date('date');
             $table->timestamps();
             $table->foreign('corroborate_by')->references('id')->on('users');

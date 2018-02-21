@@ -1,5 +1,11 @@
 @extends('layouts.index')
 @section('content')
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+        
+    </div>
+@endif
 
 @foreach ($data as $data_)
   <div class="container" id="tourpackages-carousel">

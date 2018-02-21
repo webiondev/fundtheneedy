@@ -15,7 +15,7 @@ class CreateNeedTable extends Migration
     {
         Schema::create('need', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->string('description', 1000);
             $table->string('category');
             $table->date('deadline');
             $table->enum('verify', ['I can verify my claim','I cannot verify my claim']);
