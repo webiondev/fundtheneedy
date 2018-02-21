@@ -1,6 +1,11 @@
 @extends('layouts.index')
 @section('content')
-  
+  @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+        
+    </div>
+@endif
    <div class="middle-box text-center loginscreen animated fadeInDown"> 
 <form class="m-t" id="fn-form" method="POST" action="{{'addplea'}}" enctype="multipart/form-data">
                         {{ csrf_field() }}

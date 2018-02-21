@@ -94,39 +94,7 @@
 
     <!-- Toastr -->
     <script src="../../js/plugins/toastr/toastr.min.js"></script>
-   <!--  <script>
-  $("#country").countrySelect();
-var countryData = $("#country").countrySelect("getSelectedCountryData");
-
-
-console.log(countryData);
-
-
-</script>    -->
-      <script>
-
- //For new plea
-  @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type', 'info') }}";
-    switch(type){
-        case 'info':
-            toastr.info("{{ Session::get('message') }}");
-            break;
-        
-        case 'warning':
-            toastr.warning("{{ Session::get('message') }}");
-            break;
-
-        case 'success':
-            toastr.success("{{ Session::get('message') }}");
-            break;
-
-        case 'error':
-            toastr.error("{{ Session::get('message') }}");
-            break;
-    }
-  @endif
-</script>
+ 
 
    <!--  <script>
         $(document).ready(function() {
@@ -227,6 +195,6 @@ console.log(countryData);
             new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
 
         });
-    </script> 
+    </script> -->
 </body>
 </html>
