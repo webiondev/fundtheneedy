@@ -57,7 +57,7 @@ elseif (Auth::attempt(['email'=> $request->username, 'password' => $request->pas
             return redirect()->route('seekfund');
         else
 
-            return redirect()->route('home');
+            return redirect()->route('seeker');
 
 } 
 

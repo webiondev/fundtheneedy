@@ -36,13 +36,6 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   
-    public function index()
-    {
-        $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
-        Session::put('count', $count);
-        return view('update')->with('count_',$count);
-    }
 
     public function seekerthis($id)//same as listplea but return with user name and need table data
     {
@@ -117,8 +110,73 @@ class HomeController extends Controller
     }
       public function listmessage()
     {
-        $messages=Message::where('to_', "=", auth()->user()->id)->count();
+       $messages=User::join('message', 'users.id', '=', 'message.from')
+       
+        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)
+        ->paginate(3);
         return view('message')->with('data', $messages);
+
+    }
+
+       public function listsent()
+    {
+       $messages=User::join('message', 'users.id', '=', 'message.from')
+       
+        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)
+        ->paginate(3);
+        return view('sent')->with('data', $messages);
+
+    }
+
+
+    public function deletemessage($id){
+
+        $msg=Message::find($id);
+
+        if($msg->delete()){
+
+             return redirect()->back()->with('message', 'message deleted');
+
+        }
+
+    }
+
+    public function reply($id1,$id2)
+
+    {
+        //reduce count by 1
+        $update=Message::find($id1);
+
+        $update->status='1';
+
+        if( $update->save()){
+            $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
+       
+
+                 Session::put('count', $count);
+        }
+
+        $message=User::join('message', 'users.id', '=', 'message.from')
+       
+        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.id', '=', $id1)->get();
+        return view('reply')->with('id',$message);
+    }
+
+
+    public function replythis(Request $request){
+
+      
+        
+        $message=new Message();
+        $message->fill(['from'=>auth()->user()->id,
+            'to_'=>$request->to_,
+            'message'=>$request->message,
+            'date'=>date('Y-m-d'),
+            'status'=>'1']
+        );
+        
+        if($message->save())
+            return redirect()->back()->with('message', 'message sent');
 
     }
 
@@ -126,6 +184,9 @@ class HomeController extends Controller
 
     {
         
+         $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
+        Session::put('count', $count);
+
 
        $data = User::join('need', 'users.id', '=', 'need.user_id')
        
@@ -206,15 +267,16 @@ class HomeController extends Controller
 
      public function seekfund()
     {
+             //load the messages for this user because this is the first landing page for user
+         $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
+        Session::put('count', $count);
+
         return view('seekfund');
     }
 
     public function addplea(Request $request){
 
-        //load the messages for this user because this is the first landing page for user
-         $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
-        Session::put('count', $count);
-
+   
         //add new plea
 
          
@@ -287,14 +349,20 @@ class HomeController extends Controller
 
 
 
-    public function mygift()
+    public function donation()
     
     {
-        return view('mygift');
+        return view('donation');
     }
 
         public function stat()
     {
         return view('stat');
+    }
+
+    public function test(Request $request){
+
+        
+       return view('test')->with('data', $data);
     }
 }

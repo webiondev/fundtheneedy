@@ -51,7 +51,7 @@
 											
 										</td>
 										<td>
-											@if($messages->from!=auth()->user()->id)
+											
 											<div class="media">
 												<a href="#" class="pull-left">
 													<img src="/img/{{$messages->file}}" class="media-photo">
@@ -69,7 +69,7 @@
 													
 												</div>
 											</div>
-											@endif
+											
 
 										</td>
 									</tr>

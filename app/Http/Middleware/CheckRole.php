@@ -23,6 +23,10 @@ class CheckRole
 
         if($request->is('seeker') and auth()->user()->type=='seeker')
 
+              return Redirect::to('404');
+
+        elseif($request->is('seekfund') and auth()->user()->type=='giver') 
+
            
            return Redirect::to('404');
    

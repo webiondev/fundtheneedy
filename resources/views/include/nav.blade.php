@@ -7,8 +7,10 @@
                             @if (\Request::route()->getName()=='editthis')
                             <img alt="image" class="img-circle" src="../img/{{auth()->user()->file}}" />
                              </span>
-                            @else 
-  
+                            @elseif(\Request::route()->getName()=='reply')  
+                            <img alt="image" class="img-circle" src="../../img/{{auth()->user()->file}}" />
+                             </span>
+                             @else    
                             <span>
                             <img alt="image" class="img-circle" src="img/{{auth()->user()->file}}" />
                              </span>
@@ -28,12 +30,16 @@
                  
 
                     <li class="active">
-                        <a href="Profile.html"><i class="fa fa-address-book-o"></i> <span class="nav-label">Profile</span> <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-address-book-o"></i> <span class="nav-label">Profile</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                                 <li><a href="{{Route('profile_me')}}">Profile</a></li>
                                 <li><a href="{{Route('fav')}}">Favourites</a></li>
-                               <!--  <i class="fa fa-bell"></i>  <span class="label label-primary">8</span> -->
-                                <li ><a href="{{Route('mymessage')}}">Messages<sup style="color:red">{{Session::get('count')}}</sup></a></li>
+                               <li>
+                                <a href="#"> <span class="nav-label">Messages</span> <sup  style="color:red">{{Session::get('count')}} </sup></a>
+                                 <ul class="nav nav-third-level">
+                                    <li ><a href="{{Route('mymessage')}}">Inbox<sup  style="color:red"></sup></a></li>
+                                     <li ><a href="{{Route('mysent')}}">Sent<sup  style="color:red"></sup></a></li>
+                                </ul>
                                 <li class="divider"></li>
                                 <li>
                                   <li><a href="{{Route('logout')}}">Logout</a></li>
@@ -47,7 +53,7 @@
 
                             @if(auth()->user()->type=='giver')
                         	<li><a href="{{route('seeker')}}">Seekers</a></li>
-                            <li><a href="{{Route('mygift')}}">My Gifts</a></li>
+                            <li><a href="{{Route('donation')}}">Donations</a></li>
                             @endif
                             @if (auth()->user()->type=='seeker')
                             <li><a href="{{route('seekfund')}}">Seek Fund</a></li>
