@@ -7,9 +7,7 @@
         
     </div>
 @endif
-<?php 
-       $i=0;
-       ?> 
+
     <div class="container">
 	<div class="row">
 		
@@ -19,20 +17,19 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 					 @foreach ($data as $messages)
+					 @if(\Request::is('mysent') and $messages->from==auth()->user()->id)
 						<div class="pull-right">
-							<div class="btn-group">
-								
 						
-								@if($messages->from==auth()->user()->id)
+							<div class="btn-group">
+				
+						
 								   <a  href="{{Route('deletemessage', $messages->id)}}" class="btn btn-warning btn-filter">Delete</a>
 									
-								@else
-								  <a  href="{{Route('deletemessage', $messages->id)}}" class="btn btn-warning btn-filter">Delete</a>
-								   
-								<a  href="{{Route('reply', array($messages->id,$messages->from))}}" class="btn btn-default btn-filter">Reply</a>
-								@endif
+					
 							</div>
-							<?php $i++ ?>
+							
+
+							
 						</div>
 
 
@@ -41,15 +38,7 @@
 							<table class="table table-filter">
 								<tbody>
 									<tr class="inbox">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox1" name="checkbox">
-												<label for="checkbox1"></label>
-											</div>
-										</td>
-										<td>
-											
-										</td>
+										
 										<td>
 											@if($messages->from!=auth()->user()->id)
 											<div class="media">
@@ -79,6 +68,62 @@
 								</tbody>
 							</table>
 						</div>
+						@elseif((\Request::is('mymessage') and $messages->from!=auth()->user()->id))
+
+							<div class="pull-right">
+						
+							<div class="btn-group">
+				
+						
+								   <a  href="{{Route('deletemessage', $messages->id)}}" class="btn btn-warning btn-filter">Delete</a>
+								   <a  href="{{Route('reply', array($messages->id,$messages->from, $messages->date))}}" class="btn btn-default btn-filter">Reply</a>
+									
+					
+							</div>
+							
+
+							
+						</div>
+
+
+
+						<div class="table-container">
+							<table class="table table-filter">
+								<tbody>
+									<tr class="inbox">
+										
+										<td>
+											@if($messages->from!=auth()->user()->id)
+											<div class="media">
+												<a href="#" class="pull-left">
+													<img src="/img/{{$messages->file}}" class="media-photo">
+												</a>
+												<div class="media-body">
+
+													<span class="media-meta pull-right">{{$messages->created_at}}</span>
+													<h4 class="title">
+														
+														From: {{$messages->name}}
+														
+														<span class="pull-right"></span>
+													</h4>
+													<p class="summary">{{$messages->message}}</p>
+													
+												</div>
+											</div>
+											@endif
+
+										</td>
+									</tr>
+									
+								
+									
+								</tbody>
+							</table>
+						</div>
+	
+						@endif
+
 						@endforeach
 					</div>
 				</div>

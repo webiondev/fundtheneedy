@@ -2,5 +2,5 @@
 @section('content')
 
 Hiiii
-{{$message}}
+{{$id}}
 @endsection

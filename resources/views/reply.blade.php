@@ -6,17 +6,16 @@
         
     </div>
 @endif
-
-
   <div class="panel panel-default widget">
             <div class="panel-heading">
                 <span class="glyphicon glyphicon-comment"></span>
                 <h3 class="panel-title">
-                    Replying to {{$id[0]->name}} {{$id[0]->email}}</h3>
+                    Replying to {{$id[0]->name}} </h3>
             
                     
             </div>
             <div class="panel-body">
+            	@foreach($id as $id_)
                 <ul class="list-group">
              
                     <li class="list-group-item">
@@ -25,7 +24,8 @@
                             <div class="col-xs-10 col-md-11">
                                 
                                 <div class="comment-text">
-                                   {{$id[0]->message}}
+                                  {{$id_->name}}<h4 class="fa fa-volume-up"></h4>{{$id_->message}}<sup>{{$id_->date}}</sup>
+
                                 </div>
                                 
                             </div>
@@ -33,10 +33,13 @@
                     </li>
                     
                 </ul>
+                @endforeach
                 <form id="fn-form" method="POST" action="{{Route('replythis')}}">
                 	  {{ csrf_field() }}
 
-               	<input type="hidden" name="to_" value="{{$id[0]->from}}"> 	  
+               	<input type="hidden" name="date" value="{{$id_->date}}"> 	
+               	<input type="hidden" name="root" value="{{$id_->message_root}}">
+               	<input type="hidden" name="message_id" value="{{$id_->id}}">    
                 <div class="form-group">
 				  <label for="comment">Your Message:</label>
 				  <textarea class="form-control" rows="5" id="comment" name="message"></textarea>

@@ -36,7 +36,15 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    Public function index(){
 
+
+     if(Auth::check()==true and auth()->user()->type=='seeker')
+            return view('seekfund');
+     elseif (Auth::check()==true and auth()->user()->type=='giver') 
+        return view('seeker');
+     
+    }
     public function seekerthis($id)//same as listplea but return with user name and need table data
     {
 
@@ -113,7 +121,7 @@ class HomeController extends Controller
        $messages=User::join('message', 'users.id', '=', 'message.from')
        
         ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)
-        ->paginate(3);
+        ->paginate(5);
         return view('message')->with('data', $messages);
 
     }
@@ -123,7 +131,7 @@ class HomeController extends Controller
        $messages=User::join('message', 'users.id', '=', 'message.from')
        
         ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)
-        ->paginate(3);
+        ->paginate(5);
         return view('sent')->with('data', $messages);
 
     }
@@ -141,7 +149,7 @@ class HomeController extends Controller
 
     }
 
-    public function reply($id1,$id2)
+    public function reply($id1,$id2,$id3)
 
     {
         //reduce count by 1
@@ -155,25 +163,41 @@ class HomeController extends Controller
 
                  Session::put('count', $count);
         }
+        
+        $root=DB::table('message')->where('date', '=',$id3)->get();
 
-        $message=User::join('message', 'users.id', '=', 'message.from')
-       
-        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.id', '=', $id1)->get();
-        return view('reply')->with('id',$message);
+         $message=User::join('message', 'users.id', '=', 'message.from')
+           
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->Where('message_root', '=', $root[0]->message_root)->get();
+            return view('reply')->with('id',$message);
+        
     }
 
 
     public function replythis(Request $request){
 
-      
         
+        // $status_update=Message::find($request->id);
+        // $status_update->status='1';
+        // $status_update->save();
+
+        $data=Message::where('id', '=',$request->message_id)->get();
+
+        if(auth()->user()->id==$data[0]->from)
+              $to_=$data[0]->to_;
+        else 
+            $to_=$data[0]->from;
+
+
         $message=new Message();
         $message->fill(['from'=>auth()->user()->id,
-            'to_'=>$request->to_,
+            'to_'=>$to_,
             'message'=>$request->message,
             'date'=>date('Y-m-d'),
-            'status'=>'1']
+            'status'=>'0',
+            'message_root'=>$request->root]
         );
+        
         
         if($message->save())
             return redirect()->back()->with('message', 'message sent');
@@ -220,7 +244,11 @@ class HomeController extends Controller
             'to_'=>$id,
             'message'=>'I am interested in helping you. please give me your bank account',
             'date'=>date('Y-m-d')]);
+         $message->save();
+         $lastInsertedId = $message->id;
+         $message->message_root=$lastInsertedId;
          if($message->save())
+            
            return redirect()->back()->with('message', 'message sent');
 
     }

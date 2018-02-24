@@ -8,7 +8,7 @@
                             <img alt="image" class="img-circle" src="../img/{{auth()->user()->file}}" />
                              </span>
                             @elseif(\Request::route()->getName()=='reply')  
-                            <img alt="image" class="img-circle" src="../../img/{{auth()->user()->file}}" />
+                            <img alt="image" class="img-circle" src="../../../img/{{auth()->user()->file}}" />
                              </span>
                              @else    
                             <span>
