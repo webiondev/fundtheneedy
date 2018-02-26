@@ -32,6 +32,7 @@
              <p><a href="{{Route('askseekerver',  $data[0]->user_id)}}" class="btn btn-info btn-xs" role="button">ask verification</a></p>
              <p><a href="#" class="btn btn-info btn-xs" role="button">corroborate claim</a></p>
              <p><a href="#" class="btn btn-info btn-xs" role="button">add favorite</a></p>
+             <p><a href="{{Route('confirmthisdonation', $data[0]->user_id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a></p>
 
            <hr>
            
@@ -52,6 +53,7 @@
     <li class="list-group-item">Category <span class="badge">{{$data[0]->category}}</span></li>
     <li class="list-group-item">Deadline<span class="badge">{{$data[0]->deadline}}</span></li>
     <li class="list-group-item">Verify<span class="badge">{{$data[0]->verify}}</span>
+      <li class="list-group-item">Assistance Type<span class="badge">{{$data[0]->medium}}</span>
 
   </ul>
             </div>

@@ -9,7 +9,7 @@
    <div class="middle-box text-center loginscreen animated fadeInDown"> 
 <form class="m-t" id="fn-form" method="POST" action="{{'addplea'}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
-
+                       
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <div class="form-group">
                         <textarea class="form-control" rows="5" id="description" name="description" placeholder="Please enter your need's details" required=""></textarea>
@@ -53,7 +53,7 @@
                         
                         </div>
 
-                 
+                      
 
 
                         <div id="add_verify"  class="form-group{{ $errors->has('verify') ? ' has-error' : '' }}">
@@ -64,9 +64,29 @@
    
                         </div>
 
+                        <div id="means"  class="form-group{{ $errors->has('medium') ? ' has-error' : '' }}">
+                          <select id="medium" name="medium" class="form-control" required="">
+                            <option selected disabled>Mode of Assistance</option>
+                            <option value="money">Money</option>
+                            <option value="goods">Goods</option>
+                          </select>
+   
+                        </div>
+
+                        <div id="item">
+                       
+
+
+                          @if ($errors->has('amount'))<span class="help-block"><strong>{{ $errors->first('amount') }}</strong></span>@endif
+                          @if ($errors->has('goods'))<span class="help-block"><strong>{{ $errors->first('goods') }}</strong></span>@endif
+                        </div>
+                       
+                     
+
+
                       <!-- Upload image of user -->
                       <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <input type="file" id="file" name ="file" class="form-control"  data-toggle="tooltip" data-placement="top" title="upload a photo relevant to your need"required>
+                        <input type="file" id="file" name ="file" class="form-control"  data-toggle="tooltip" data-placement="top" title="upload a photo relevant to your need" required>
                          @if ($errors->has('file'))
                                     <span class="help-block">
                                         <strong>{{$errors->first('file')}}</strong>
@@ -85,6 +105,7 @@
 
                   </div>
 
-            
+         
+        
 
 @endsection

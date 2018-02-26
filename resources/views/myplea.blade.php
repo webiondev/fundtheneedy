@@ -18,15 +18,25 @@
 <img src="img/{{$data_->file}}" alt="">
             <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
       <a data-toggle="tooltip" title="need category" class="btn btn-default" role="button">{{$data_->category}}</a> 
+      <a data-toggle="tooltip" title="assistance type" class="btn btn-default" role="button">{{$data_->medium}}</a>
       <a  data-toggle="tooltip" title="need deadline" class="btn btn-default" role="button">{{$data_->deadline}}</a>
       <a  data-toggle="tooltip" title="can I verify?" class="btn btn-default" role="button">{{$data_->verify}}</a>
     </div>
               <div class="caption">
                 <h4>{{auth()->user()->name}}</h4>
-                <p>{{$data_->description}}</p>
-                <p>
-                  <a href="{{Route('deleteplea', $data_->id)}}" class="btn btn-warning btn-xs" role="button">Delete</a></p>
 
+                <h6>Corroborated by </h6>
+                @if ($data_->medium=="money")
+                  <p>{{$data_->amount}} GBP</p>
+                @endif
+
+                <p>{{$data_->description}}</p>
+                <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
+                <p>
+                  <a href="{{Route('donorthis', $data_->id)}}" class="btn btn-info btn-xs" role="button">My Donors</a>
+                
+                  <a href="{{Route('deleteplea', $data_->id)}}" class="btn btn-warning btn-xs" role="button">Delete</a></p>
+                </div>
             </div>
           </div>
         </div>

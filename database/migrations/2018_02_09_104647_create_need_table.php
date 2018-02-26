@@ -19,6 +19,9 @@ class CreateNeedTable extends Migration
             $table->string('category');
             $table->date('deadline');
             $table->enum('verify', ['I can verify my claim','I cannot verify my claim']);
+             $table->enum('medium', ['money','goods']);
+             $table->float('amount');
+             $table->integer('goods');
             $table->string('file', 10000);
             $table->timestamps();
             $table->integer('user_id')->unsigned();

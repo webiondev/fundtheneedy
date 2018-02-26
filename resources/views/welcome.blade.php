@@ -18,7 +18,15 @@
 </head>
 
 <body class="gray-bg">
+         <ul class="nav navbar-top-links navbar-right">
+                
+                  <li ><a href=""> About Us </a></li>
+                  <li ><a href=""> Our Vision </a></li> 
+                  <li ><a href=""> Contact </a></li>
+                  <li ><a href=""> Terms of Service </a></li>
+          
 
+            </ul>
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
@@ -34,8 +42,14 @@
      			 <a class="btn btn-primary block full-width m-b" href="{{route('login')}}">Login</a>
      			 <p class="text-muted text-center"><small>Do not have an account?</small></p>
      			  <a class="btn btn-primary block full-width m-b" href="{{route('register')}}">Register</a>
-            <p class="m-t"> <small>Fundtheneedy &copy; 2018</small> </p>
+
         </div>
+            <div class="content-footer">
+                    <p>
+                        Fundtheneedy © - 2018 <br>
+                        A Production
+                    </p>
+                </div>
     </div>
 
     <!-- Mainly scripts -->

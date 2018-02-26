@@ -8,7 +8,7 @@ class Need extends Model
 
     protected $table='need';
     protected $fillable = [
-    'description', 'category', 'deadline','verify', 'file', 'user_id' 
+    'description', 'category', 'deadline','verify','medium','amount','goods', 'file', 'user_id' 
     ];
 
    

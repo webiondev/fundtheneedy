@@ -17,9 +17,7 @@
                 </div>  
 
 
-   <!-- Do the rest contents -->
-   
-    <!-- Mainly scripts -->
+   List how to identify bogus claim
 
 </body>
 </html>

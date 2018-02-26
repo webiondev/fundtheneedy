@@ -36,27 +36,27 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    Public function index(){
+    // Public function index(){
 
 
-     if(Auth::check()==true and auth()->user()->type=='seeker')
-            return view('seekfund');
-     elseif (Auth::check()==true and auth()->user()->type=='giver') 
-        return view('seeker');
+    //  if(Auth::check()==true and auth()->user()->type=='seeker')
+    //         return view('seekfund');
+    //  elseif (Auth::check()==true and auth()->user()->type=='giver') 
+    //     return view('test');
      
-    }
-    public function seekerthis($id)//same as listplea but return with user name and need table data
-    {
+    // }
+    // public function seekerthis($id)//same as listplea but return with user name and need table data
+    // {
 
 
-        //  DB::table('need')
-        //             ->select('users.id','users.name','users.email')
-        //             ->leftJoin('students','users.id','=','students.user_id')
-        //             ->where('students.course_id','=',$id)
-        //             ->get();
+    //     //  DB::table('need')
+    //     //             ->select('users.id','users.name','users.email')
+    //     //             ->leftJoin('students','users.id','=','students.user_id')
+    //     //             ->where('students.course_id','=',$id)
+    //     //             ->get();
 
-        // return view('seekerthis')->with();
-    }
+    //     // return view('seekerthis')->with();
+    // }
      public function profile_me()
     {
 
@@ -120,8 +120,8 @@ class HomeController extends Controller
     {
        $messages=User::join('message', 'users.id', '=', 'message.from')
        
-        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)
-        ->paginate(5);
+        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)->orderBy('created_at','DESC')
+        ->paginate(10);
         return view('message')->with('data', $messages);
 
     }
@@ -130,8 +130,8 @@ class HomeController extends Controller
     {
        $messages=User::join('message', 'users.id', '=', 'message.from')
        
-        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)
-        ->paginate(5);
+        ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)->orderBy('created_at', 'DESC')
+        ->paginate(10);
         return view('sent')->with('data', $messages);
 
     }
@@ -164,7 +164,7 @@ class HomeController extends Controller
                  Session::put('count', $count);
         }
         
-        $root=DB::table('message')->where('date', '=',$id3)->get();
+        $root=DB::table('message')->where('created_at', '=',$id3)->get();
 
          $message=User::join('message', 'users.id', '=', 'message.from')
            
@@ -193,7 +193,7 @@ class HomeController extends Controller
         $message->fill(['from'=>auth()->user()->id,
             'to_'=>$to_,
             'message'=>$request->message,
-            'date'=>date('Y-m-d'),
+            
             'status'=>'0',
             'message_root'=>$request->root]
         );
@@ -243,7 +243,7 @@ class HomeController extends Controller
          $message->fill(['from'=>auth()->user()->id,
             'to_'=>$id,
             'message'=>'I am interested in helping you. please give me your bank account',
-            'date'=>date('Y-m-d')]);
+           ]);
          $message->save();
          $lastInsertedId = $message->id;
          $message->message_root=$lastInsertedId;
@@ -261,8 +261,11 @@ class HomeController extends Controller
        
          $message->fill(['from'=>auth()->user()->id,
             'to_'=>$id,
-            'message'=>'I am interested in helping you. please give me your contact info',
-            'date'=>date('Y-m-d')]);
+            'message'=>'I am interested in helping you. please give me your contact info'
+            ]);
+         $message->save();
+         $lastInsertedId = $message->id;
+         $message->message_root=$lastInsertedId;
          if($message->save())
            return redirect()->back()->with('message', 'message sent');
 
@@ -276,14 +279,58 @@ class HomeController extends Controller
        
          $message->fill(['from'=>auth()->user()->id,
             'to_'=>$id,
-            'message'=>'I am interested in helping you. please give me your claim\'s verification. You can email me '.auth()->user()->email,
-            'date'=>date('Y-m-d')]);
+            'message'=>'I am interested in helping you. please give me your claim\'s verification. You can email me '.auth()->user()->email]
+            );
+         $message->save();
+         $lastInsertedId = $message->id;
+         $message->message_root=$lastInsertedId;
          if($message->save())
            return redirect()->back()->with('message', 'message sent');
 
 
     }
     
+    public function confirmdonation(Request $request){
+
+
+      //    $validated=$request->validate( [
+      //       'description' => 'required|string|max:1000',
+      //       'category' => 'required',
+      //       'deadline' => 'required|date',
+      //       'verify'=>'required',
+      //       'medium'=>'required',
+      //       'amount'=>'Numeric',
+      //        'goods'=>'Integer',
+      //       'file' => 'required | image',
+
+
+      //   ]);
+            
+      //       $file = $request->file('file');
+
+
+      //        $filename = time() . '.' . $file->getClientOriginalExtension();
+      //       $location = public_path('img/'. $filename);
+      //       $file=Image::make($file)->resize(350,350)->save($location);
+
+      //       $file->file = $filename;
+      //      $need=new Need;
+      //      $need->fill($validated);
+      //      $need->fill(['user_id'=> \Auth::user()->id]);
+      //      $need->fill(['file'=>$file->file]);
+           
+      //      if($need->save()) {
+      //           return redirect()->back()->with('message', 'plea added!');
+
+      // }
+
+      //       else{
+                    
+      //           return redirect()->back()->with('message', 'something went wrong!! Enter correct fields.');
+      //       }
+
+
+    }
 
     public function showlocal()
     
@@ -306,20 +353,20 @@ class HomeController extends Controller
 
    
         //add new plea
-
-         
             $validated=$request->validate( [
             'description' => 'required|string|max:1000',
             'category' => 'required',
             'deadline' => 'required|date',
             'verify'=>'required',
+            'medium'=>'required',
+            'amount'=>'Numeric',
+             'goods'=>'Integer',
             'file' => 'required | image',
 
 
         ]);
-
+            
             $file = $request->file('file');
-           // $file=explode("/", $file);
 
 
              $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -333,10 +380,14 @@ class HomeController extends Controller
            $need->fill(['file'=>$file->file]);
            
            if($need->save()) {
-
-            return redirect()->back()->with('message', 'plea added!');
+                return redirect()->back()->with('message', 'plea added!');
 
       }
+
+            else{
+                    
+                return redirect()->back()->with('message', 'something went wrong!! Enter correct fields.');
+            }
 
 
         
@@ -377,10 +428,10 @@ class HomeController extends Controller
 
 
 
-    public function donation()
+    public function donation_this($id)
     
     {
-        return view('donation');
+        return view('donationgiver');
     }
 
         public function stat()

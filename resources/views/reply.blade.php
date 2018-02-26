@@ -6,6 +6,7 @@
         
     </div>
 @endif
+
   <div class="panel panel-default widget">
             <div class="panel-heading">
                 <span class="glyphicon glyphicon-comment"></span>
@@ -17,14 +18,14 @@
             <div class="panel-body">
             	@foreach($id as $id_)
                 <ul class="list-group">
-             
+                {{$id_->id}}
                     <li class="list-group-item">
                         <div class="row">
                            
                             <div class="col-xs-10 col-md-11">
                                 
                                 <div class="comment-text">
-                                  {{$id_->name}}<h4 class="fa fa-volume-up"></h4>{{$id_->message}}<sup>{{$id_->date}}</sup>
+                                  {{$id_->name}}<h4 class="fa fa-volume-up"></h4>{{$id_->message}}<sup>{{$id_->created_at}}</sup>
 
                                 </div>
                                 
@@ -37,7 +38,7 @@
                 <form id="fn-form" method="POST" action="{{Route('replythis')}}">
                 	  {{ csrf_field() }}
 
-               	<input type="hidden" name="date" value="{{$id_->date}}"> 	
+               	<input type="hidden" name="date" value="{{$id_->created_at}}"> 	
                	<input type="hidden" name="root" value="{{$id_->message_root}}">
                	<input type="hidden" name="message_id" value="{{$id_->id}}">    
                 <div class="form-group">
@@ -47,7 +48,11 @@
 				 
 				</div>
 				 <button class="btn btn-default">Reply</button>
+                  @if(auth()->user()->type=='giver')
+                    <a href="{{Route('confirmthisdonation', $id_->id)}}" class="btn btn-info btn-default" role="button">confirm donation</a>
+                @endif
 				</form>
+               
             </div>
 
         </div>

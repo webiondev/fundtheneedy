@@ -452,10 +452,10 @@
                   </select>
               </div>
 
-                        <div id="add_verify"  class="form-group{{ $errors->has('verify') ? ' has-error' : '' }}">
+                       <!--  <div id="add_verify"  class="form-group{{ $errors->has('verify') ? ' has-error' : '' }}">
                           
    
-                        </div>
+                        </div> -->
 
                       <!-- Upload image of user -->
                       <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
@@ -482,7 +482,7 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
 
 
        
@@ -500,7 +500,7 @@
          });
        
 
-    </script>
+    </script> -->
 
 </body>
 

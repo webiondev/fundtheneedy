@@ -4,18 +4,10 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element"> 
 
-                            @if (\Request::route()->getName()=='editthis')
-                            <img alt="image" class="img-circle" src="../img/{{auth()->user()->file}}" />
+                             <span>
+                            <img alt="image" class="img-circle" 
+                            src="{{asset('img/'.auth()->user()->file)}}" />
                              </span>
-                            @elseif(\Request::route()->getName()=='reply')  
-                            <img alt="image" class="img-circle" src="../../../img/{{auth()->user()->file}}" />
-                             </span>
-                             @else    
-                            <span>
-                            <img alt="image" class="img-circle" src="img/{{auth()->user()->file}}" />
-                             </span>
-
-                            @endif 
                             
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> {{Auth::user()->name}}</strong>
@@ -35,14 +27,14 @@
                                 <li><a href="{{Route('profile_me')}}">Profile</a></li>
                                 <li><a href="{{Route('fav')}}">Favourites</a></li>
                                <li>
-                                <a href="#"> <span class="nav-label">Messages</span> <sup  style="color:red">{{Session::get('count')}} </sup></a>
+                                <a href="#" class="nav-label">Messages <sup  style="color:red">{{Session::get('count')}} </sup></a>
                                  <ul class="nav nav-third-level">
                                     <li ><a href="{{Route('mymessage')}}">Inbox<sup  style="color:red"></sup></a></li>
                                      <li ><a href="{{Route('mysent')}}">Sent<sup  style="color:red"></sup></a></li>
                                 </ul>
                                 <li class="divider"></li>
                                 <li>
-                                  <li><a href="{{Route('logout')}}">Logout</a></li>
+                                  <li><a class="forget" onclick="forget(this)" href="{{Route('logout')}}">Logout</a></li>
                            
                             
                         </ul>
@@ -53,7 +45,7 @@
 
                             @if(auth()->user()->type=='giver')
                         	<li><a href="{{route('seeker')}}">Seekers</a></li>
-                            <li><a href="{{Route('donation')}}">Donations</a></li>
+                            <li><a href="{{Route('donorall')}}">Donations</a></li>
                             @endif
                             @if (auth()->user()->type=='seeker')
                             <li><a href="{{route('seekfund')}}">Seek Fund</a></li>
@@ -106,7 +98,7 @@
 
 
                 <li>
-                    <a href="{{route('logout')}}">
+                    <a class="forget" onclick="forget(this)" href="{{route('logout')}}">
                         <i class="fa fa-sign-out"></i> Log out
                     </a>
                 </li>
@@ -121,4 +113,10 @@
    
         </nav>
 
+<script type="text/javascript">
+    
+    function forget(forget){
 
+        Session::forget('count');
+    }
+</script>

@@ -282,6 +282,7 @@
             <img src="img/{{$data_->file}}" alt="">
             <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
       <a href="#" data-toggle="tooltip" title="need category" class="btn btn-default" role="button">{{$data_->category}}</a>
+      <a href="#" data-toggle="tooltip" title="assistance type" class="btn btn-default" role="button">{{$data_->medium}}</a>
       <a href="#" data-toggle="tooltip" title="need deadline" class="btn btn-default" role="button">{{$data_->deadline}}</a>
       <a href="#" data-toggle="tooltip" title="can I verify?" class="btn btn-default" role="button">{{$data_->verify}}</a>
     </div>    
@@ -295,7 +296,9 @@
                      <a href="{{Route('askseekerinfo', $data_->user_id)}}" class="btn btn-info btn-xs" role="button">ask address/contact</a>
                      <a href="{{Route('askseekerver', $data_->user_id)}}" class="btn btn-info btn-xs" role="button">ask verification</a>
              <a href="#" class="btn btn-info btn-xs" role="button">corroborate claim</a>
-             <a href="#" class="btn btn-info btn-xs" role="button">add favorite</a></p>
+             <a href="#" class="btn btn-info btn-xs" role="button">add favorite</a>
+             <a href="{{Route('confirmthisdonation', $data_->user_id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a>
+      </p>
 
             </div>
           </div>

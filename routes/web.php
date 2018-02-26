@@ -16,7 +16,7 @@ Route::get('/', function(){
 	 if(Auth::check()==true and auth()->user()->type=='seeker')
             return view('seekfund');
      elseif (Auth::check()==true and auth()->user()->type=='giver') {
-     	return view('profile_me');
+     	return view('home');
      }
 	return view('welcome');
 });
@@ -39,6 +39,7 @@ Route::get('/profile_this/{id}', 'HomeController@profileThis')->name('profile_th
 Route::get('/askseekeracc/{id}', 'HomeController@askseekeracc')->name('askseekeracc');
 Route::get('/askseekerinfo/{id}', 'HomeController@askseekerinfo')->name('askseekerinfo');
 Route::get('/askseekerver/{id}', 'HomeController@askseekerver')->name('askseekerver');
+Route::get('/confirmthisdonation/{id}', 'HomeController@confirmdonation')->name('confirmthisdonation');
 Route::get('/showlocal', 'HomeController@showlocal')->name('local');
 Route::get('/sort', 'HomeController@sort')->name('sort');
 Route::get('/seekfund', 'HomeController@seekfund')->name('seekfund');
@@ -46,7 +47,8 @@ Route::get('/listplea', 'HomeController@listplea')->name('listplea');
 Route::get('/deleteplea/{data}', 'HomeController@deleteplea')->name('deleteplea');
 
 Route::post('/addplea', 'HomeController@addplea')->name('addplea');
-Route::get('/mydonation', 'HomeController@donation')->name('donation');
+Route::get('/donorall', 'HomeController@donorall')->name('donorall');
+Route::get('/donorthis/{id}', 'HomeController@donorthis')->name('donorthis');
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 //Route::post('/test/{id1}/{id2}', 'HomeController@reply')->name('test');
 

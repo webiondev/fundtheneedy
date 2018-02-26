@@ -4,7 +4,8 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Redirect;
 class Handler extends ExceptionHandler
 {
     /**
@@ -48,6 +49,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+         // if ($exception instaceof MethodNotAllowedHttpException){
+         //       return redirect()->back()->with('message', 'plea added!');
+         // }
         return parent::render($request, $exception);
     }
 }
