@@ -45,7 +45,7 @@
 
                             @if(auth()->user()->type=='giver')
                         	<li><a href="{{route('seeker')}}">Seekers</a></li>
-                            <li><a href="{{Route('donorall')}}">Donations</a></li>
+                            <li><a href="{{Route('giverdonation')}}">Donations</a></li>
                             @endif
                             @if (auth()->user()->type=='seeker')
                             <li><a href="{{route('seekfund')}}">Seek Fund</a></li>

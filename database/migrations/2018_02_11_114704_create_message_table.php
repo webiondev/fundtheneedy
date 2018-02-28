@@ -21,9 +21,11 @@ class CreateMessageTable extends Migration
             $table->date('date');
             $table->integer('message_root')->unsigned();
            $table->enum('status', ['0','1'])->default('0');
+           $table->integer('need_id')->unsigned();
             $table->timestamps();
              $table->foreign('from')->references('id')->on('users');
             $table->foreign('to_')->references('id')->on('users');
+            $table->foreign('need_id')->references('id')->on('need');
         });
     }
 

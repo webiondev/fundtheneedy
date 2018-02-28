@@ -17,13 +17,16 @@ class CreateDonationTable extends Migration
             $table->increments('id');
             $table->integer('donated_by')->unsigned();
             $table->integer('donated_for')->unsigned();
+            $table->integer('need_id')->unsigned();
             $table->date('date');
             $table->float('amount');
             $table->integer('quantity');
+            $table->string('file', 1024);
             $table->timestamps();
 
             $table->foreign('donated_by')->references('id')->on('users');
-            $table->foreign('user_for')->references('id')->on('users');
+            $table->foreign('donated_for')->references('id')->on('users');
+             $table->foreign('need_id')->references('id')->on('need');
         });
     }
 

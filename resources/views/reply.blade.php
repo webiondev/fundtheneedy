@@ -11,7 +11,8 @@
             <div class="panel-heading">
                 <span class="glyphicon glyphicon-comment"></span>
                 <h3 class="panel-title">
-                    Replying to {{$id[0]->name}} </h3>
+                  Your Reply
+                </h3>
             
                     
             </div>
@@ -40,7 +41,8 @@
 
                	<input type="hidden" name="date" value="{{$id_->created_at}}"> 	
                	<input type="hidden" name="root" value="{{$id_->message_root}}">
-               	<input type="hidden" name="message_id" value="{{$id_->id}}">    
+               	<input type="hidden" name="message_id" value="{{$id_->id}}">
+                <input type="hidden" name="need_id" value="{{$id_->need_id}}">    
                 <div class="form-group">
 				  <label for="comment">Your Message:</label>
 				  <textarea class="form-control" rows="5" id="comment" name="message"></textarea>
@@ -48,14 +50,14 @@
 				 
 				</div>
 				 <button class="btn btn-default">Reply</button>
-                  @if(auth()->user()->type=='giver')
-                    <a href="{{Route('confirmthisdonation', $id_->id)}}" class="btn btn-info btn-default" role="button">confirm donation</a>
-                @endif
+                 
 				</form>
                
             </div>
 
         </div>
+
+
 
 
 

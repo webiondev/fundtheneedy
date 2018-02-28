@@ -9,7 +9,7 @@ class Donation extends Model
 
     protected $table='donation';
     protected $fillable = [
-    'donated_by', 'donated_from', 'date','amount', 'quantity', 'created_at' 
+    'donated_by', 'donated_for','need_id', 'date','amount', 'quantity','file', 'created_at' 
     ];
 
    

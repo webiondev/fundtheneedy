@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Need;
 use App\User;
 use App\Message;
+use App\Donation;
 use Validator;
 use Input;
 use Redirect;
@@ -36,15 +37,15 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // Public function index(){
+    Public function index(){
 
 
-    //  if(Auth::check()==true and auth()->user()->type=='seeker')
-    //         return view('seekfund');
-    //  elseif (Auth::check()==true and auth()->user()->type=='giver') 
-    //     return view('test');
+     if(Auth::check()==true and auth()->user()->type=='seeker')
+            return view('seekfund');
+     elseif (Auth::check()==true and auth()->user()->type=='giver') 
+        return view('home');
      
-    // }
+    }
     // public function seekerthis($id)//same as listplea but return with user name and need table data
     // {
 
@@ -195,6 +196,7 @@ class HomeController extends Controller
             'message'=>$request->message,
             
             'status'=>'0',
+            'need_id'=>$request->need_id,
             'message_root'=>$request->root]
         );
         
@@ -234,15 +236,16 @@ class HomeController extends Controller
         return view('profile_this')->with('data', $data);
 
     }
-     public function askseekeracc($id){
+     public function askseekeracc($id1,$id2){
 
 
         $message=new Message;
 
        
          $message->fill(['from'=>auth()->user()->id,
-            'to_'=>$id,
+            'to_'=>$id1,
             'message'=>'I am interested in helping you. please give me your bank account',
+            'need_id'=>$id2
            ]);
          $message->save();
          $lastInsertedId = $message->id;
@@ -253,15 +256,16 @@ class HomeController extends Controller
 
     }
 
-    public function askseekerinfo($id){
+    public function askseekerinfo($id1,$id2){
 
 
         $message=new Message;
 
        
          $message->fill(['from'=>auth()->user()->id,
-            'to_'=>$id,
-            'message'=>'I am interested in helping you. please give me your contact info'
+            'to_'=>$id1,
+            'message'=>'I am interested in helping you. please give me your contact info',
+            'need_id'=>$id2
             ]);
          $message->save();
          $lastInsertedId = $message->id;
@@ -271,15 +275,16 @@ class HomeController extends Controller
 
     }
 
-     public function askseekerver($id){
+     public function askseekerver($id1,$id2){
 
 
         $message=new Message;
 
        
          $message->fill(['from'=>auth()->user()->id,
-            'to_'=>$id,
-            'message'=>'I am interested in helping you. please give me your claim\'s verification. You can email me '.auth()->user()->email]
+            'to_'=>$id1,
+            'message'=>'I am interested in helping you. please give me your claim\'s verification. You can email me '.auth()->user()->email,
+        'need_id'=>$id2,]
             );
          $message->save();
          $lastInsertedId = $message->id;
@@ -290,44 +295,94 @@ class HomeController extends Controller
 
     }
     
-    public function confirmdonation(Request $request){
+    public function confirmdonation($id){
 
 
-      //    $validated=$request->validate( [
-      //       'description' => 'required|string|max:1000',
-      //       'category' => 'required',
-      //       'deadline' => 'required|date',
-      //       'verify'=>'required',
-      //       'medium'=>'required',
-      //       'amount'=>'Numeric',
-      //        'goods'=>'Integer',
-      //       'file' => 'required | image',
+
+        $data=DB::table('users')
+        ->join('need', function($join) use ($id)
+        {   
+            $join->on('users.id', '=', 'need.user_id')
+                 ->where('need.id', '=', $id);
+        })
+        ->get();
+
+        return view('confirmed_donation')->with('data', $data);
+    
 
 
-      //   ]);
+    }
+
+    public function confirmingdonation(Request $request){
+
+        
+          $validated=$request->validate( [
+            'amount' => 'Numeric',
+            'quantity' => 'Integer',
+            'date' => 'required|date',
+          'file' => 'required | image',
+
+
+         ]);
             
-      //       $file = $request->file('file');
 
 
-      //        $filename = time() . '.' . $file->getClientOriginalExtension();
-      //       $location = public_path('img/'. $filename);
-      //       $file=Image::make($file)->resize(350,350)->save($location);
+           $file = $request->file('file');
 
-      //       $file->file = $filename;
-      //      $need=new Need;
-      //      $need->fill($validated);
-      //      $need->fill(['user_id'=> \Auth::user()->id]);
-      //      $need->fill(['file'=>$file->file]);
+
+             $filename = time() . '.' . $file->getClientOriginalExtension();
+              $location = public_path('img/'. $filename);
+            $file=Image::make($file)->resize(350,350)->save($location);
+
+              $file->file = $filename;
+
+              //get amount
+             if(!empty($validated['quantity'])) {
+                     $q=DB::table('need')->select('goods')->where('id', '=',$request->need_id)->get();
+                   if($q[0]->goods<$validated['quantity']){ 
+
+                     $update=DB::table('need')->where('id', '=', $request->need_id)
+            ->update(array('goods' => '0'));
+                  }  
+                    else
+
+                     $update=DB::table('need')->where('id', '=', $request->need_id)
+            ->update(array('goods' => (($q[0]->goods)-$validated['quantity'])));
+        }
+
+            elseif(!empty($validated['amount'])){
+                 $q=DB::table('need')->select('amount')->where('id', '=',$request->need_id)->get();
+                 if($q[0]->amount<$validated['amount']){ 
+
+                     $update=DB::table('need')->where('id', '=', $request->need_id)
+            ->update(array('amount' => '0'));
+        }
+                else
+                 
+
+                     $update=DB::table('need')->where('id', '=', $request->need_id)
+            ->update(array('amount' => (($q[0]->amount)-$validated['amount'])));
+            }
+
+             $donation=new Donation;
            
-      //      if($need->save()) {
-      //           return redirect()->back()->with('message', 'plea added!');
 
-      // }
+            $donation->fill($validated);
+           $donation->fill(['donated_by'=> \Auth::user()->id]);
+           $donation->fill(['donated_for'=>$request->user_id]);
+           $donation->fill(['need_id'=>$request->need_id]);
+           $donation->fill(['file'=>$file->file]);
 
-      //       else{
+           
+           if($donation->save()) {
+                return redirect()->back()->with('message', 'Confirmed!');
+
+       }
+
+            else{
                     
-      //           return redirect()->back()->with('message', 'something went wrong!! Enter correct fields.');
-      //       }
+                 return redirect()->back()->with('message', 'something went wrong!! Enter correct fields.');
+             }
 
 
     }
@@ -364,8 +419,9 @@ class HomeController extends Controller
             'file' => 'required | image',
 
 
-        ]);
+      ]);
             
+           
             $file = $request->file('file');
 
 
@@ -428,10 +484,17 @@ class HomeController extends Controller
 
 
 
-    public function donation_this($id)
+    public function listgiverdonation()
     
     {
-        return view('donationgiver');
+        
+
+        $data=DB::table('users')
+          ->join('need', 'users.id', '=', 'need.user_id')
+          ->join('donation', 'donation.need_id', '=', 'need.id')
+          ->where('donation.donated_by', auth()->user()->id)
+          ->get();
+          return view('mydonation')->with('data',$data);
     }
 
         public function stat()

@@ -7,7 +7,7 @@
         
     </div>
 @endif
-
+	
     <div class="container">
 	<div class="row">
 		
@@ -17,6 +17,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 					 @foreach ($data as $messages)
+
 						@if($messages->from!=auth()->user()->id)
 
 							<div class="pull-right">
@@ -26,6 +27,7 @@
 						
 								   <a  href="{{Route('deletemessage', $messages->id)}}" class="btn btn-warning btn-filter">Delete</a>
 								   <a  href="{{Route('reply', array($messages->id,$messages->from, $messages->created_at))}}" class="btn btn-default btn-filter">Reply</a>
+								   <a  href="{{Route('confirmthisdonation' ,$messages->need_id)}}" class="btn btn-success btn-filter">Confirm Your Donation</a>
 									
 					
 							</div>
@@ -44,9 +46,16 @@
 										<td>
 											
 													<div class="media">
+												@if(auth()->user()->type=='giver')		
+												<a href="" class="pull-left">
+													<img src="/img/{{$messages->file}}" class="media-photo">
+												</a>
+
+												@else
 												<a href="#" class="pull-left">
 													<img src="/img/{{$messages->file}}" class="media-photo">
 												</a>
+												@endif
 												<div class="media-body">
 
 													<span class="media-meta pull-right">{{$messages->created_at}}</span>

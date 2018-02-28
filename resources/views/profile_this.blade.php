@@ -27,12 +27,12 @@
                 <i href="#">corroborated by 5</i><p></p><br/>
                
             </div>
-             <p><a href="{{Route('askseekeracc', $data[0]->user_id)}}" class="btn btn-info btn-xs" role="button">ask bank account</a></p>
-             <p><a href="{{Route('askseekerinfo', $data[0]->user_id)}}" class="btn btn-info btn-xs" role="button">ask contact/address</a></p>
-             <p><a href="{{Route('askseekerver',  $data[0]->user_id)}}" class="btn btn-info btn-xs" role="button">ask verification</a></p>
+             <p><a href="{{Route('askseekeracc', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask bank account</a></p>
+             <p><a href="{{Route('askseekerinfo', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask contact/address</a></p>
+             <p><a href="{{Route('askseekerver',  array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask verification</a></p>
              <p><a href="#" class="btn btn-info btn-xs" role="button">corroborate claim</a></p>
              <p><a href="#" class="btn btn-info btn-xs" role="button">add favorite</a></p>
-             <p><a href="{{Route('confirmthisdonation', $data[0]->user_id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a></p>
+             <p><a href="{{Route('confirmthisdonation', $data[0]->id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a></p>
 
            <hr>
            

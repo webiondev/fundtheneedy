@@ -20,6 +20,7 @@
                                 @endif
                         
                         </div>
+                      </div>
 
                         <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
                         
