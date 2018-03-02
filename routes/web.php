@@ -27,6 +27,8 @@ Route::middleware(['checkrole'])->group(function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile_me', 'HomeController@profile_me')->name('profile_me');
 Route::post('/editprofile', 'HomeController@editprofile')->name('editprofile');
+Route::get('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
+
 Route::get('/fav', 'HomeController@fav')->name('fav');
 Route::get('/mymessage', 'HomeController@listmessage')->name('mymessage');
 Route::get('/mysent', 'HomeController@listsent')->name('mysent');

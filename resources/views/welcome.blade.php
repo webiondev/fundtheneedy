@@ -16,7 +16,12 @@
     <link href="css/style.css" rel="stylesheet">
 
 </head>
+@if(session()->has('message'))
+    <div class="alert alert-info">
+        {{ session()->get('message') }}
 
+    </div>
+@endif
 <body class="gray-bg">
          <ul class="nav navbar-top-links navbar-right">
                 

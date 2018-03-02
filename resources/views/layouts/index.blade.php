@@ -54,6 +54,9 @@
 
     <!-- Toastr -->
     <script src="{{asset('js/plugins/toastr/toastr.min.js')}}"></script>
+    <!-- SweetAlert -->
+    <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+
 
     <script type="text/javascript">
            
@@ -73,7 +76,34 @@
 
                     }
 });
-         </script> 
+         </script>
+
+        <script>
+            $(document).ready(function(){
+                $("#deleteBtn").click(function(){
+                    $("#deleteModal").modal();
+
+                });
+
+            });
+
+            function deleteThis() {
+
+                $.ajax({
+                    type:'GET',
+                    url:'{{Route('deleteprofile', auth()->user()->id)}}',
+                    dataType: 'JSON',
+                    success: function (msg) {
+                        window.location.href='/';
+                    }
+
+            });
+       }
+
+
+
+
+        </script>
    
 </body>
 </html>

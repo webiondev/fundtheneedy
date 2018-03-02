@@ -1,6 +1,11 @@
 @extends('layouts.index')
     @section('content')
+        @if(session()->has('message'))
+            <div class="alert alert-info">
+                {{ session()->get('message') }}
 
+            </div>
+        @endif
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
            
@@ -428,18 +433,41 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary block full-width m-b">Submit Edit</button>
-                        <button type="submit" class="btn btn-primary block full-width m-b">Delete Account</button>
-
+                     
                  
                     </form>
-           
-        </div>
-    </div>
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+                            <!-- Trigger the modal with a button -->
+                            <button type="button"  class="btn btn-primary block full-width m-b" id="deleteBtn">Delete</button>
 
-   
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+
+                                            <h4 class="modal-title">Deleting Account</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" onclick="deleteThis()" data-dismiss="modal">Confirm</button>
+                                            <button type="button" class="btn btn-primary"  data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
 
     @endsection

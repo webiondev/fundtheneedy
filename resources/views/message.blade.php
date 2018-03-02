@@ -27,7 +27,9 @@
 						
 								   <a  href="{{Route('deletemessage', $messages->id)}}" class="btn btn-warning btn-filter">Delete</a>
 								   <a  href="{{Route('reply', array($messages->id,$messages->from, $messages->created_at))}}" class="btn btn-default btn-filter">Reply</a>
+								   @if(auth()->user()->id=='giver')
 								   <a  href="{{Route('confirmthisdonation' ,$messages->need_id)}}" class="btn btn-success btn-filter">Confirm Your Donation</a>
+								   @endif
 									
 					
 							</div>

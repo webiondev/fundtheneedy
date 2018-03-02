@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'country'=>'required|string|max:255',
             'type'=>'required',
             'occupation'=>'required|string|max:255',
-            'file' => 'required | image',
+            'file' => 'required | image|max:1000',
 
         ]);
     }

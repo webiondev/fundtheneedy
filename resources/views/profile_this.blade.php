@@ -54,6 +54,11 @@
     <li class="list-group-item">Deadline<span class="badge">{{$data[0]->deadline}}</span></li>
     <li class="list-group-item">Verify<span class="badge">{{$data[0]->verify}}</span>
       <li class="list-group-item">Assistance Type<span class="badge">{{$data[0]->medium}}</span>
+         @if ($data[0]->medium=='money')
+      <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}}</span></li>
+      @else
+      <li class="list-group-item">Quantity<span class="badge">{{$data[0]->goods}}</span></li>
+      @endif
 
   </ul>
             </div>

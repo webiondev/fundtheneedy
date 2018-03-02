@@ -19,7 +19,7 @@
             <div class="panel-body">
             	@foreach($id as $id_)
                 <ul class="list-group">
-                {{$id_->id}}
+                
                     <li class="list-group-item">
                         <div class="row">
                            

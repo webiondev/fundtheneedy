@@ -75,7 +75,7 @@ class HomeController extends Controller
             'city' => 'required|string|max:20',
             'country' => 'required|string|max:20',
             'occupation'=>'required|string|max:20',
-            'file' => 'required|image',
+            'file' => 'required|image|max:1000',
 
 
         ]);;
@@ -109,6 +109,22 @@ class HomeController extends Controller
            return Redirect::to('profile_me')->with($notification);
 
 }
+        }
+
+
+        public function deleteProfile(Request $request, $id){
+
+              $id=User::find($id);
+
+            if ($request->isMethod('get')){
+
+                if($id->delete()){
+
+
+                    return response()->json(['msg' => 'Your account has been deleted']);
+
+                }}
+            //return response()->json(['msg' => 'Account delete fail, Contact Fundtheneedy']);
         }
 
 
@@ -320,7 +336,7 @@ class HomeController extends Controller
             'amount' => 'Numeric',
             'quantity' => 'Integer',
             'date' => 'required|date',
-          'file' => 'required | image',
+          'file' => 'required | image|max:1000',
 
 
          ]);
@@ -416,7 +432,7 @@ class HomeController extends Controller
             'medium'=>'required',
             'amount'=>'Numeric',
              'goods'=>'Integer',
-            'file' => 'required | image',
+            'file' => 'required | image|max:1000',
 
 
       ]);
