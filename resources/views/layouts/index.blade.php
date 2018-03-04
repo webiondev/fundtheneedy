@@ -90,7 +90,10 @@
             function deleteThis() {
 
                 $.ajax({
-                    type:'GET',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type:'POST',
                     url:'{{Route('deleteprofile', auth()->user()->id)}}',
                     dataType: 'JSON',
                     success: function (msg) {

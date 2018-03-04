@@ -3,9 +3,19 @@
 
 @if(session()->has('message'))
     <div class="alert alert-success">
-        {{ session()->get('message') }}    
+        {{ session()->get('message') }}
     </div>
 @endif
+
+
+
+<?php
+$count_corroborate=$data[1];
+$data=$data[0];
+
+
+?>
+
 
 <div class="main-content">
 
@@ -16,16 +26,16 @@
                 <div class="row">
                  <div class="panel">
                 <div class=" panel-body ">
-                   
+
                     <div class="col-md-5">
                         <img class="img-responsive" src="../img/{{$data[0]->file}}" style="width:30%;">
-                        
+
         <div class=" clearfix">
             <h3>{{$data[0]->name}} </h3>
             <div class="profile-ratings">
                 <!-- corroborrated by..link to them -->
-                <i href="#">corroborated by 5</i><p></p><br/>
-               
+                <a href="{{Route('corroborate_count',$data[0]->id )}}">corroborated by {{$count_corroborate}} givers</a> <p></p><br/>
+
             </div>
              <p><a href="{{Route('askseekeracc', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask bank account</a></p>
              <p><a href="{{Route('askseekerinfo', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask contact/address</a></p>
@@ -35,9 +45,9 @@
              <p><a href="{{Route('confirmthisdonation', $data[0]->id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a></p>
 
            <hr>
-           
-            
-           
+
+
+
         </div>
     </div>
                 <div class="col-md-7">
@@ -63,8 +73,8 @@
   </ul>
             </div>
                 </div>
-            
-          
+
+
                 </div>
                 </div>
                 </div>
@@ -72,22 +82,22 @@
                  <div class="panel">
                 <div class=" panel-body ">
                  <div class="col-md-12">
-                        
+
             {{$data[0]->description}}
             <hr >
-            
-           
+
+
         </div>
             </div>
-            
-          
+
+
                 </div>
                 </div>
                 </div>
-               
-               
+
+
             </div>
-           
+
         </div>
     </div>
-  @endsection  
+  @endsection

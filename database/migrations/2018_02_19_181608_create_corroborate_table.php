@@ -18,9 +18,11 @@ class CreateCorroborateTable extends Migration
             $table->integer('corroborate_by')->unsigned();
             $table->integer('corroborate_for')->unsigned();
             $table->date('date');
+            $table->integer('need_id')->unsigned();
             $table->timestamps();
             $table->foreign('corroborate_by')->references('id')->on('users');
             $table->foreign('corroborate_for')->references('id')->on('users');
+            $table->foreign('need_id')->references('id')->on('need');
         });
     }
 

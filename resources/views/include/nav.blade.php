@@ -50,6 +50,7 @@
                             @if (auth()->user()->type=='seeker')
                             <li><a href="{{route('seekfund')}}">Seek Fund</a></li>
                             <li><a href="{{route('listplea')}}">My Plea</a></li>
+                             <li><a href="{{route('donorall')}}">My Donors</a></li>
                             @endif
                             
                             <!-- <li><a href="{{Route('profile_me')}}">Corroborate</a></li> -->

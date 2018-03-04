@@ -21,13 +21,16 @@ Route::get('/', function(){
 	return view('welcome');
 });
 Auth::routes();
-Route::middleware(['checkrole'])->group(function () {
+Route::middleware(['checkrole'])->group(/**
+ *
+ */
+    function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile_me', 'HomeController@profile_me')->name('profile_me');
 Route::post('/editprofile', 'HomeController@editprofile')->name('editprofile');
-Route::get('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
+Route::post('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
 
 Route::get('/fav', 'HomeController@fav')->name('fav');
 Route::get('/mymessage', 'HomeController@listmessage')->name('mymessage');
@@ -43,6 +46,8 @@ Route::get('/profile_this/{id}', 'HomeController@profileThis')->name('profile_th
 Route::get('/askseekeracc/{id1}/{id2}', 'HomeController@askseekeracc')->name('askseekeracc');
 Route::get('/askseekerinfo/{id1}/{id2}', 'HomeController@askseekerinfo')->name('askseekerinfo');
 Route::get('/askseekerver/{id1}/{id2}', 'HomeController@askseekerver')->name('askseekerver');
+Route::get('/corroborate/{id1}/{id2}', 'HomeController@corroborate')->name('corroborate');
+Route::get('/corroborate_count/{id}', 'HomeController@corroborate_count')->name('corroborate_count');
 
 
 Route::get('/showlocal', 'HomeController@showlocal')->name('local');

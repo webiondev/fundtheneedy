@@ -11,7 +11,7 @@
        $i=0;
        ?>        
   
- 
+
   @foreach ($data as $data_)
 
  
@@ -278,7 +278,9 @@
                         </div> 
                      
       @endif
-      <?php $i++; ?> 
+      <?php $i++;
+
+      ?>
         <div class="col-xs-9 col-sm-9 col-md-9">
           <div class="thumbnail">
             <img src="img/{{$data_->file}}" alt="">
@@ -290,14 +292,14 @@
     </div>    
               <div class="caption">
                 <h4>{{$data_->name}}</h4>
-                <h6>Corroborated by </h6>
+
                 <p>{{str_limit($data_->description), 15}}</p>
                 
                 <p><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a>
                      <a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}" class="btn btn-info btn-xs" role="button">ask bank account</a>
                      <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}" class="btn btn-info btn-xs" role="button">ask address/contact</a>
                      <a href="{{Route('askseekerver', array($data_->user_id,$data_->id))}}" class="btn btn-info btn-xs" role="button">ask verification</a>
-             <a href="#" class="btn btn-info btn-xs" role="button">corroborate claim</a>
+             <a href="{{Route('corroborate',array($data_->user_id,$data_->id) )}}" class="btn btn-info btn-xs" role="button">corroborate claim</a>
              <a href="#" class="btn btn-info btn-xs" role="button">add favorite</a>
              <a href="{{Route('confirmthisdonation', $data_->id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a>
       </p>
