@@ -7,7 +7,7 @@ use App\Need;
 use App\User;
 use App\Message;
 use App\Donation;
-
+use App\Favorite;
 
 use Validator;
 use Input;
@@ -130,10 +130,32 @@ class HomeController extends Controller
         //return response()->json(['msg' => 'Account delete fail, Contact Fundtheneedy']);
     }
 
+    public function addFav ($id1,$id2){
 
+        $data=new Favorite;
+
+        $data->favorite_to=auth()->user()->id;
+        $data->isfavorite=$id1;
+        $data->need_id=$id2;
+
+
+        if(!(DB::table('favorite')->where('need_id', $id2)->where('favorite_to', auth()->user()->id)->first())) {
+            if ($data->save()) {
+
+                return redirect()->back()->with('message', 'Added to your favorite list');
+
+            }
+        }
+
+        else
+            return redirect()->back()->with('message', 'Already exists in your favorite list');
+
+
+    }
 
     public function fav()
     {
+
         return view('fav');
     }
     public function listmessage()
@@ -237,7 +259,7 @@ class HomeController extends Controller
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
             ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')
-            ->paginate(3);
+            ->paginate(10);
 
 
 
@@ -440,17 +462,27 @@ class HomeController extends Controller
 
         $data=User::join('corroborate', 'users.id', '=', 'corroborate_by')
 
-            ->select('users.name','users.city','users.country','users.occupation', 'corroborate.date')->where('need_id', '=', $id)->get();
+            ->select('users.name','users.city','users.country','users.file', 'users.email','users.type', 'users.occupation', 'corroborate.date')->where('need_id', '=', $id)->get();
 
         return view('listcorroboration')->with('data', $data);
 
     }
-    public function showlocal()
+    public function showlocal(Request $request)
 
     {
 
-        // $data=DB::table();
-        return view('seeker')->with('data','HHHH') ;
+        $data = User::join('need', 'users.id', '=', 'need.user_id')
+
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)
+            ->paginate(10);
+
+
+
+        if(empty($data[0]))
+           return  redirect()->back()->with('message', 'No seekers found in'.' '.$request->country);
+
+        else
+            return view('seeker')->with('data',$data) ;
     }
 
     public function seekfund()
@@ -514,6 +546,14 @@ class HomeController extends Controller
 
         return view ('myplea')->with('data', $data);
     }
+
+    public function givecorroboratecount($id){
+
+
+        Session::put('seeker_corroborate_count', 5);
+        return redirect()->back();
+}
+
 
     public function editthis($data){
 

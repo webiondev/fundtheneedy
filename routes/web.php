@@ -46,6 +46,7 @@ Route::get('/profile_this/{id}', 'HomeController@profileThis')->name('profile_th
 Route::get('/askseekeracc/{id1}/{id2}', 'HomeController@askseekeracc')->name('askseekeracc');
 Route::get('/askseekerinfo/{id1}/{id2}', 'HomeController@askseekerinfo')->name('askseekerinfo');
 Route::get('/askseekerver/{id1}/{id2}', 'HomeController@askseekerver')->name('askseekerver');
+Route::get('/adfav/{id1}/{id2}', 'HomeController@addFav')->name('addfav');
 Route::get('/corroborate/{id1}/{id2}', 'HomeController@corroborate')->name('corroborate');
 Route::get('/corroborate_count/{id}', 'HomeController@corroborate_count')->name('corroborate_count');
 
@@ -54,6 +55,7 @@ Route::get('/showlocal', 'HomeController@showlocal')->name('local');
 Route::get('/sort', 'HomeController@sort')->name('sort');
 Route::get('/seekfund', 'HomeController@seekfund')->name('seekfund');
 Route::get('/listplea', 'HomeController@listplea')->name('listplea');
+Route::get('/seekercorroboratecount/{id}', 'HomeController@givecorroboratecount')->name('seekercorroboratecount');
 Route::get('/deleteplea/{data}', 'HomeController@deleteplea')->name('deleteplea');
 
 Route::post('/addplea', 'HomeController@addplea')->name('addplea');

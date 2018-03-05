@@ -10,7 +10,9 @@
  <?php 
        $i=0;
        ?>        
-  
+
+
+
 
   @foreach ($data as $data_)
 
@@ -21,8 +23,9 @@
       <div class="column">
         
       @if ($i==0)
+        <form id="seek_country"  action="{{Route('local')}}" method="GET">
        <div class="col-xs-9 col-sm-9 col-md-9">
-         <select class="form-control" class="select-picker" name="country">
+         <select class="form-control" class="select-picker" name="country" onchange="this.form.submit();">
                             <option selected disabled>select country to display</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
@@ -275,7 +278,8 @@
                             <option value="ZW">Zimbabwe</option>
                           </select>
                         
-                        </div> 
+                        </div>
+          </form>
                      
       @endif
       <?php $i++;
@@ -300,7 +304,7 @@
                      <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}" class="btn btn-info btn-xs" role="button">ask address/contact</a>
                      <a href="{{Route('askseekerver', array($data_->user_id,$data_->id))}}" class="btn btn-info btn-xs" role="button">ask verification</a>
              <a href="{{Route('corroborate',array($data_->user_id,$data_->id) )}}" class="btn btn-info btn-xs" role="button">corroborate claim</a>
-             <a href="#" class="btn btn-info btn-xs" role="button">add favorite</a>
+             <a href="{{Route('addfav', array($data_->user_id,$data_->id))}}" class="btn btn-info btn-xs" role="button">add favorite</a>
              <a href="{{Route('confirmthisdonation', $data_->id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a>
       </p>
 

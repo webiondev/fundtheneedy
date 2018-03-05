@@ -24,14 +24,24 @@
       <a  data-toggle="tooltip" title="need deadline" class="btn btn-default" role="button">{{$data_->deadline}}</a>
       <a  data-toggle="tooltip" title="can I verify?" class="btn btn-default" role="button">{{$data_->verify}}</a>
     </div>
+
+
               <div class="caption">
                 <h4>{{auth()->user()->name}}</h4>
 
-                <h6>Corroborated by </h6>
+                <h6><a href="{{Route('seekercorroboratecount', $data_->id)}}">Corroborate by @if (!empty(Session::get('seeker_corroborate_count'))){{Session::get('seeker_corroborate_count')}} @endif </a>  </h6>
                 @if ($data_->medium=="money")
+                    @if($data_->amount=='0')
+                      <p>need fulfilled</p>
+                      @else
                   <p>{{$data_->amount}} GBP</p>
+                      @endif
                 @else
+                    @if ($data_->goods=='0')
+                          <p>need fulfilled</p>
+                     @else
                    <p>{{$data_->goods}} items</p>
+                     @endif
                 @endif
 
                 <p>{{$data_->description}}</p>

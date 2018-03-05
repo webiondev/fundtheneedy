@@ -15,12 +15,14 @@ class CreateFavoriteTable extends Migration
     {
         Schema::create('favorite', function (Blueprint $table) {
             $table->increments('id');
-             $table->date('date_added');
+
              $table->integer('favorite_to')->unsigned();
              $table->integer('isfavorite')->unsigned();
+             $table->integer('need_id')->unsigned();
             $table->timestamps();
             $table->foreign('favorite_to')->references('id')->on('users');
             $table->foreign('isfavorite')->references('id')->on('users');
+            $table->foreign('need_id')->references('id')->on('need');
         });
     }
 

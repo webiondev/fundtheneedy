@@ -40,8 +40,8 @@ $data=$data[0];
              <p><a href="{{Route('askseekeracc', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask bank account</a></p>
              <p><a href="{{Route('askseekerinfo', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask contact/address</a></p>
              <p><a href="{{Route('askseekerver',  array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">ask verification</a></p>
-             <p><a href="#" class="btn btn-info btn-xs" role="button">corroborate claim</a></p>
-             <p><a href="#" class="btn btn-info btn-xs" role="button">add favorite</a></p>
+             <p><a href="{{Route('corroborate',array($data[0]->user_id,$data[0]->id) )}}" class="btn btn-info btn-xs" role="button">corroborate claim</a></p>
+            <a href="{{Route('addfav', array($data[0]->user_id,$data[0]->id))}}" class="btn btn-info btn-xs" role="button">add favorite</a>
              <p><a href="{{Route('confirmthisdonation', $data[0]->id)}}" class="btn btn-info btn-xs" role="button">confirm donation</a></p>
 
            <hr>
@@ -65,9 +65,17 @@ $data=$data[0];
     <li class="list-group-item">Verify<span class="badge">{{$data[0]->verify}}</span>
       <li class="list-group-item">Assistance Type<span class="badge">{{$data[0]->medium}}</span>
          @if ($data[0]->medium=='money')
-      <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}}</span></li>
-      @else
-      <li class="list-group-item">Quantity<span class="badge">{{$data[0]->goods}}</span></li>
+             @if($data[0]->amount=='0')
+                            <li class="list-group-item">Amount<span class="badge">all amounts acquired</span></li>
+             @else
+                <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}}</span></li>
+             @endif
+         @else
+             @if($data[0]->goods=='0')
+                            <li class="list-group-item">Quantity<span class="badge">all goods acquired</span></li>
+             @else
+                <li class="list-group-item">Quantity<span class="badge">{{$data[0]->goods}}</span></li>
+              @endif
       @endif
 
   </ul>

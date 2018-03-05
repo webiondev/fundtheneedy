@@ -24,7 +24,7 @@
             <h3>{{$data[0]->name}} </h3>
             <div class="profile-ratings">
                 <!-- corroborrated by..link to them -->
-                <i href="#">corroborated by 5</i><p></p><br/>
+
                
             </div>
      
