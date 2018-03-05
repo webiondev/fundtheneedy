@@ -32,7 +32,7 @@ Route::get('/profile_me', 'HomeController@profile_me')->name('profile_me');
 Route::post('/editprofile', 'HomeController@editprofile')->name('editprofile');
 Route::post('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
 
-Route::get('/fav', 'HomeController@fav')->name('fav');
+Route::get('/listfav', 'HomeController@listfav')->name('listfav');
 Route::get('/mymessage', 'HomeController@listmessage')->name('mymessage');
 Route::get('/mysent', 'HomeController@listsent')->name('mysent');
 Route::get('/confirmthisdonation/{id}', 'HomeController@confirmdonation')->name('confirmthisdonation');

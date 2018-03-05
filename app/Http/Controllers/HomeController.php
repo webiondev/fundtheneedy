@@ -49,18 +49,7 @@ class HomeController extends Controller
             return view('home');
 
     }
-    // public function seekerthis($id)//same as listplea but return with user name and need table data
-    // {
 
-
-    //     //  DB::table('need')
-    //     //             ->select('users.id','users.name','users.email')
-    //     //             ->leftJoin('students','users.id','=','students.user_id')
-    //     //             ->where('students.course_id','=',$id)
-    //     //             ->get();
-
-    //     // return view('seekerthis')->with();
-    // }
     public function profile_me()
     {
 
@@ -153,10 +142,18 @@ class HomeController extends Controller
 
     }
 
-    public function fav()
+    public function listfav()
     {
 
-        return view('fav');
+
+        $data=DB::table('users')
+            ->join('need', 'users.id', '=', 'need.user_id')
+            ->join('favorite', 'favorite.need_id', '=', 'need.id')->select('users.name','users.email','users.city','users.country','users.occupation','users.type','need.*', 'favorite.created_at')->
+            where('favorite.favorite_to', auth()->user()->id)
+            ->get();
+        $count_corroboration=DB::table('corroborate')->groupBy('need_id')->count();
+
+        return view('fav')->with('data', array($data, $count_corroboration));
     }
     public function listmessage()
     {

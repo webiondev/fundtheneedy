@@ -25,7 +25,7 @@
                         <a href="#"><i class="fa fa-address-book-o"></i> <span class="nav-label">Profile</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                                 <li><a href="{{Route('profile_me')}}">Profile</a></li>
-                                <li><a href="{{Route('fav')}}">Favourites</a></li>
+                                <li><a href="{{Route('listfav')}}">Favourites</a></li>
                                <li>
                                 <a href="#" class="nav-label">Messages <sup  style="color:red">{{Session::get('count')}} </sup></a>
                                  <ul class="nav nav-third-level">
