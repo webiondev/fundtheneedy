@@ -33,10 +33,12 @@
                                      <li ><a href="{{Route('mysent')}}">Sent<sup  style="color:red"></sup></a></li>
                                 </ul>
                                 <li class="divider"></li>
-                                <li>
-                                  <li><a class="forget" onclick="forget(this)" href="{{Route('logout')}}">Logout</a></li>
-                           
-                            
+                               <li>
+                                   
+                                     <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
+                                           Log out
+                                        </a> 
+                               </li>
                         </ul>
                     </li>       
                     <li class="active">
@@ -97,12 +99,18 @@
                   
 
 
-
+                
                 <li>
-                    <a class="forget" onclick="forget(this)" href="{{route('logout')}}">
+                      
+                   
+                    <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
                         <i class="fa fa-sign-out"></i> Log out
-                    </a>
+                    </a> 
+               
+
                 </li>
+               
+
                 <li>
                   
                 </li>

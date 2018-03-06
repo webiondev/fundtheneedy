@@ -602,4 +602,11 @@ class HomeController extends Controller
 
         return view('test')->with('data', $data);
     }
+
+    public function log_out(){
+
+        Auth::logout();
+
+       return redirect()->to('/');
+    }
 }
