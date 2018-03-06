@@ -63,5 +63,6 @@ Route::get('/donorall', 'HomeController@donorall')->name('donorall');
 Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonation');
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');
+//Route::get('/log_out', 'HomeController@log_out')->name('log_out');
 
 });
