@@ -34,7 +34,7 @@
                                 </ul>
                                 <li class="divider"></li>
                                 <li>
-                                  <li><a class="forget" onclick="forget(this)" href="{{Route('logout')}}">Logout</a></li>
+                                  <li><a class="forget" onclick="forget(this)" href="{{url('logout')}}">Logout</a></li>
                            
                             
                         </ul>
