@@ -30,6 +30,8 @@ Route::middleware(['checkrole'])->group(/**
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile_me', 'HomeController@profile_me')->name('profile_me');
 Route::post('/editprofile', 'HomeController@editprofile')->name('editprofile');
+Route::post('/editprofilepic', 'HomeController@editprofilepic')->name('editprofilepic');
+
 Route::post('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
 
 Route::get('/listfav', 'HomeController@listfav')->name('listfav');

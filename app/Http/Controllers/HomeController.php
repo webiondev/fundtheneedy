@@ -60,37 +60,63 @@ class HomeController extends Controller
     public function editprofile(Request $request)
     {
 
+          
+
         $validated=$request->validate( [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|max:12',
-            'city' => 'required|string|max:20',
-            'country' => 'required|string|max:20',
-            'occupation'=>'required|string|max:20',
-            'file' => 'required|image|max:1000',
+            'name' => 'sometimes|nullable|string|max:255',
+            'email' => 'sometimes|nullable|string|email|max:255|unique:users',
+            'password' => 'sometimes|nullable|string|max:12',
+            'city' => 'sometimes|nullable|string|max:50',
+            'country' => 'sometimes|nullable|string|max:20',
+            'occupation'=>'sometimes|nullable|string|max:100',
+            //'file' => 'sometimes|nullable|image|max:1000',
 
 
         ]);;
 
-        $file = $request->file('file');
-        // $file=explode("/", $file);
+      
+        if(empty($request->city)){
+            $validated['city']=auth()->user()->city;
 
+        }
 
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $location = public_path('img/'. $filename);
-        $file=Image::make($file)->resize(128,128)->save($location);
+        if(empty($request->country)){
+            $validated['country']=auth()->user()->country;
 
-        $file->file = $filename;
+        }
+
+        if(empty($request->occupation)){
+            $validated['occupation']=auth()->user()->occupation;
+
+        }
+
+        // if(empty($request->file)){
+        //     $file=auth()->user()->file;
+
+        // }
+
+        //    else {
+        //     $file = $request->file('file');
+            
+
+        //     $filename = time() . '.' . $file->getClientOriginalExtension();
+        //     $location = public_path('img/'. $filename);
+        //     $file=Image::make($file)->resize(128,128)->save($location);
+
+        //     $file->file = $filename;
+
+        // }
 
         try {
             if(DB::table('users')->where('id', '=', auth()->user()->id)
                 ->update(array('name' => $validated['name'],'email' => $validated['email'],'password' => Hash::make($validated['password']),'city' => $validated['city'],'country' => $validated['country'],'occupation' => $validated['occupation'],
-                    'file' => $file->file))){
+                   ))){
                 $user=User::find(auth()->user()->id);
-                return redirect::to('profile_me')->with('user', $user);
+                return redirect::to('profile_me')->with('message', 'profile updated');
+                
             }
+        
         }
-
         catch (\Illuminate\Database\QueryException $e) {
 
             $notification = array(
@@ -103,17 +129,47 @@ class HomeController extends Controller
         }
     }
 
+    public function editprofilepic(Request $request){
 
+         $validated=$request->validate( [
+          
+            'file' => 'sometimes|nullable|image|max:1000',
+
+        ]);;
+
+
+            $file = $request->file('file');
+            
+
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $location = public_path('img/'. $filename);
+            $file=Image::make($file)->resize(128,128)->save($location);
+
+            $file->file = $filename;
+            
+            if(DB::table('users')->where('id', '=', auth()->user()->id)
+                ->update(array('file'=>$file->file
+                   ))){
+                $user=User::find(auth()->user()->id);
+                return redirect::to('profile_me')->with('message', 'profile pic updated');
+            }
+                
+            
+         
+
+    }
     public function deleteProfile(Request $request, $id){
 
         $id=User::find($id);
+        $id->email="";
+        $id->password=null;
 
         if ($request->isMethod('POST')){
 
-            if($id->delete()){
+            if($id->save()){
 
-                //return redirect()->to('/');
-                return response()->json(['msg' => 'Your account has been deleted']);
+                Auth::logout();
+                return redirect('/login');
 
             }}
         //return response()->json(['msg' => 'Account delete fail, Contact Fundtheneedy']);

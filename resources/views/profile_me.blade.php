@@ -6,16 +6,53 @@
 
             </div>
         @endif
-    <div class="middle-box text-center loginscreen animated fadeInDown">
-        <div>
+        <div class="main-content">
+
+    <div class="container">
+        <h3 class="site-title">Seeker Information</h3>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                 <div class="panel">
+                <div class=" panel-body ">
+
+                    <div class="col-md-5">
+                        <img class="img-responsive" src="../img/{{auth()->user()->file}}" style="width:70%;">
+                        
+
+            <hr>
+            <form class="m-t" id="fn-form" method="POST" action="{{ route('editprofilepic') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                            
+                              <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                        <input type="file" id="file" name ="file">
+                         @if ($errors->has('file'))
+                                    <span class="help-block">
+                                        <strong>{{$errors->first('file')}}</strong>
+                                    </span>
+                                @endif
+
+                         </div> 
+                          <button type="submit" class="btn btn-xs block full-width m-b">Upload pic</button>
+
+                        </form>
            
-            <p>My Profile</p>
-          <form class="m-t" id="fn-form" method="POST" action="{{ route('editprofile') }}" enctype="multipart/form-data">
+            
+
+           
+
+
+
+        
+    </div>
+                <div class="col-md-7">
+                     <div class="profile-block">
+                <form class="m-t" id="fn-form" method="POST" action="{{ route('editprofile') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                           <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <div class="form-group">
-                    <input type="text" name ="name" value="{{$user[0]['name']}}" class="form-control" placeholder="Name" required="">
+                    <input type="text" name ="name" value="{{auth()->user()->name}}" class="form-control" placeholder="Name" required="">
                          @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -27,7 +64,7 @@
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                            
-                        <input type="email" name ="email" class="form-control" placeholder="Email" value="{{$user[0]['email']}}" >
+                        <input type="email" name ="email" class="form-control" placeholder="Email" value="{{auth()->user()->email}}" >
                          @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -53,7 +90,7 @@
 
                           <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                            
-                        <input type="city" name ="city" value="{{$user[0]['city']}}" class="form-control" placeholder="City" >
+                        <input type="city" name ="city" value="{{auth()->user()->city}}" class="form-control" placeholder="City" >
                          @if ($errors->has('city'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('city') }}</strong>
@@ -421,25 +458,33 @@
               </div>
                       
                       <!-- Upload image of user -->
-                      <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <input type="file" id="file" name ="file" value="{{$user[0]['file']}}" class="form-control"  >
-                         @if ($errors->has('file'))
-                                    <span class="help-block">
-                                        <strong>{{$errors->first('file')}}</strong>
-                                    </span>
-                                @endif
-
-                         </div>  
+                     
                         </div>
 
                         <button type="submit" class="btn btn-primary block full-width m-b">Submit Edit</button>
                      
                  
                     </form>
+                      <button type="button"  class="btn btn-primary block full-width m-b" id="deleteBtn">Delete</button>
+
+            </div>
+                </div>
+
+
+                </div>
+                </div>
+                </div>
+                
+
+
+            </div>
+
+        </div>
+    </div>
+    
 
                             <!-- Trigger the modal with a button -->
-                            <button type="button"  class="btn btn-primary block full-width m-b" id="deleteBtn">Delete</button>
-
+                          
                             <!-- Modal -->
                             <div class="modal fade" id="deleteModal" role="dialog">
                                 <div class="modal-dialog">

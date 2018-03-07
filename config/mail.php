@@ -30,7 +30,7 @@ return [
     */
 
     // 'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-    'host' => env('MAIL_HOST', 'smtp.fastmail.io'),
+    'host' => env('MAIL_HOST', 'smtp.fastmail.com'),
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'mb3at29tp24uvhgw'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------
