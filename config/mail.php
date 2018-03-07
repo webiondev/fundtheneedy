@@ -30,7 +30,7 @@ return [
     */
 
     // 'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-    'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
+    'host' => env('MAIL_HOST', 'smtp.fastmail.io'),
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -43,7 +43,7 @@ return [
     */
 
      //'port' => env('MAIL_PORT', 587),
-    'port' => env('MAIL_PORT', 2525),
+    'port' => env('MAIL_PORT', 465),
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'sokhter@yahoo.com'),
-        'name' => env('MAIL_FROM_NAME', 'sokhter'),
+        'address' => env('MAIL_FROM_ADDRESS', 'support@fundtheneedy.com'),
+        'name' => env('MAIL_FROM_NAME', 'fundtheneedy'),
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'mb3at29tp24uvhgw'),
 
     /*
     |--------------------------------------------------------------------------
