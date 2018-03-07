@@ -15,7 +15,6 @@ use Redirect;
 use Auth;
 use Hash;
 use Session;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -61,8 +60,24 @@ class HomeController extends Controller
     {
 
           
-
+if(($request->email==auth()->user()->email)){
         $validated=$request->validate( [
+            'name' => 'sometimes|nullable|string|max:255',
+            //'email' => 'sometimes|nullable|string|email|max:255|unique:users',
+            'password' => 'sometimes|nullable|string|max:12',
+            'city' => 'sometimes|nullable|string|max:50',
+            'country' => 'sometimes|nullable|string|max:20',
+            'occupation'=>'sometimes|nullable|string|max:100',
+            //'file' => 'sometimes|nullable|image|max:1000',
+
+
+        ]);;
+
+    }
+
+    else {
+
+           $validated=$request->validate( [
             'name' => 'sometimes|nullable|string|max:255',
             'email' => 'sometimes|nullable|string|email|max:255|unique:users',
             'password' => 'sometimes|nullable|string|max:12',
@@ -74,7 +89,10 @@ class HomeController extends Controller
 
         ]);;
 
-      
+
+    }
+
+       
         if(empty($request->city)){
             $validated['city']=auth()->user()->city;
 
@@ -90,33 +108,36 @@ class HomeController extends Controller
 
         }
 
-        // if(empty($request->file)){
-        //     $file=auth()->user()->file;
-
-        // }
-
-        //    else {
-        //     $file = $request->file('file');
-            
-
-        //     $filename = time() . '.' . $file->getClientOriginalExtension();
-        //     $location = public_path('img/'. $filename);
-        //     $file=Image::make($file)->resize(128,128)->save($location);
-
-        //     $file->file = $filename;
-
-        // }
+      
 
         try {
-            if(DB::table('users')->where('id', '=', auth()->user()->id)
+
+        
+            if(($request->email!=auth()->user()->email) and DB::table('users')->where('id', '=', auth()->user()->id)
                 ->update(array('name' => $validated['name'],'email' => $validated['email'],'password' => Hash::make($validated['password']),'city' => $validated['city'],'country' => $validated['country'],'occupation' => $validated['occupation'],
                    ))){
                 $user=User::find(auth()->user()->id);
                 return redirect::to('profile_me')->with('message', 'profile updated');
                 
             }
-        
+
+            elseif(($request->email==auth()->user()->email) and DB::table('users')->where('id', '=', auth()->user()->id)
+                ->update(array('name' => $validated['name'],'password' => Hash::make($validated['password']),'city' => $validated['city'],'country' => $validated['country'],'occupation' => $validated['occupation'],
+                   ))){
+                $user=User::find(auth()->user()->id);
+                return redirect::to('profile_me')->with('message', 'profile updated'); 
+
+            {
+
+                    $user=User::find(auth()->user()->id);
+                return redirect::to('profile_me')->with('message', 'profile updated');
+            }
+     
         }
+
+          }
+        
+        
         catch (\Illuminate\Database\QueryException $e) {
 
             $notification = array(
@@ -161,18 +182,19 @@ class HomeController extends Controller
     public function deleteProfile(Request $request, $id){
 
         $id=User::find($id);
-        $id->email="";
-        $id->password=null;
+        $id->email="adbbdvidosivbpvd zkcnkvjsndvjsbv";
+        $id->password="";
 
         if ($request->isMethod('POST')){
 
             if($id->save()){
 
                 Auth::logout();
-                return redirect('/login');
+                return response()->json(['msg' => 'Account deleted']);
 
             }}
-        //return response()->json(['msg' => 'Account delete fail, Contact Fundtheneedy']);
+        // return response()->json(['msg' => 'Account delete fail, Contact Fundtheneedy']);
+            
     }
 
     public function addFav ($id1,$id2){
@@ -659,10 +681,13 @@ class HomeController extends Controller
         return view('test')->with('data', $data);
     }
 
-    public function log_out(){
+    public function log_out(Request $request){
 
-        Auth::logout();
+         Auth::guard()->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+        // $this->performLogout($request);
 
-       return redirect()->to('/');
+       //return redirect('logout');
     }
 }
