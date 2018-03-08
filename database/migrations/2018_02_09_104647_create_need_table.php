@@ -24,6 +24,7 @@ class CreateNeedTable extends Migration
              $table->integer('goods');
             $table->string('file', 10000);
             $table->timestamps();
+              $table->softDeletes();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
         });

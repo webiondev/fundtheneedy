@@ -23,6 +23,7 @@ class CreateMessageTable extends Migration
            $table->enum('status', ['0','1'])->default('0');
            $table->integer('need_id')->unsigned();
             $table->timestamps();
+              $table->softDeletes();
              $table->foreign('from')->references('id')->on('users');
             $table->foreign('to_')->references('id')->on('users');
             $table->foreign('need_id')->references('id')->on('need');

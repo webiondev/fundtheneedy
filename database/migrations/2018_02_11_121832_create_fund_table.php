@@ -24,6 +24,7 @@ class CreateFundTable extends Migration
             $table->datetime('date_time');
             $table->integer('status');
             $table->timestamps();
+              $table->softDeletes();
             $table->foreign('paidby')->references('id')->on('users');
             $table->foreign('paidfor')->references('id')->on('users');
             $table->foreign('need_id')->references('id')->on('need');

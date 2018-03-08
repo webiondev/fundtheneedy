@@ -51,8 +51,9 @@
                 <a href="{{route('password.request')}}"><small>Forgot password?</small></a>
                 
             </form>
-            <p class="m-t"> <small>Fundtheneedy &copy; 2018</small> </p>
         </div>
+         <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
+               <small> A Mohammad Rahman Production</small>
     </div>
 
     <!-- Mainly scripts -->

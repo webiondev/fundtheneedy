@@ -35,6 +35,8 @@ Route::post('/editprofilepic', 'HomeController@editprofilepic')->name('editprofi
 Route::post('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
 
 Route::get('/listfav', 'HomeController@listfav')->name('listfav');
+Route::get('/remfav/{id}', 'HomeController@remfav')->name('remfav');
+
 Route::get('/mymessage', 'HomeController@listmessage')->name('mymessage');
 Route::get('/mysent', 'HomeController@listsent')->name('mysent');
 Route::get('/confirmthisdonation/{id}', 'HomeController@confirmdonation')->name('confirmthisdonation');
@@ -61,7 +63,7 @@ Route::get('/seekercorroboratecount/{id}', 'HomeController@givecorroboratecount'
 Route::get('/deleteplea/{data}', 'HomeController@deleteplea')->name('deleteplea');
 
 Route::post('/addplea', 'HomeController@addplea')->name('addplea');
-Route::get('/donorall', 'HomeController@donorall')->name('donorall');
+Route::get('/donorall', 'HomeController@listdonor')->name('donorall');
 Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonation');
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');

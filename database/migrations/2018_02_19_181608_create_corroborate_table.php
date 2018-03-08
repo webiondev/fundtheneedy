@@ -20,8 +20,10 @@ class CreateCorroborateTable extends Migration
             $table->date('date');
             $table->integer('need_id')->unsigned();
             $table->timestamps();
+              $table->softDeletes();
             $table->foreign('corroborate_by')->references('id')->on('users');
             $table->foreign('corroborate_for')->references('id')->on('users');
+
             $table->foreign('need_id')->references('id')->on('need');
         });
     }

@@ -22,6 +22,7 @@ class CreateDonationTable extends Migration
             $table->float('amount');
             $table->integer('quantity');
             $table->string('file', 1024);
+              $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('donated_by')->references('id')->on('users');

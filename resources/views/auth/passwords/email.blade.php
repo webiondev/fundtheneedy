@@ -56,8 +56,10 @@
                         </div>
       <button type="submit" class="btn btn-primary block full-width m-b">Send Password Reset Link</button>
                     </form>
-            <p class="m-t"> <small>Fundtheneedy &copy; 2018</small> </p>
+            
         </div>
+        <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
+               <small> A Mohammad Rahman Production</small>
     </div>
 
     <!-- Mainly scripts -->

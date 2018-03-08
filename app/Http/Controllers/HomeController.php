@@ -227,17 +227,28 @@ if(($request->email==auth()->user()->email)){
         $data=DB::table('users')
             ->join('need', 'users.id', '=', 'need.user_id')
             ->join('favorite', 'favorite.need_id', '=', 'need.id')->select('users.name','users.email','users.city','users.country','users.occupation','users.type','need.*', 'favorite.created_at')->
-            where('favorite.favorite_to', auth()->user()->id)
+            where('favorite.favorite_to', auth()->user()->id)->whereNull('favorite.deleted_at')
             ->get();
         $count_corroboration=DB::table('corroborate')->groupBy('need_id')->count();
 
         return view('fav')->with('data', array($data, $count_corroboration));
     }
+
+    public function remfav ($id){
+
+         $data=Favorite::where('need_id', $id);
+       
+          if ($data->delete())
+
+             return  redirect()->back()->with('message', 'removed from favorite!');
+
+    }
+
     public function listmessage()
     {
         $messages=User::join('message', 'users.id', '=', 'message.from')
 
-            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)->orderBy('created_at','DESC')
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->whereNull('message.deleted_at')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)->orderBy('created_at','DESC')
             ->paginate(10);
         return view('message')->with('data', $messages);
 
@@ -247,7 +258,7 @@ if(($request->email==auth()->user()->email)){
     {
         $messages=User::join('message', 'users.id', '=', 'message.from')
 
-            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)->orderBy('created_at', 'DESC')
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->whereNull('message.deleted_at')->where('message.from', '=', auth()->user()->id)->orderBy('created_at', 'DESC')
             ->paginate(10);
         return view('sent')->with('data', $messages);
 
@@ -326,14 +337,14 @@ if(($request->email==auth()->user()->email)){
 
     {
 
-        $count=Message::where('to_', "=", auth()->user()->id)->where('status', '=', '0')->count();
+        $count=Message::where('to_', "=", auth()->user()->id)->whereNull('message.deleted_at')->where('status', '=', '0')->count();
         Session::put('count', $count);
 
 
 
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')
             ->paginate(10);
 
 
@@ -569,6 +580,8 @@ if(($request->email==auth()->user()->email)){
         return view('seekfund');
     }
 
+
+
     public function addplea(Request $request){
 
 
@@ -617,7 +630,7 @@ if(($request->email==auth()->user()->email)){
 
     public function listplea(){//once seeker adds his plea
 
-        $data=Need::where('user_id', '=', auth()->user()->id)->paginate(3);
+    $data=Need::where('user_id', '=', auth()->user()->id)->whereNull('need.deleted_at')->paginate(3);
 
         return view ('myplea')->with('data', $data);
     }
@@ -629,7 +642,17 @@ if(($request->email==auth()->user()->email)){
         return redirect()->back();
 }
 
+    public function listdonor(){
 
+         $data=DB::table('users')
+            //->join('need', 'users.id', '=', 'need.user_id')
+            ->join('donation', 'donation.donated_by', '=', 'users.id')->select('users.*', 'donation.donated_by','donation.amount', 'donation.quantity', 'donation.date')->
+            where('donation.donated_for', auth()->user()->id)
+            ->get();
+        
+        return view('mydonor')->with('data',$data);
+
+    }
     public function editthis($data){
 
 
@@ -688,6 +711,6 @@ if(($request->email==auth()->user()->email)){
         $request->session()->regenerate();
         // $this->performLogout($request);
 
-       //return redirect('logout');
+       return redirect('/');
     }
 }

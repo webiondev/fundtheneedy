@@ -52,9 +52,12 @@
 
                                     </div>
                                 </div>
+                              
                                 <div class="col-md-7">
+
                                     <div class="profile-block">
                                         <ul class="list-group">
+
                                             <li class="list-group-item">Email <span class="badge">{{$data_->email}}</span></li>
                                             <li class="list-group-item">City <span class="badge">{{$data_->city}}</span></li>
                                             <li class="list-group-item">Country <span class="badge">{{$data_->country}}</span></li>
@@ -81,6 +84,9 @@
                                             @endif
 
                                         </ul>
+                                          <div class="pull-right">
+                                 <a href="{{Route('remfav', $data_->id)}}" class="glyphicon glyphicon-remove" data-toggle="tooltip" title="remove" ></a>
+                             </div>
                                     </div>
                                 </div>
 

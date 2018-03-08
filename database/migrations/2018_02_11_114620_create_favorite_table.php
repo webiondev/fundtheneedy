@@ -20,6 +20,7 @@ class CreateFavoriteTable extends Migration
              $table->integer('isfavorite')->unsigned();
              $table->integer('need_id')->unsigned();
             $table->timestamps();
+              $table->softDeletes();
             $table->foreign('favorite_to')->references('id')->on('users');
             $table->foreign('isfavorite')->references('id')->on('users');
             $table->foreign('need_id')->references('id')->on('need');

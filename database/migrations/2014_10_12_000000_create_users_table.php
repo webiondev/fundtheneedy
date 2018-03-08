@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->enum('type', ['seeker','giver']);
             $table->string('occupation');
             $table->string('file', 1024);
+              $table->softDeletes();
             //$table->binary('file'); 
             $table->rememberToken();
             $table->timestamps();

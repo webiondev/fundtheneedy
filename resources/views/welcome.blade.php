@@ -49,12 +49,8 @@
      			  <a class="btn btn-primary block full-width m-b" href="{{route('register')}}">Register</a>
 
         </div>
-            <div class="content-footer">
-                    <p>
-                        Fundtheneedy © - 2018 <br>
-                        A Production
-                    </p>
-                </div>
+            <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
+               <small> A Mohammad Rahman Production</small>
     </div>
 
     <!-- Mainly scripts -->

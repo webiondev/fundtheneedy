@@ -4,7 +4,6 @@
 @foreach ($data as $data_)
 <div class="container"  id="tourpackages-carousel">
      
-     
       <div class="column">
         
     
@@ -20,7 +19,7 @@
               <div class="caption">
                 <h4>{{$data_->name}}</h4>
                 <h6>You Donated {{$data_->amount}} GBP </h6>
-                <h6>You Donated {{$data_->goods}} items </h6>
+                <h6>You Donated {{$data_->quantity}} items </h6>
                 <h6>Date {{$data_->date}}  </h6>
                 
                 <p><a href="{{Route('profile_this', $data_->donated_for)}}" class="btn btn-info btn-xs" role="button">know more</a>
