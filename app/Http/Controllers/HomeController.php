@@ -38,16 +38,43 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+public function about(){
 
+      
+        return view('about');
+    
+            }
+
+
+
+      public function vision(){
+
+        
+        return view('vision');
+    }
+     public function contact(){
+
+        
+        return view('contact');
+    }
+
+    public function term(){
+
+        
+        return view('terms');
+    }       
     Public function index(){
 
 
         if(Auth::check()==true and auth()->user()->type=='seeker')
-            return view('seekfund');
+            return view('about');
         elseif (Auth::check()==true and auth()->user()->type=='giver')
-            return view('home');
+            return view('about');
 
     }
+
+
+
 
     public function profile_me()
     {

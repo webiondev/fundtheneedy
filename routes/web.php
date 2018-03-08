@@ -10,13 +10,18 @@
 |
 */
 
+Route::get('/exabout', 'WelcomeController@exabout')->name('exabout');
+Route::get('/exvision', 'WelcomeController@exvision')->name('exvision');
+Route::get('/excontact', 'WelcomeController@excontact')->name('excontact');
+Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
+
 
 Route::get('/', function(){
 
 	 if(Auth::check()==true and auth()->user()->type=='seeker')
             return view('seekfund');
      elseif (Auth::check()==true and auth()->user()->type=='giver') {
-     	return view('home');
+     	return view('terms');
      }
 	return view('welcome');
 });
@@ -26,6 +31,10 @@ Route::middleware(['checkrole'])->group(/**
  */
     function () {
 
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/vision', 'HomeController@vision')->name('vision');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/term', 'HomeController@term')->name('term');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile_me', 'HomeController@profile_me')->name('profile_me');

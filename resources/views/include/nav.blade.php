@@ -92,10 +92,10 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 
-                  <li ><a href=""> About Us </a></li>
-                  <li ><a href=""> Our Vision </a></li> 
-                  <li ><a href=""> Contact </a></li>
-                  <li ><a href=""> Terms of Service </a></li>
+                  <li ><a href="{{Route('about')}}"> About Us </a></li>
+                  <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
+                  <li ><a href="{{Route('contact')}}"> Contact </a></li>
+                  <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
                   
 
 

@@ -23,17 +23,16 @@
     </div>
 @endif
 <body class="gray-bg">
-  
          <ul class="nav navbar-top-links navbar-right">
                 
-                  <li ><a href="{{Route('exabout')}}"> About Us </a></li>
+                   <li ><a href="{{Route('exabout')}}"> About Us </a></li>
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
+                   <li ><a href="{{url('/')}}"> Back to Main </a></li>
           
 
             </ul>
-          
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
@@ -41,26 +40,25 @@
                 <h1 class="logo-name">FN</h1>
 
             </div>
-            <h3>Welcome to Fundtheneedy</h3>
             <p>A place where charity flourishes
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
+            <h3>Our Vision</h3>
             
-     			 <a class="btn btn-primary block full-width m-b" href="{{route('login')}}">Login</a>
-     			 <p class="text-muted text-center"><small>Do not have an account?</small></p>
-     			  <a class="btn btn-primary block full-width m-b" href="{{route('register')}}">Register</a>
+            
+     			<p>Fundtheneedy will help people around the world gather in one place to voluntarily and out of love give and gratefully take charity. This is a time when our government is failing us and the economic system is creating the gap between rich and poor in a tremendous amount of pace (Forbes.com, 2018); (Oecd.org, 2018). My intention is to bride this gap between rich and poor through bringing them together in one place so they know each other and help the needy/poor ones. Can this app make a difference? I pray and greatly hope that it does. </p>
+
+							
 
         </div>
+        <hr>
+        <br>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+   
 
 </body>
 
 </html>
-
- 

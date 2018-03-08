@@ -23,17 +23,16 @@
     </div>
 @endif
 <body class="gray-bg">
-  
          <ul class="nav navbar-top-links navbar-right">
                 
-                  <li ><a href="{{Route('exabout')}}"> About Us </a></li>
+                   <li ><a href="{{Route('exabout')}}"> About Us </a></li>
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
+                   <li ><a href="{{url('/')}}"> Back to Main </a></li>
           
 
             </ul>
-          
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
@@ -41,26 +40,34 @@
                 <h1 class="logo-name">FN</h1>
 
             </div>
-            <h3>Welcome to Fundtheneedy</h3>
             <p>A place where charity flourishes
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
+            <h3>Contact us</h3>
             
-     			 <a class="btn btn-primary block full-width m-b" href="{{route('login')}}">Login</a>
-     			 <p class="text-muted text-center"><small>Do not have an account?</small></p>
-     			  <a class="btn btn-primary block full-width m-b" href="{{route('register')}}">Register</a>
-
+         
+        
+        <h2>Fundtheneedy Support</h2>
+        <address>
+          <strong><a href="mailto:support@fundtheneedy.com">support@fundtheneedy.com</a></strong><br>
+          Subang Jaya<br>
+          USJ 19<br>
+         Selangor<br>
+          Malaysia<br>
+          47630<br>
+          
+        </address>
+     
+  
         </div>
+        <hr>
+        <br>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+   
 
 </body>
 
 </html>
-
- 
