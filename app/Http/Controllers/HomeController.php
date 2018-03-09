@@ -67,9 +67,9 @@ public function about(){
 
 
         if(Auth::check()==true and auth()->user()->type=='seeker')
-            return view('about');
+            return view('seekfund');
         elseif (Auth::check()==true and auth()->user()->type=='giver')
-            return view('about');
+            return view('terms');
 
     }
 
