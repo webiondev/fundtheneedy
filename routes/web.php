@@ -73,6 +73,7 @@ Route::get('/deleteplea/{data}', 'HomeController@deleteplea')->name('deleteplea'
 
 Route::post('/addplea', 'HomeController@addplea')->name('addplea');
 Route::get('/donorall', 'HomeController@listdonor')->name('donorall');
+Route::get('/thisdonationdetails', 'HomeController@thisdonationdetails')->name('thisdonationdetails');
 Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonation');
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');

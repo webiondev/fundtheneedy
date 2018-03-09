@@ -30,6 +30,10 @@
     <li class="list-group-item">Type<span class="badge">{{$data_->type}}</span></li>
 
     <li class="list-group-item">Occupation <span class="badge">{{$data_->occupation}}</span></li>
+    <li class="list-group-item">Donated on <span class="badge">{{$data_->date}}</span></li>
+    <li class="list-group-item">Donated for <span class="badge"><a href="{{Route('thisdonationdetails', $data_->id)}}">See Details</a></span></li>
+       <li class="list-group-item">Proof of Donation <span class="badge"><a href="{{asset('img/'.$data_->proof)}}" download>Download</a></span></li>
+
 
    
 

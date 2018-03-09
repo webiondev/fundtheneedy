@@ -673,12 +673,18 @@ if(($request->email==auth()->user()->email)){
 
          $data=DB::table('users')
             //->join('need', 'users.id', '=', 'need.user_id')
-            ->join('donation', 'donation.donated_by', '=', 'users.id')->select('users.*', 'donation.donated_by','donation.amount', 'donation.quantity', 'donation.date')->
+            ->join('donation', 'donation.donated_by', '=', 'users.id')->select('users.*', 'donation.donated_by','donation.amount', 'donation.quantity','donation.file as proof' , 'donation.date')->
             where('donation.donated_for', auth()->user()->id)
             ->get();
         
         return view('mydonor')->with('data',$data);
 
+    }
+
+    public function thisdonationdetails(){
+
+
+        return view('listthisdonation');
     }
     public function editthis($data){
 
