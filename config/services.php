@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain' => env('mg.fundtheneedy.com'),
+        'secret' => env('key-1ad9767600274b5f041009f72d6dda28'),
     ],
 
     //  'fastmail' => [
