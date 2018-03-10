@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fundtheneedy | Welcome</title>
+    <title>Fundtheneedy | Terms</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -16,28 +16,61 @@
     <link href="css/style.css" rel="stylesheet">
 
 </head>
-@if(session()->has('message'))
+
+<body class="gray-bg">
+          @if(session()->has('message'))
     <div class="alert alert-info">
         {{ session()->get('message') }}
 
     </div>
 @endif
-<body class="gray-bg">
-         <ul class="nav navbar-top-links navbar-right">
+<div class="container-fluid">
+    <!-- Second navbar for categories -->
+    <nav class="navbar navbar-default">
+      <div >
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         
+        </div>
+         <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
                 
-                   <li ><a href="{{Route('about')}}"> About Us </a></li>
+                  <li ><a href="{{Route('about')}}"> About Us </a></li>
                   <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('contact')}}"> Contact </a></li>
                   <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
-                    @if(auth()->user()->type=='giver')
-                   <li ><a href="{{url('seeker')}}"> Back to Dashboard </a></li>
+                    <li ><a href="{{url('/')}}"> Back to Dashboard </a></li>
+                  
 
-                   @else
-                    <li ><a href="{{url('seekfund')}}"> Back to Dashboard </a></li>
-                   @endif
-          
+
+                
+                <li>
+                      
+                   
+                    <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a> 
+               
+
+                </li>
+               
+
+                <li>
+                  
+                </li>
 
             </ul>
+        
+        </div>
+      </div>
+    </nav>
+  </div>
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
@@ -60,6 +93,7 @@
         </div>
         <hr>
         <br>
+         <a href="{{url('/')}}"> Back to Dashboard </a>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>

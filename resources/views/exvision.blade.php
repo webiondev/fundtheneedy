@@ -16,14 +16,15 @@
     <link href="css/style.css" rel="stylesheet">
 
 </head>
-@if(session()->has('message'))
+
+<body class="gray-bg">
+     @if(session()->has('message'))
     <div class="alert alert-info">
         {{ session()->get('message') }}
 
     </div>
-@endif
-<body class="gray-bg">
-         <div class="container-fluid">
+@endif   
+    <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default">
       <div >
@@ -40,13 +41,13 @@
     
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
-         <ul  class="nav navbar-nav navbar-right  "  >
+         <ul  class="nav navbar-nav navbar-right">
                 
                   <li ><a href="{{Route('exabout')}}"> About Us </a></li>
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
-                   <li ><a href="{{url('/')}}"> Back to Main </a></li>
+                  <li ><a href="{{url('/')}}"> Back to Main </a></li>
           
 
             </ul>
@@ -75,6 +76,7 @@
         </div>
         <hr>
         <br>
+         <a href="{{url('/')}}"> Back to Main </a>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>

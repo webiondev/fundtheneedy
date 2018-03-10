@@ -93,7 +93,31 @@
 
         </div>
 
-            <ul class="nav navbar-top-links navbar-right">
+
+           
+
+          
+            
+   
+        </nav>
+<div class="container-fluid">
+    <!-- Second navbar for categories -->
+    <nav class="navbar navbar-default">
+      <div >
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
                 
                   <li ><a href="{{Route('about')}}"> About Us </a></li>
                   <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
@@ -119,11 +143,11 @@
                 </li>
 
             </ul>
-
-          
-            
-   
-        </nav>
+        
+        </div>
+      </div>
+    </nav>
+  </div>
 
 <script type="text/javascript">
     
