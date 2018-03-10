@@ -38,6 +38,7 @@ Route::get('/term', 'HomeController@term')->name('term');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile_me', 'HomeController@profile_me')->name('profile_me');
+Route::get('/search', 'HomeController@psearch')->name('psearch');
 Route::post('/editprofile', 'HomeController@editprofile')->name('editprofile');
 Route::post('/editprofilepic', 'HomeController@editprofilepic')->name('editprofilepic');
 

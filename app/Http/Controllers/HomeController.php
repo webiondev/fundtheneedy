@@ -83,6 +83,10 @@ public function about(){
         return view('profile_me')->with('user', $user);
     }
 
+    public function search(){
+
+        
+    }
     public function editprofile(Request $request)
     {
 
