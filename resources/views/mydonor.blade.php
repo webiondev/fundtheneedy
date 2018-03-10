@@ -51,6 +51,7 @@
 
                 </div>
                 @endforeach
+                {{$data->links()}}
                 </div>
                 </div>
 

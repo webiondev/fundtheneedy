@@ -255,7 +255,7 @@ if(($request->email==auth()->user()->email)){
             ->join('need', 'users.id', '=', 'need.user_id')
             ->join('favorite', 'favorite.need_id', '=', 'need.id')->select('users.name','users.email','users.city','users.country','users.occupation','users.type','need.*', 'favorite.created_at')->
             where('favorite.favorite_to', auth()->user()->id)->whereNull('favorite.deleted_at')
-            ->get();
+            ->paginate(10);
         $count_corroboration=DB::table('corroborate')->groupBy('need_id')->count();
 
         return view('fav')->with('data', array($data, $count_corroboration));
@@ -376,7 +376,7 @@ if(($request->email==auth()->user()->email)){
 
 
 
-        return view('seeker')->with('data',$data) ;
+        return view('seeker2')->with('data',$data) ;
     }
 
     public function profileThis($id){
@@ -595,7 +595,7 @@ if(($request->email==auth()->user()->email)){
            return  redirect()->back()->with('message', 'No seekers found in'.' '.$request->country);
 
         else
-            return view('seeker')->with('data',$data) ;
+            return view('seeker2')->with('data',$data) ;
     }
 
     public function seekfund()
@@ -675,7 +675,7 @@ if(($request->email==auth()->user()->email)){
             //->join('need', 'users.id', '=', 'need.user_id')
             ->join('donation', 'donation.donated_by', '=', 'users.id')->select('users.*', 'donation.donated_by','donation.amount', 'donation.quantity','donation.file as proof' , 'donation.date')->
             where('donation.donated_for', auth()->user()->id)
-            ->get();
+            ->paginate(10);
         
         return view('mydonor')->with('data',$data);
 

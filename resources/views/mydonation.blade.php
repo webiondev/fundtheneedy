@@ -1,39 +1,80 @@
 @extends('layouts.index')
-    @section('content')
-
-@foreach ($data as $data_)
-<div class="container"  id="tourpackages-carousel">
-     
-      <div class="column">
+@section('content')
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
         
-    
-        <div class="col-xs-9 col-sm-9 col-md-9">
-          <div class="thumbnail">
-            <img src="img/{{$data_->file}}" alt="">
-            <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
-      <a href="#" data-toggle="tooltip" title="need category" class="btn btn-default" role="button">{{$data_->category}}</a>
-      <a href="#" data-toggle="tooltip" title="assistance type" class="btn btn-default" role="button">{{$data_->medium}}</a>
-      <a href="#" data-toggle="tooltip" title="need deadline" class="btn btn-default" role="button">{{$data_->deadline}}</a>
-      <a href="#" data-toggle="tooltip" title="can I verify?" class="btn btn-default" role="button">{{$data_->verify}}</a>
-    </div>    
-              <div class="caption">
-                <h4>{{$data_->name}}</h4>
-                <h6>You Donated {{$data_->amount}} GBP </h6>
-                <h6>You Donated {{$data_->quantity}} items </h6>
-                <h6>Date {{$data_->date}}  </h6>
-                
-                <p><a href="{{Route('profile_this', $data_->donated_for)}}" class="btn btn-info btn-xs" role="button">know more</a>
-                    
-            	
-             
-            
-      </p>
+    </div>
+@endif
+ <?php 
+       $i=0;
+       ?>        
 
+@foreach($data as $data_)
+<div class="container">
+    
+       
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+
+       <div >
+            <div class="col-sm-12">
+                <div class="col-xs-12 col-sm-8">
+                    <h2>{{$data_->name}}</h2>
+                    <p><strong>need category: </strong>{{$data_->category}} </p>
+                    <p><strong>assistance type: </strong> {{$data_->medium}} </p>
+                    <p><strong>deadline to get aid: </strong>
+                        <span class="tags">{{$data_->deadline}}</span> 
+                        
+                    </p>
+                    <p><strong>verification: </strong>
+                        <span class="tags">{{$data_->verify}}</span> 
+                        
+                    </p>
+                      <p><strong>money donated: </strong>
+                        <span class="tags">{{$data_->amount}} GBP</span> 
+                        
+                    </p>
+                     <p><strong>goods donated: </strong>
+                        <span class="tags">{{$data_->quantity}} items</span> 
+                        
+                    </p>
+                     <p><strong>date donated: </strong>
+                        <span class="tags">{{$data_->date}} </span> 
+                        
+                    </p>
+                </div>             
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <figure>
+                        <img src="{{asset('img/'.$data_->file)}}" alt="" class="img-circle img-responsive">
+                       
+                    </figure>
+                </div>
+            </div>            
+            <div class="col-xs-12 divider text-center">
+                
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <br>
+                    <br>
+                    <br>
+                    <br>                    
+                   
+                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button>
+                </div>
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <br>
+                    <br>
+                    <br>
+                    <br>                    
+                   
+                  
+                </div>
             </div>
-          </div>
-        </div>
-            
-        </div>
-        </div>
-        @endforeach
-  @endsection  
+       </div>                 
+    </div>
+  </div>
+</div>
+
+@endforeach
+
+@endsection

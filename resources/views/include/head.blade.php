@@ -19,5 +19,8 @@
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
+<style type="text/css">
     
+</style>
+  
 </head>
