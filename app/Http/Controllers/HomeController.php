@@ -83,9 +83,11 @@ public function about(){
         return view('profile_me')->with('user', $user);
     }
 
-    public function search(){
+    public function search(Request $request){
 
-        
+        $data=$request->top_search;
+
+        return view('search_result')->with('data', $data);
     }
     public function editprofile(Request $request)
     {
