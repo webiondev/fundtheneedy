@@ -92,9 +92,7 @@
                 </div>
                 
             </form>
-
-        </div>
-        @elseif( auth()->user()->type=='giver')
+             @elseif( auth()->user()->type=='giver')
             <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchneed')}}">
                 <div class="form-group">
                     <input type="search" placeholder="Search need" class="form-control" name="top_search" id="top-search">
@@ -102,9 +100,7 @@
                 </div>
                 
             </form>
-
-        </div>
-            @elseif(auth()->user()->type=='giver' || auth()->user()->type=='seeker' )
+             @elseif(auth()->user()->type=='giver' || auth()->user()->type=='seeker' )
 
             <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
                 <div class="form-group">
@@ -113,17 +109,13 @@
                 </div>
                 
             </form>
-            
-        @endif
+            @endif
 
+        </div>
+       
 
-           
-
-          
-            
-   
-        </nav>
-<div class="container-fluid">
+        </div>
+           <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default">
       <div >
@@ -171,6 +163,11 @@
       </div>
     </nav>
   </div>
+           
+        </nav>
+     
+
+
 
 <script type="text/javascript">
     

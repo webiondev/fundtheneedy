@@ -721,10 +721,22 @@ if(($request->email==auth()->user()->email)){
 
     }
 
-    public function thisdonationdetails(){
+    public function thisdonationdetails($id){
 
 
-        return view('listthisdonation');
+        $data=DB::table('users')
+            ->join('need', function($join) use ($id)
+            {
+                $join->on('users.id', '=', 'need.user_id')
+                    ->where('need.id', '=', $id);
+            })
+            ->get();
+
+        $count_corroboration=DB::table('corroborate')->where('need_id', $id)->groupBy('need_id')->count();
+
+    
+
+        return view('listthisdonation')->with('data', array($data, $count_corroboration));
     }
     public function editthis($data){
 

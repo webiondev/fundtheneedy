@@ -293,6 +293,18 @@
                         <span class="tags">{{$data_->verify}}</span> 
                         
                     </p>
+                      <p><strong>Occupation: </strong>
+                        <span class="tags">{{$data_->occupation}}</span> 
+                        
+                    </p>
+                      <p><strong>City: </strong>
+                        <span class="tags">{{$data_->city}}</span> 
+                        
+                    </p>
+                      <p><strong>Country: </strong>
+                        <span class="tags">{{$data_->country}}</span> 
+                        
+                    </p>
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
                     <figure>
