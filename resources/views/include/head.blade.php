@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="d7Hh7y0wbW7rQc6A9OHdL4IDETu_sgAraBefkx3ovjk" />
 
     <title>Fundtheneedy | Dashboard</title>
 
@@ -21,6 +22,10 @@
 
 <style type="text/css">
     
+<<<<<<< HEAD
 </style>
   
 </head>
+=======
+</head>
+>>>>>>> a2f8965d3e2a84396cce16dd68d0b1fb0c60256a
