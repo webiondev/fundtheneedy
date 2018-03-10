@@ -20,12 +20,7 @@
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-<style type="text/css">
-    
-<<<<<<< HEAD
-</style>
+
   
 </head>
-=======
-</head>
->>>>>>> a2f8965d3e2a84396cce16dd68d0b1fb0c60256a
+
