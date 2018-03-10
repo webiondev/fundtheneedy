@@ -28,7 +28,7 @@ $data=$data[0];
                 <div class=" panel-body ">
 
                     <div class="col-md-5">
-                        <img class="img-responsive" src="../img/{{$data[0]->file}}" style="width:30%;">
+                        <img class="img-responsive" src="../img/{{$data[0]->file}}" style="width:100%;">
 
         <div class=" clearfix">
             <h3>{{$data[0]->name}} </h3>

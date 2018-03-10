@@ -83,12 +83,46 @@ public function about(){
         return view('profile_me')->with('user', $user);
     }
 
-    public function search(Request $request){
+    public function searchneed(Request $request){
 
-        $data=$request->top_search;
+        $data=Need::search($request->top_search)->paginate(10);
 
-        return view('search_result')->with('data', $data);
+
+        return view('seeker2')->with('data', $data);
     }
+
+     public function searchmessage(Request $request){
+
+       
+             $data=Message::search($request->top_search)->Where('from', auth()->user()->id)->get();
+
+             if (count($data)==0){
+                $data=Message::search($request->top_search)->Where('to_', auth()->user()->id)->get();
+                 return view('search_result')->with('data', $data);
+             }
+           
+              return view('search_result')->with('data', $data);
+
+        }
+        
+  
+
+
+    public function displaythissearched($id){
+
+
+          $messages=User::join('message', 'users.id', '=', 'message.from')
+
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->whereNull('message.deleted_at')->where('message.id', '=', $id)->get();
+
+             if($messages[0]->to_==auth()->user()->id)
+                return view('message')->with('data', $messages);
+
+            else
+                 return view('sent')->with('data', $messages);
+
+    }
+
     public function editprofile(Request $request)
     {
 

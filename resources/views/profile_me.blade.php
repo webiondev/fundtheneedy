@@ -17,7 +17,7 @@
                 <div class=" panel-body ">
 
                     <div class="col-md-5">
-                        <img class="img-responsive" src="../img/{{auth()->user()->file}}" style="width:70%;">
+                        <img class="img-responsive" src="../img/{{auth()->user()->file}}" style="width:100%;">
                         
 
             <hr>

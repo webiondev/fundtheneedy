@@ -83,17 +83,38 @@
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('search')}}">
-                <!-- <div class="form-group">
-                    <input type="search" placeholder="Search for something..." class="form-control" name="top_search" id="top-search">
 
-                </div> -->
-                <input type="hidden" name="sitesearch" value="http://fundtheneedy.com" />
-                  <input type="text" name="q" />
+            @if( auth()->user()->type=='giver' and (\Request::is('mymessage')) || (\Request::is('mysent')))
+            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
+                <div class="form-group">
+                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
 
+                </div>
+                
             </form>
 
         </div>
+        @elseif( auth()->user()->type=='giver')
+            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchneed')}}">
+                <div class="form-group">
+                    <input type="search" placeholder="Search need" class="form-control" name="top_search" id="top-search">
+
+                </div>
+                
+            </form>
+
+        </div>
+            @elseif(auth()->user()->type=='giver' || auth()->user()->type=='seeker' )
+
+            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
+                <div class="form-group">
+                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
+
+                </div>
+                
+            </form>
+            
+        @endif
 
 
            
