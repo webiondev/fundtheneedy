@@ -69,7 +69,7 @@
             <h3>Our Vision</h3>
             
             
-     			<p>Fundtheneedy will help people around the world gather in one place to voluntarily and out of love give and gratefully take charity. This is a time when our government is failing us and the economic system is creating the gap between rich and poor in a tremendous amount of pace (Forbes.com, 2018); (Oecd.org, 2018). My intention is to bridge this gap between rich and poor through bringing them together in one place so they know each other and help the needy/poor ones. Can this app make a difference? I pray and greatly hope that it does. </p>
+     			<p>Fundtheneedy will help people around the world gather in one place to voluntarily and out of love give and gratefully take charity. This is a time when our government is failing us and the economic system is creating the gap between rich and poor in a tremendous amount of pace (Forbes.com, 2018); (Oecd.org, 2018). My intention is to bridge this gap between rich and poor through bringing them together in one place so they know each other and help the needy/poor ones. </p>
 
 							
 

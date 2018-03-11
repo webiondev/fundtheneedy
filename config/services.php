@@ -14,15 +14,15 @@ return [
     |
     */
 
-//     'mailgun' => [
-//         'domain' => env('mg.fundtheneedy.com'),
-//         'secret' => env('key-1ad9767600274b5f041009f72d6dda28'),
-//     ],
+    'mailgun' => [
+        'domain' => env('mg.fundtheneedy.com'),
+        'secret' => env('key-1ad9767600274b5f041009f72d6dda28'),
+    ],
 
-    //  'fastmail' => [
-    //     'domain' => env('fundtheneedy.com'),
-    //     'secret' => env('mb3at29tp24uvhgw'),
-    // ],
+     'fastmail' => [
+        'domain' => env('fundtheneedy.com'),
+        'secret' => env('mb3at29tp24uvhgw'),
+    ],
 
     'ses' => [
         'key' => env('SES_KEY'),
