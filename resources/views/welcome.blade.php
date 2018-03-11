@@ -48,7 +48,10 @@
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
-          
+            <script type="text/javascript">   
+
+
+</script>
 
             </ul>
         

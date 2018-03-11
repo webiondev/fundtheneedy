@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="d7Hh7y0wbW7rQc6A9OHdL4IDETu_sgAraBefkx3ovjk" />
+    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
 
     <title>Fundtheneedy | Dashboard</title>
 
