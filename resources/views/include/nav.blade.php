@@ -1,4 +1,5 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
+
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
@@ -79,43 +80,12 @@
         </nav>
 
         <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
 
-            @if( auth()->user()->type=='giver' and (\Request::is('mymessage')) || (\Request::is('mysent')))
-            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
-                <div class="form-group">
-                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
-
-                </div>
-                
-            </form>
-             @elseif( auth()->user()->type=='giver')
-            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchneed')}}">
-                <div class="form-group">
-                    <input type="search" placeholder="Search need" class="form-control" name="top_search" id="top-search">
-
-                </div>
-                
-            </form>
-             @elseif(auth()->user()->type=='giver' || auth()->user()->type=='seeker' )
-
-            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
-                <div class="form-group">
-                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
-
-                </div>
-                
-            </form>
-            @endif
-
-        </div>
-       
-
-        </div>
-           <div class="container-fluid">
+          <div class="row border-bottom">
+           <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+          
+      
+    <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default">
       <div >
@@ -158,13 +128,55 @@
                 </li>
 
             </ul>
-        
+         <div class="row border-bottom">
+
+          <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+
+           
+            @if( auth()->user()->type=='giver' and (\Request::is('mymessage')) || (\Request::is('mysent')))
+            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
+                <div class="form-group">
+                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
+
+                </div>
+                
+            </form>
+             @elseif( auth()->user()->type=='giver')
+            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchneed')}}">
+                <div class="form-group">
+                    <input type="search" placeholder="Search need" class="form-control" name="top_search" id="top-search">
+
+                </div>
+                
+            </form>
+             @elseif(auth()->user()->type=='giver' || auth()->user()->type=='seeker' )
+
+            <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
+                <div class="form-group">
+                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
+
+                </div>
+                
+            </form>
+            @endif
+
         </div>
       </div>
+
+        </div>
+        
+      </div>
     </nav>
+
+
+       
   </div>
+</div>
+
+
            
-        </nav>
+       
      
 
 
