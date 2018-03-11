@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('support@fundtheneedy.com'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('Zanzabila12'),
 
     /*
     |--------------------------------------------------------------------------
