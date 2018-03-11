@@ -9,7 +9,7 @@
         <div class="main-content">
 
     <div class="container">
-        <h3 class="site-title">Seeker Information</h3>
+        <h3 class="site-title">Your Profile</h3>
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
@@ -73,9 +73,9 @@
                         
                         </div>
 
-                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}" >
                            
-                        <input type="password" name ="password" class="form-control" placeholder="Password" >
+                        <input type="password" name ="password" class="form-control" placeholder="Password" required="">
                          @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>

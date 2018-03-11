@@ -131,7 +131,7 @@ if(($request->email==auth()->user()->email)){
         $validated=$request->validate( [
             'name' => 'sometimes|nullable|string|max:255',
             //'email' => 'sometimes|nullable|string|email|max:255|unique:users',
-            'password' => 'sometimes|nullable|string|max:12',
+            'password' => 'required|string|max:12',
             'city' => 'sometimes|nullable|string|max:50',
             'country' => 'sometimes|nullable|string|max:20',
             'occupation'=>'sometimes|nullable|string|max:100',
@@ -296,9 +296,9 @@ if(($request->email==auth()->user()->email)){
             ->join('favorite', 'favorite.need_id', '=', 'need.id')->select('users.name','users.email','users.city','users.country','users.occupation','users.type','need.*', 'favorite.created_at')->
             where('favorite.favorite_to', auth()->user()->id)->whereNull('favorite.deleted_at')
             ->paginate(10);
-        $count_corroboration=DB::table('corroborate')->groupBy('need_id')->count();
+         
 
-        return view('fav')->with('data', array($data, $count_corroboration));
+        return view('fav')->with('data',$data);
     }
 
     public function remfav ($id){

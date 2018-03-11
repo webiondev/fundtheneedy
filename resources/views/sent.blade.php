@@ -14,7 +14,8 @@
 	<div class="row">
 		
 		<section class="content">
-			<h1>My Messages</h1>
+				  <h3 class="site-title">My Sent</h3>
+
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">

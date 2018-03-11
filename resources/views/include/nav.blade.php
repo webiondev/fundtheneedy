@@ -13,7 +13,8 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> {{Auth::user()->name}}</strong>
 
-                             </span> <span class="text-muted text-xs block">{{Auth::user()->type}}</b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block">{{Auth::user()->type}},{{Auth::user()->city}},{{Auth::user()->country}}</b></span> </span> </a>
+
                                
                             
                         </div>

@@ -7,8 +7,24 @@
     <meta name="google-site-verification" content="d7Hh7y0wbW7rQc6A9OHdL4IDETu_sgAraBefkx3ovjk" />
     <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
 
+    @if(\Request::is('/'))
     <title>Fundtheneedy | Dashboard</title>
-
+    @elseif(\Request::is('profile_me'))
+    <title>Fundtheneedy | Your Profile</title>
+    @elseif(\Request::is('listfav'))
+    <title>Fundtheneedy | Your Favorite Seekers</title>
+     @elseif(\Request::is('mymessage'))
+    <title>Fundtheneedy | Your Inbox</title>
+    @elseif(\Request::is('mysent'))
+    <title>Fundtheneedy | Your Sent</title>
+    @elseif(\Request::is('seeker'))
+    <title>Fundtheneedy | Seekers</title>
+    @elseif(\Request::is('mydonations'))
+    <title>Fundtheneedy | Your Donations</title>
+     @elseif(\Request::is('profile_this'))
+    <title>Fundtheneedy | Your Donations</title>
+    @endif
+ 
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     
