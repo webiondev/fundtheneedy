@@ -9,11 +9,11 @@
 
     <title>Fundtheneedy | About</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+       <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{asset('css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
 </head>
 
@@ -39,7 +39,7 @@
          
         </div>
          <div class="collapse navbar-collapse" id="navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+         <ul  class="nav navbar-nav navbar-right  "  >
                 
                   <li ><a href="{{Route('about')}}"> About Us </a></li>
                   <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
@@ -104,7 +104,8 @@
                <small> A Mohammad Rahman Production</small>
     </div>
 
-   
+       <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

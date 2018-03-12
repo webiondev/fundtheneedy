@@ -41,7 +41,7 @@
     
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
-         <ul  class="nav navbar-nav navbar-right">
+         <ul  class="nav navbar-nav navbar-right  "  >
                 
                   <li ><a href="{{Route('exabout')}}"> About Us </a></li>
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
@@ -89,7 +89,8 @@
                <small> A Mohammad Rahman Production</small>
     </div>
 
-   
+       <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

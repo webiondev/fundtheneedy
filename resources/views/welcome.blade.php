@@ -48,10 +48,7 @@
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
-            <script type="text/javascript">   
 
-
-</script>
 
             </ul>
         
@@ -79,6 +76,8 @@
      			  <a class="btn btn-primary block full-width m-b" href="{{route('register')}}">Register</a>
 
         </div>
+        <hr>
+        <br>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>
