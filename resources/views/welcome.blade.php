@@ -14,6 +14,7 @@
 
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
 
 
 </head>

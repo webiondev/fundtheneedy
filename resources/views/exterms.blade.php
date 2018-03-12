@@ -14,6 +14,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
 
 </head>
 
