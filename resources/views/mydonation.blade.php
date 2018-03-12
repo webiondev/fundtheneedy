@@ -9,10 +9,10 @@
  <?php 
        $i=0;
        ?>        
-
+<h3 class="site-title">Your Donations</h3>
 @foreach($data as $data_)
 <div class="container">
-   <h3 class="site-title">Your Donations</h3>
+   
        
   <div class="row">
     <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
