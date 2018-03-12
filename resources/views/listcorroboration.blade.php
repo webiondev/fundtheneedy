@@ -6,7 +6,7 @@
     <div class="main-content">
 
         <div class="container">
-            <h3 class="site-title">Corroborations</h3>
+            <h3 class="site-title">Corroborators</h3>
 
             @foreach($data as $data_)
                 <div class="row">

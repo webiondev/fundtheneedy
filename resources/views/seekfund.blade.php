@@ -35,7 +35,7 @@
                           <option value="marriage">Marriage</option>
                           <option value="loan">Loan Repayment</option>
                           <option value="bail">Bailing Out</option>
-                          <option value="food_shl">Food and Shelter</option>
+                          <option value="food and shelter">Food and Shelter</option>
                         </select>
                         
                         </div>

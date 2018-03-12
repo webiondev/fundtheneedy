@@ -12,7 +12,7 @@
                 <div class=" panel-body ">
 
                     <div class="col-md-5">
-                        <img class="img-responsive" src="../img/{{$data_->file}}" style="width:70%;">
+                        <img class="img-responsive" src="../img/{{$data_->file}}" style="width:98%;">
 
         <div class=" clearfix">
             <h3>{{$data[0]->name}} </h3>
