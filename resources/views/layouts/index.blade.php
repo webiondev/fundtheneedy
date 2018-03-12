@@ -57,7 +57,7 @@
     <!-- SweetAlert -->
     <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
 
-
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5aa6648acd1736001392fc74&product=sticky-share-buttons' async='async'></script>
     <script type="text/javascript">
            
               $('#medium').change(function(){
