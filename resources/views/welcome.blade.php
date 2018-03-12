@@ -68,7 +68,7 @@
 
             </div>
             <h3>Welcome to Fundtheneedy</h3>
-            <h4>(Prototype...Under Testing)</h4>
+           
             <p>A place where charity flourishes
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
@@ -85,9 +85,18 @@
     </div>
 
     <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
+    <script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+    <script type="text/javascript">
+  
+     swal({
+  title: "Welcome!",
+  text: "Fundtheneedy is still under testing but you can join and be one of our founding members!",
+  icon: "info",
+  button: "Aww yiss!",
+});
+    </script>
 </body>
 
 </html>

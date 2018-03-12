@@ -108,9 +108,8 @@
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>
-
-       <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+ <script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 </body>
 
