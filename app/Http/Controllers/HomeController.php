@@ -635,7 +635,28 @@ if(($request->email==auth()->user()->email)){
            return  redirect()->back()->with('message', 'No seekers found in'.' '.$request->country);
 
         else
+             //return  redirect()->back()->with('data',$data);
             return view('seeker2')->with('data',$data) ;
+    }
+
+      public function showfavlocal(Request $request)
+
+    {
+
+         $data=DB::table('users')
+            ->join('need', 'users.id', '=', 'need.user_id')
+            ->join('favorite', 'favorite.need_id', '=', 'need.id')->select('users.name','users.email','users.city','users.country','users.occupation','users.type','need.*', 'favorite.created_at')->
+            where('favorite.favorite_to', auth()->user()->id)->whereNull('favorite.deleted_at')->where('country', '=', $request->country)
+            ->paginate(10);
+
+
+
+        if(empty($data[0]))
+           return  redirect()->back()->with('message', 'No seekers found in'.' '.$request->country);
+
+        else
+             //return  redirect()->back()->with('data',$data);
+            return view('fav')->with('data',$data) ;
     }
 
     public function seekfund()

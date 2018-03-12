@@ -67,6 +67,7 @@ Route::get('/corroborate_count/{id}', 'HomeController@corroborate_count')->name(
 
 
 Route::get('/showlocal', 'HomeController@showlocal')->name('local');
+Route::get('/showfavlocal', 'HomeController@showfavlocal')->name('favlocal');
 Route::get('/sort', 'HomeController@sort')->name('sort');
 Route::get('/seekfund', 'HomeController@seekfund')->name('seekfund');
 Route::get('/listplea', 'HomeController@listplea')->name('listplea');

@@ -2,7 +2,7 @@
 @section('content')
 
 
-
+<title>Fundtheneedy | Corroboration</title>
     <div class="main-content">
 
         <div class="container">
@@ -16,7 +16,7 @@
                                 <div class=" panel-body ">
 
                                     <div class="col-md-5">
-                                        <img class="img-responsive" src="../img/{{$data_->file}}" style="width:30%;">
+                                        <img class="img-responsive" src="../img/{{$data_->file}}" style="width:70%;">
 
 
                                     </div>

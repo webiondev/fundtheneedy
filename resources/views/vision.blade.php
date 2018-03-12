@@ -91,7 +91,7 @@
         </div>
         <hr>
         <br>
-         <a href="{{url('/')}}"> Back to Dashboard </a>
+         <a href="{{Route('profile_me')}}"> Back to Dashboard </a>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>

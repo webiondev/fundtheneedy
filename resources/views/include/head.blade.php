@@ -22,7 +22,10 @@
     @elseif(\Request::is('mydonations'))
     <title>Fundtheneedy | Your Donations</title>
      @elseif(\Request::is('profile_this'))
-    <title>Fundtheneedy | Your Donations</title>
+    <title>Fundtheneedy | Seeker Info</title>
+     @elseif(\Request::is('seekfund'))
+    <title>Fundtheneedy | Seek Fund</title>
+   
     @endif
  
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
