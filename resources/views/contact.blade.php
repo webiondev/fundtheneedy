@@ -93,11 +93,11 @@
          Selangor<br>
           Malaysia<br>
           47630<br>
-           <a href="https://twitter.com/fundtheneedy" class="btn btn-social-icon btn-lg btn-twitter">
+           <a href="https://twitter.com/fundtheneedy" title="twitter" class="btn btn-social-icon btn-lg btn-twitter">
       <span class="fa fa-twitter"></span>
       </a>
-       <a href="https://www.facebook.com/fundtheneedyFN" class="btn btn-social-icon btn-lg btn-facebook">
-      <span class="fa fa-facebook"></span>
+       <a href="https://www.facebook.com/fundtheneedyFN" title="facebook"class="btn btn-social-icon btn-lg btn-facebook" >
+      <span class="fa fa-facebook" ></span>
         </address>
      
   
