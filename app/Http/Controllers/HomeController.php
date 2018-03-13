@@ -318,7 +318,7 @@ if(($request->email==auth()->user()->email)){
         $messages=User::join('message', 'users.id', '=', 'message.from')
 
             ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->whereNull('message.deleted_at')->where('to_', '=', auth()->user()->id)->orwhere('from', '=', auth()->user()->id)->orderBy('created_at','DESC')
-            ->paginate(10);
+            ->get();
         return view('message')->with('data', $messages);
 
     }
@@ -328,7 +328,7 @@ if(($request->email==auth()->user()->email)){
         $messages=User::join('message', 'users.id', '=', 'message.from')
 
             ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->whereNull('message.deleted_at')->where('message.from', '=', auth()->user()->id)->orderBy('created_at', 'DESC')
-            ->paginate(10);
+            ->get();
         return view('sent')->with('data', $messages);
 
     }
@@ -397,10 +397,11 @@ if(($request->email==auth()->user()->email)){
         );
 
         $user=User::find($to_);
-        $message->save();
-        $lastInsertedId = $message->id;
-        $message_new=Message::find($lastInsertedId);
+       
+       
         if($message->save()){
+             $lastInsertedId = $message->id;
+            $message_new=Message::find($lastInsertedId);
             
             $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
