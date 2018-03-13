@@ -10,10 +10,11 @@
 	
     <div class="container">
 	<div class="row">
-		
+		 <h3 class="site-title">My Inbox</h3>
+		 @foreach ($data as $messages)
 		<section class="content">
-				  <h3 class="site-title">My Inbox</h3>
-	@foreach ($data as $messages)
+				 
+	
 
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
@@ -90,9 +91,9 @@
 				</div>
 				
 			</div>
-			@endforeach
-		</section>
 
+		</section>
+		@endforeach
 		
 	</div>
 </div>
