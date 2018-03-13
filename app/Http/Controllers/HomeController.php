@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Mail;
+use App\notification\NewMessage;
 
 class HomeController extends Controller
 {
