@@ -19,9 +19,9 @@ class NewMessage extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Message $message)
     {
-        //
+        $this->message=$message;
     }
 
     /**
@@ -45,7 +45,7 @@ class NewMessage extends Notification
     {
         return (new MailMessage)
                     ->line('You have a new message in your inbox!')
-                    ->action('Notification Action', url('https://www.fundtheneedy.com/mymessage'))
+                    ->action('Go To Message', url('https://www.fundtheneedy.com/mymessage'))
                     ->line('Thank you for using Fundtheneedy!');
     }
 
