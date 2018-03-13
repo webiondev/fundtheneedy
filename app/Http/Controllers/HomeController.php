@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -394,8 +395,16 @@ if(($request->email==auth()->user()->email)){
                 'message_root'=>$request->root]
         );
 
-
+        $email=User::select('email')->where('id', $to_);
         if($message->save())
+                Mail::send(['text'=>'mail'], $request->message, function($message) {
+                 $message->to($email, 'seeker')->subject
+                    ('New Message!');
+                 $message->from('support@fundtheneedy.com','fundtheneedy');
+      });
+
+}
+
             return redirect()->back()->with('message', 'message sent');
 
     }
