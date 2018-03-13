@@ -395,17 +395,19 @@ if(($request->email==auth()->user()->email)){
                 'message_root'=>$request->root]
         );
 
-        $email=User::select('email')->where('id', $to_);
+        $email=User::find($to_);
+
+        
         if($message->save()){
                 Mail::send(['text'=>'mail'], $request->message, function($message) {
-                 $message->to($email, 'seeker')->subject
+                 $message->to($email->email, 'seeker')->subject
                     ('New Message!');
                  $message->from('support@fundtheneedy.com','fundtheneedy');
       });
 
 }
 
-            return redirect()->back()->with('message', 'message sent');
+            //return redirect()->back()->with('message', 'message sent');
 
     }
 
