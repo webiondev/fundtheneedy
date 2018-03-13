@@ -399,14 +399,7 @@ if(($request->email==auth()->user()->email)){
 
         
         if($message->save()){
-                Mail::send('emails.welcome', $data['message']=$request->message, function($message) {
-                 $message->to($email->email, 'seeker')->subject
-                    ('New Message!');
-                 $message->from('support@fundtheneedy.com','fundtheneedy');
-      });
-
-                
-
+         
             return redirect()->back()->with('message', 'message sent');
 
     }}
