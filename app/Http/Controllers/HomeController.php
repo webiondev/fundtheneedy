@@ -396,7 +396,7 @@ if(($request->email==auth()->user()->email)){
         );
 
         $email=User::select('email')->where('id', $to_);
-        if($message->save())
+        if($message->save()){
                 Mail::send(['text'=>'mail'], $request->message, function($message) {
                  $message->to($email, 'seeker')->subject
                     ('New Message!');
