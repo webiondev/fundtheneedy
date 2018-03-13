@@ -395,11 +395,13 @@ if(($request->email==auth()->user()->email)){
                 'message_root'=>$request->root]
         );
 
-        $email=User::find($to_);
-
-        
+        $user=User::find($to_);
+        $message->save();
+        $lastInsertedId = $message->id;
+        $message_new=Message::find($lastInsertedId);
         if($message->save()){
-         
+            
+            user()->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
 
     }}
