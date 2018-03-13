@@ -397,9 +397,9 @@ if(($request->email==auth()->user()->email)){
 
         $email=User::find($to_);
 
-        
+        $data['message']=$request->message;
         if($message->save()){
-                Mail::send(['text'=>'mail'], $request->message, function($message) {
+                Mail::send(['text'=>'mail'], $data, function($message) {
                  $message->to($email->email, 'seeker')->subject
                     ('New Message!');
                  $message->from('support@fundtheneedy.com','fundtheneedy');
