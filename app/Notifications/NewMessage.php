@@ -44,9 +44,9 @@ class NewMessage extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('https://www.fundtheneedy.com'))
-                    ->line('Thank you for using our application!');
+                    ->line('You have a new message in your inbox!')
+                    ->action('Notification Action', url('https://www.fundtheneedy.com/mymessage'))
+                    ->line('Thank you for using Fundtheneedy!');
     }
 
     /**
