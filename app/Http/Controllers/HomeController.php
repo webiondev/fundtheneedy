@@ -364,7 +364,7 @@ if(($request->email==auth()->user()->email)){
 
         $message=User::join('message', 'users.id', '=', 'message.from')
 
-            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->Where('message_root', '=', $root[0]->message_root)->get();
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->Where('message_root', '=', $root[0]->message_root)->orderBy('created_at','DESC')->get();
         return view('reply')->with('id',$message);
 
     }
