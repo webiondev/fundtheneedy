@@ -399,17 +399,18 @@ if(($request->email==auth()->user()->email)){
 
         
         if($message->save()){
-                Mail::send(['text'=>'mail'], $request->message, function($message) {
-                 $message->to($email->email, 'seeker')->subject
-                    ('New Message!');
-                 $message->from('support@fundtheneedy.com','fundtheneedy');
-      });
+          
+            $subject = "New Message";
+            
+            $headers = "From: support@fundtheneedy.com";
+            $txt="you have a new message";
 
-}
+            mail($email->email,$subject,$txt,$headers);
 
-            //return redirect()->back()->with('message', 'message sent');
 
-    }
+            return redirect()->back()->with('message', 'message sent');
+
+    }}
 
     public function seeker()
 
