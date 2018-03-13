@@ -402,7 +402,7 @@ if(($request->email==auth()->user()->email)){
         $message_new=Message::find($lastInsertedId);
         if($message->save()){
             
-            $user()->notify(new NewMessage($message_new));
+            $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
 
     }}
