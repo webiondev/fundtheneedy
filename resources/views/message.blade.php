@@ -10,15 +10,14 @@
 	
     <div class="container">
 	<div class="row">
-		 <h3 class="site-title">My Inbox</h3>
-		 @foreach ($data as $messages)
+		
 		<section class="content">
-				 
-	
+				  <h3 class="site-title">My Inbox</h3>
 
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
+					 @foreach ($data as $messages)
 
 						@if($messages->from!=auth()->user()->id)
 
@@ -86,14 +85,12 @@
 	
 						
 						@endif
-						
+						@endforeach
 					</div>
 				</div>
 				
 			</div>
-
 		</section>
-		@endforeach
 		
 	</div>
 </div>
