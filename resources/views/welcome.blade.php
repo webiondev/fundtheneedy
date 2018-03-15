@@ -6,9 +6,9 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fundtheneedy | Welcome<br>
-           A place where charity flourishes
+    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
+    <title>Fundtheneedy | Welcome
+       
     </title>
 
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -16,7 +16,7 @@
 
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
+    
 
 
 
