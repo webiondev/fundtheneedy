@@ -82,10 +82,12 @@ return [
     | in your application ID and admin API key to get started searching.
     |
     */
+    
 
     'algolia' => [
         'id' => env('ALGOLIA_APP_ID', 'LK9DB02XTS'),
         'secret' => env('ALGOLIA_SECRET', 'd87b3f379b80a4418fbcf0a084618e2f'),
+        'search'=> env('ALGOLIA_SEARCH', 'ea9fcc4af6e7ebc73f4435a928a02ea6'),
     ],
 
 ];
