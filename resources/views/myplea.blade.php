@@ -39,6 +39,11 @@
                         <span class="tags">{{$data_->goods}} items</span> 
                         
                     </p>
+                      <p><strong>Description </strong>
+                        <span class="tags">{{$data_->description}}</span> 
+                        
+                    </p>
+                     
                      
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">

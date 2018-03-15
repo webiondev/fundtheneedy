@@ -419,7 +419,7 @@ if(($request->email==auth()->user()->email)){
 
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')->orderBy('created_at', 'DESC')                                                                                                                                                
             ->paginate(10);
 
 
