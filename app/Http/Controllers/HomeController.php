@@ -250,15 +250,15 @@ if(($request->email==auth()->user()->email)){
     }
     public function deleteProfile(Request $request, $id){
 
-        $id=User::find($id);
-        $id->email="adbbdvidosivbpvd zkcnkvjsndvjsbv";
-        $id->password="";
+        $user=User::find($id);
+       
 
         if ($request->isMethod('POST')){
 
-            if($id->save()){
+            if($user->delete()){
 
                 Auth::logout();
+                //return Redirect::to('/');
                 return response()->json(['msg' => 'Account deleted']);
 
             }}
