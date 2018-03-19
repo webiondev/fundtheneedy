@@ -219,6 +219,9 @@ if(($request->email==auth()->user()->email)){
         }
     }
 
+    
+
+
     public function editprofilepic(Request $request){
 
          $validated=$request->validate( [

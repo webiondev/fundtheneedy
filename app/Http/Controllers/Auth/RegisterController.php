@@ -98,8 +98,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $file=$this->uploadfile();
-        
-        
+            $message_new=$data;
+            
+            $user->notify(new NewMessage($message_new));
+          
         //$file=explode("/", $file);
         return User::create([
             'name' => $data['name'],
