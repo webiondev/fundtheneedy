@@ -98,12 +98,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $file=$this->uploadfile();
-            $message_new=$data;
-            
-            $user->notify(new NewMessage($message_new));
+           
           
         //$file=explode("/", $file);
-        return User::create([
+        $newUser= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -115,6 +113,13 @@ class RegisterController extends Controller
             'file'=>$file,
             
         ]);
+
+
+          $message_new=$newUser;
+            
+           $newUser['id']->notify(new NewMessage($message_new));
+
+           return $newUser;
     }
 
 }
