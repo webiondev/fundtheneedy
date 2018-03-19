@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Request;
 use Request as Req;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-// use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Mail;
+use App\Notifications\NewMessage;
 use Intervention\Image\Facades\Image;
 
 
@@ -117,7 +118,7 @@ class RegisterController extends Controller
 
           $message_new=$newUser;
             
-           $newUser['id']->notify(new NewMessage($message_new));
+           $newUser['email']->notify(new NewMessage($message_new));
 
            return $newUser;
     }
