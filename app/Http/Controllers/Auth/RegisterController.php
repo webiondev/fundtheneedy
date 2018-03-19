@@ -118,7 +118,7 @@ class RegisterController extends Controller
 
           $message_new=$newUser;
             
-           $newUser['email']->notify(new NewMessage($message_new));
+           $newUser->notify(new NewMessage($message_new));
 
            return $newUser;
     }
