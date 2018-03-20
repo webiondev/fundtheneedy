@@ -115,6 +115,14 @@ class RegisterController extends Controller
             
         ]);
 
+        Mail::send('emails', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!', function ($message)
+        {
+
+            $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+
+            $message->to($newUser['email']);
+
+        });
     //     $message="Welcome to Fundtheneedy!";
     //        Mail::send('newUser', function($message){
     //     $message->from('support@fundtheneedy.com');
