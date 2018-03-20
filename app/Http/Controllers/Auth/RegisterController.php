@@ -119,7 +119,7 @@ class RegisterController extends Controller
         {
 
             $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-
+            $message->subject('Fundtheneedy Registration Success');
             $message->to($data['email']);
 
         });
