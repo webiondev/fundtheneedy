@@ -39,7 +39,7 @@ class WelcomeController extends Controller
     }
     public function sendexreport(Request $request){
 
-        print_r($request);
+    
 
         // Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
         // {
@@ -50,6 +50,6 @@ class WelcomeController extends Controller
 
         // });
 
-        //return redirect()->back()->with('message', 'message send success');
+        // return redirect()->back()->with('message', 'message send success');
     }
 }
