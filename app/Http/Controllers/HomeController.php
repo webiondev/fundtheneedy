@@ -519,7 +519,7 @@ if(($request->email==auth()->user()->email)){
             ->get();
 
         $user=Need::find('user_id')->select('user_id')->where('id', $id);
-        $user_info=User::find($user);
+        $user=User::find($user);
  
         $message=new Message;    
         $message->message="You have a new donation!";
