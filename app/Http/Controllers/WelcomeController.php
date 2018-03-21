@@ -41,15 +41,15 @@ class WelcomeController extends Controller
 
     
 
-        // Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
-        // {
+        Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
+        {
 
-        //     $message->from($request->email, $request->name);
-        //     $message->subject($request->subject);
-        //     $message->to('support@fundtheneedy.com', 'fundtheneedy');
+            $message->sender($request->email, $request->name);
+            $message->subject($request->subject);
+            $message->to('support@fundtheneedy.com', 'fundtheneedy');
 
-        // });
+        });
 
-        // return redirect()->back()->with('message', 'message send success');
+        return redirect()->back()->with('message', 'message send success');
     }
 }
