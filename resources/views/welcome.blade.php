@@ -92,7 +92,7 @@
     <script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
   
      swal({
   title: "Welcome!",
@@ -100,7 +100,7 @@
   icon: "info",
   button: "Aww yiss!",
 });
-    </script>
+    </script> -->
 </body>
 
 </html>
