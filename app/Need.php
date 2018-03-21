@@ -14,7 +14,7 @@ class Need extends Model
 	protected $dates = ['deleted_at'];
     protected $table='need';
     protected $fillable = [
-    'description', 'category', 'deadline','verify','medium','amount','goods', 'file', 'user_id' 
+    'description', 'category', 'deadline','verify','medium','amount','currency','goods', 'file', 'user_id' 
     ];
 
    

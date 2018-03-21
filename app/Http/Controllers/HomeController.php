@@ -692,6 +692,7 @@ if(($request->email==auth()->user()->email)){
             'verify'=>'required',
             'medium'=>'required',
             'amount'=>'Numeric',
+            'currency'=>'string',
             'goods'=>'Integer',
             'file' => 'required | image|max:1000',
 
@@ -804,7 +805,7 @@ if(($request->email==auth()->user()->email)){
 
         $data=DB::table('users')
             ->join('need', 'users.id', '=', 'need.user_id')
-            ->join('donation', 'donation.need_id', '=', 'need.id')->select('users.*','need.*', 'donation.donated_for','donation.amount', 'donation.quantity', 'donation.date')->
+            ->join('donation', 'donation.need_id', '=', 'need.id')->select('users.*','need.*', 'donation.donated_for','donation.amount', 'donation.quantity','need.currency', 'donation.date')->
             where('donation.donated_by', auth()->user()->id)
             ->get();
         return view('mydonation')->with('data',$data);

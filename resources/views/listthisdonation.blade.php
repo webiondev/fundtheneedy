@@ -64,7 +64,7 @@ $data=$data[0];
              @if($data[0]->amount=='0')
                             <li class="list-group-item">Amount<span class="badge">all amounts acquired</span></li>
              @else
-                <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}}</span></li>
+                <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}} {{$data[0]->currency}}</span></li>
              @endif
          @else
              @if($data[0]->goods=='0')

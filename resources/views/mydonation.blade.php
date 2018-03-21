@@ -32,7 +32,7 @@
                         
                     </p>
                       <p><strong>money donated: </strong>
-                        <span class="tags">{{$data_->amount}} GBP</span> 
+                        <span class="tags">{{$data_->amount}} {{$data_->currency}}</span> 
                         
                     </p>
                      <p><strong>goods donated: </strong>

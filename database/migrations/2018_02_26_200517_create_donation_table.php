@@ -20,6 +20,7 @@ class CreateDonationTable extends Migration
             $table->integer('need_id')->unsigned();
             $table->date('date');
             $table->float('amount');
+            
             $table->integer('quantity');
             $table->string('file', 1024);
               $table->softDeletes();

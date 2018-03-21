@@ -21,6 +21,7 @@ class CreateNeedTable extends Migration
             $table->enum('verify', ['I can verify my claim','I cannot verify my claim']);
              $table->enum('medium', ['money','goods']);
              $table->float('amount');
+             $table->string('currency');
              $table->integer('goods');
             $table->string('file', 10000);
             $table->timestamps();

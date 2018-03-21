@@ -40,7 +40,7 @@
                        	@if($data[0]->medium =='money')
                         <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
                             <div class="form-group">
-                         <input type="text" id="amount" name ="amount" class="form-control  form-control-sm" placeholder="amount donated" required="">
+                         <input type="text" id="amount" name ="amount" class="form-control  form-control-sm" placeholder="amount donated {{$data[0]->currency}}" required="">
                          @if ($errors->has('amount'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('amount') }}</strong>
@@ -113,7 +113,7 @@
     <li class="list-group-item">Verify<span class="badge">{{$data[0]->verify}}</span></li>
       <li class="list-group-item">Assistance Type<span class="badge">{{$data[0]->medium}}</span></li>
       @if ($data[0]->medium=='money')
-      <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}}</span></li>
+      <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}} {{$data[0]->currency}}</span></li>
       @else
       <li class="list-group-item">Quantity<span class="badge">{{$data[0]->goods}}</span></li>
       @endif
