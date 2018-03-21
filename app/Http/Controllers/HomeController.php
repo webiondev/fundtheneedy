@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Mail;
 use App\Notifications\NewMessage;
+use App\Notifications\NewDonation;
 
 class HomeController extends Controller
 {
@@ -594,7 +595,7 @@ if(($request->email==auth()->user()->email)){
             $lastInsertedId = $donation->id;
             $donation_new=Donation::find($lastInsertedId);
             
-            $user->notify(new donation($donation_new));
+            $user->notify(new NewDonation($donation_new));
 
             return redirect()->back()->with('message', 'Confirmed!');
 
