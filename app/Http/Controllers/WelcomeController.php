@@ -53,8 +53,5 @@ class WelcomeController extends Controller
         return redirect()->back()->with('message', 'message send success');
     }
 
-    public function sitemap(){
-
-        return view('sitemap');
-            }
+ 
 }

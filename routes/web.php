@@ -16,7 +16,6 @@ Route::get('/excontact', 'WelcomeController@excontact')->name('excontact');
 Route::get('/exreport', 'WelcomeController@exreport')->name('exreport');
 Route::post('/sendexreport', 'WelcomeController@sendexreport')->name('sendexreport');
 Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
-Route::get('/sitemap', 'WelcomeController@sitemap')->name('sitemap');
 
 Route::get('/', function(){
 
