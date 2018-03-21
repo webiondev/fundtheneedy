@@ -12,16 +12,16 @@ class donation extends Notification
 {
     use Queueable;
 
-    protected $donation;
+    protected $message;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Donation $donation )
+    public function __construct(Donation $message )
     {
-        $this->donation=$donation;
+        $this->message=$message;
     }
 
     /**
