@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
-use Redirect;
+use Illuminate\Support\Facades\Mail;
+use App\User;
 
 class WelcomeController extends Controller
 {

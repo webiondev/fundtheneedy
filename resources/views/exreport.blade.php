@@ -69,7 +69,7 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Complaint</p>
-          <form class="m-t" id="fn-form" method="POST" action="{{ route('sendexreport') }}" enctype="text/plain">
+          <form class="m-t" id="fn-form" method="POST" action="{{route('sendexreport')}}" enctype="multipart/form-data">
                      {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
