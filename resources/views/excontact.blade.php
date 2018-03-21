@@ -82,7 +82,7 @@
             <a href="https://twitter.com/fundtheneedy" title="twitter" class="btn btn-social-icon btn-lg btn-twitter">
       <span class="fa fa-twitter"></span>
       </a>
-       <a href="https://www.facebook.com/fundtheneedyFN" title="facebook" class="btn btn-social-icon btn-lg btn-facebook">
+        <a href="https://www.facebook.com/fundtheneedyFN" title="facebook" class="btn btn-social-icon btn-lg btn-facebook"></a>
       <span class="fa fa-facebook"></span>
           
         </address>
@@ -91,7 +91,7 @@
         </div>
         <hr>
         <br>
-      </a>
+
          <a href="{{url('/')}}"> Back to Main </a>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
