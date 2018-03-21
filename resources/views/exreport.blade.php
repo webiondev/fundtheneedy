@@ -17,12 +17,7 @@
 </head>
 
 <body class="gray-bg">
-    @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-        
-    </div>
-  @endif
+  
      <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default">
@@ -56,7 +51,12 @@
       </div>
     </nav>
   </div>
-
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+        
+    </div>
+  @endif
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
