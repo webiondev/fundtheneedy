@@ -39,12 +39,12 @@ class WelcomeController extends Controller
     }
     public function sendexreport(Request $request){
 
-
+                                                   
 
         Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
         {
 
-            $message->from('sokhter@yahoo.com', $request->name);
+            $message->from($request->email, $request->name);
             $message->subject($request->subject);
             $message->to('support@fundtheneedy.com');
 

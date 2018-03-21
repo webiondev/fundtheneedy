@@ -55,10 +55,10 @@ return [
     |
     */
 
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@fundtheneedy.com'),
-        'name' => env('MAIL_FROM_NAME', 'fundtheneedy'),
-    ],
+    // 'from' => [
+    //     'address' => env('MAIL_FROM_ADDRESS', 'support@fundtheneedy.com'),
+    //     'name' => env('MAIL_FROM_NAME', 'fundtheneedy'),
+    // ],
 
     /*
     |--------------------------------------------------------------------------
