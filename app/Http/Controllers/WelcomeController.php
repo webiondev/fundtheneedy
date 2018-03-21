@@ -41,7 +41,7 @@ class WelcomeController extends Controller
 
     
 
-        Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
+        Mail::send('email', ['title' => 'Complaint', 'content' => array($request->complaint, $request->email, $request->name)], function ($message)  use ($request)
         {
 
             $message->sender($request->email, $request->name);
