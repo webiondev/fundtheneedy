@@ -2,26 +2,26 @@
 
 namespace App\Notifications;
 
-use App\Message;
+use App\Donation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewMessage extends Notification
+class donation extends Notification
 {
     use Queueable;
 
-    protected $message;
+    protected $donation;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Message $message )
+    public function __construct(Donation $donation )
     {
-        $this->message=$message;
+        $this->donation=$donation;
     }
 
     /**
@@ -43,9 +43,9 @@ class NewMessage extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('You have a new message in your inbox!')
-                    ->action('Go To Message', url('https://www.fundtheneedy.com/mymessage'))
+       return (new MailMessage)
+                    ->line('You have a new donation!')
+                    ->action('Go To donations', url('https://www.fundtheneedy.com'))
                     ->line('Thank you for using Fundtheneedy!');
     }
 

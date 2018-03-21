@@ -519,13 +519,7 @@ if(($request->email==auth()->user()->email)){
             ->get();
 
 
-        $user=Need::where('id', $id)->select('user_id')->get();
-        $user=User::find($user);
- 
-        $message=new Message;    
-        $message->message="You have a new donation!";
-        $user->notify(new NewMessage($message->message));
-            
+      
       
         return view('confirmed_donation')->with('data', $data);
 
@@ -595,6 +589,12 @@ if(($request->email==auth()->user()->email)){
 
 
         if($donation->save()) {
+
+            $lastInsertedId = $donation->id;
+            $donation_new=Donation::find($lastInsertedId);
+            
+            $user->notify(new Donation($donation_new));
+
             return redirect()->back()->with('message', 'Confirmed!');
 
         }
