@@ -39,16 +39,16 @@ class WelcomeController extends Controller
     }
     public function sendexreport(Request $request){
 
+        var_dump($request)
 
+        // Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
+        // {
 
-        Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
-        {
+        //     $message->from($request->email, $request->name);
+        //     $message->subject($request->subject);
+        //     $message->to('support@fundtheneedy.com', 'fundtheneedy');
 
-            $message->from('support@fundtheneedy.com','fundtheneedy');
-            $message->subject($request->subject);
-            $message->to($request->email, $request->name);
-
-        });
+        // });
 
         return redirect()->back()->with('message', 'message send success');
     }
