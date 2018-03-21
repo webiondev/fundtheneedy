@@ -593,7 +593,7 @@ if(($request->email==auth()->user()->email)){
 
             $lastInsertedId = $donation->id;
             $donation_new=Donation::find($lastInsertedId);
-            $user=array($user);
+            
             $user->notify(new Donation($donation_new));
 
             return redirect()->back()->with('message', 'Confirmed!');
