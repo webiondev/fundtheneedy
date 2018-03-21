@@ -39,7 +39,7 @@ class WelcomeController extends Controller
     }
     public function sendexreport(Request $request){
 
-        var_dump($request);
+        print_r($request);
 
         // Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
         // {
