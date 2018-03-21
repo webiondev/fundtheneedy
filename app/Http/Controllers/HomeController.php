@@ -518,7 +518,8 @@ if(($request->email==auth()->user()->email)){
             })
             ->get();
 
-        $user=Need::find('user_id')->select('user_id')->where('id', $id);
+
+        $user=Need::where('id', $id)->select('user_id')->get();
         $user=User::find($user);
  
         $message=new Message;    
