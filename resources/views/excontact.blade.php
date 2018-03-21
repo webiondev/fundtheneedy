@@ -90,7 +90,8 @@
   
         </div>
         <hr>
-        <!-- <br> -->
+        <br>
+      </a>
          <a href="{{url('/')}}"> Back to Main </a>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
