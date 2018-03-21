@@ -587,7 +587,7 @@ if(($request->email==auth()->user()->email)){
         $donation->fill(['need_id'=>$request->need_id]);
         $donation->fill(['file'=>$file->file]);
 
-
+         $user=User::find($request->donated_for);
         if($donation->save()) {
 
             $lastInsertedId = $donation->id;
