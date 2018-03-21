@@ -815,12 +815,30 @@ if(($request->email==auth()->user()->email)){
         return view('stat');
     }
 
-    public function test(Request $request){
+    // public function test(Request $request){
 
 
-        return view('test')->with('data', $data);
+    //     return view('test')->with('data', $data);
+    // }
+
+
+    public function report(Request $request){
+
+
+
+        //send email
+          Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
+        {
+
+            $message->from(auth()->user()->email, auth()->user()->name);
+            $message->subject($request->subject);
+            $message->to('support@fundtheneedy.com');
+
+        });
+      
+
+
     }
-
     public function log_out(Request $request){
 
          Auth::guard()->logout();

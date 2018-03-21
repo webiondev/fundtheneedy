@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Redirect;
 
 class WelcomeController extends Controller
 {
@@ -27,5 +28,24 @@ class WelcomeController extends Controller
 
         
         return view('exterms');
+    }
+
+    public function exreport(){
+
+        
+        return view('exreport');
+    }
+    public function sendexreport(Request $request){
+
+        Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
+        {
+
+            $message->from($request->email, $request->name);
+            $message->subject($request->subject);
+            $message->to('support@fundtheneedy.com');
+
+        });
+
+        return redirect()->back()->with('message', 'message send success');
     }
 }

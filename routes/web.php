@@ -13,6 +13,8 @@
 Route::get('/exabout', 'WelcomeController@exabout')->name('exabout');
 Route::get('/exvision', 'WelcomeController@exvision')->name('exvision');
 Route::get('/excontact', 'WelcomeController@excontact')->name('excontact');
+Route::get('/exreport', 'WelcomeController@exreport')->name('exreport');
+Route::post('/sendexreport', 'WelcomeController@sendexreport')->name('sendexreport');
 Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
 
 
@@ -80,6 +82,7 @@ Route::get('/thisdonationdetails/{id}', 'HomeController@thisdonationdetails')->n
 Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonation');
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');
-//Route::get('/log_out', 'HomeController@log_out')->name('log_out');
+Route::get('/report', 'HomeController@report')->name('report');
+
 
 });

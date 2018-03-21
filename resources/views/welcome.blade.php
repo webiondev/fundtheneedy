@@ -51,6 +51,7 @@
                   <li ><a href="{{Route('exabout')}}"> About Us </a></li>
                   <li ><a href="{{Route('exvision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
+                   <li ><a href="{{Route('exreport')}}"> Complaints </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
 
 
