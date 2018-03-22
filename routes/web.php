@@ -35,8 +35,8 @@ Route::middleware(['checkrole'])->group(/**
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/vision', 'HomeController@vision')->name('vision');
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/report', 'WelcomeController@report')->name('report');
-Route::post('/sendreport', 'WelcomeController@sendreport')->name('sendreport');
+Route::get('/report', 'HomeController@report')->name('report');
+Route::post('/sendreport', 'HomeController@sendreport')->name('sendreport');
 Route::get('/term', 'HomeController@term')->name('term');
 
 Route::get('/home', 'HomeController@index')->name('home');
