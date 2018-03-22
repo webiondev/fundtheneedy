@@ -834,22 +834,21 @@ if(($request->email==auth()->user()->email)){
     // }
 
 
-    public function report(Request $request){
+      public function sendreport(Request $request){
 
+    
 
-
-        //send email
-          Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
+        Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
         {
 
-            $message->from(auth()->user()->email, auth()->user()->name);
+          
+            $message->replyTo($request->email, $request->name);
             $message->subject($request->subject);
-            $message->to('support@fundtheneedy.com');
+            $message->to('support@fundtheneedy.com', 'fundtheneedy');
 
         });
-      
 
-
+        return redirect()->back()->with('message', 'message send success');
     }
     public function log_out(Request $request){
 

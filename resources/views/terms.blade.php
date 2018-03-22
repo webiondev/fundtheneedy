@@ -44,6 +44,7 @@
                   <li ><a href="{{Route('about')}}"> About Us </a></li>
                   <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('contact')}}"> Contact </a></li>
+                  <li ><a href="{{Route('report')}}"> Complaints </a></li>
                   <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
                     <li ><a href="{{url('profile_me')}}"> Back to Dashboard </a></li>
                   
