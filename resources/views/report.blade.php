@@ -43,7 +43,15 @@
                    <li ><a href="{{Route('report')}}"> Complaints </a></li>
                   <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
                    <li ><a href="{{url('profile_me')}}"> Back to Dashboard </a></li>
-          
+                <li>
+                      
+                   
+                    <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a> 
+               
+
+                </li>
 
             </ul>
         
