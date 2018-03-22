@@ -833,7 +833,11 @@ if(($request->email==auth()->user()->email)){
     //     return view('test')->with('data', $data);
     // }
 
+      public function report(){
 
+        
+        return view('report');
+    }
       public function sendreport(Request $request){
 
     
