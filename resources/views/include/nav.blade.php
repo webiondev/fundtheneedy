@@ -105,10 +105,12 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
                 
-                  <li ><a href="{{Route('about')}}"> About Us </a></li>
+                 <li ><a href="{{Route('about')}}"> About Us </a></li>
                   <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('contact')}}"> Contact </a></li>
+                   <li ><a href="{{Route('report')}}"> Complaints </a></li>
                   <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
+                 
                   
 
 
