@@ -86,7 +86,7 @@
           
             
      			<p>Fundtheneedy is a crowdsourcing (a new form of crowdfunding) platform built in Laravel technology. </p>
-							<p>We are just starting and we need all the support from you seekers and givers. Support us by joining and spreading the word of Fundtheneedy. You can make a change even in one person's life.</p>
+							<p> It has two types of users: giver and seeker. Giver is the one who funds people where as seeker is the one acquiring the fund. This app has a mechanism of trust building called corroboration where givers can certify seekers as well as seekers can certify their claims through proofs. The final mode of crowdfunding takes place through exchange of transactional information where givers can transfer funds to bank account or goods to designated address. </p>
 
 							<h3>Features of Fundtheneedy</h3>
 							<ul class="list-group">
