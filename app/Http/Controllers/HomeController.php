@@ -822,10 +822,7 @@ if(($request->email==auth()->user()->email)){
         return view('mydonation')->with('data',$data);
     }
 
-    public function stat()
-    {
-        return view('stat');
-    }
+   
 
     // public function test(Request $request){
 
@@ -854,6 +851,17 @@ if(($request->email==auth()->user()->email)){
 
         return redirect()->back()->with('message', 'message send success');
     }
+
+    public function stat(){
+
+
+
+       $data= DB::select('SELECT user_id,category, count(*) FROM need group by category having user_id in(select id from users)');
+
+
+      
+        return view('stat')->with('data', $data);
+        }
     public function log_out(Request $request){
 
          Auth::guard()->logout();

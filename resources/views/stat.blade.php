@@ -1,5 +1,10 @@
 
-   
+<?php
+
+$data=$data[0];
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -72,33 +77,10 @@
       </div>
     </nav>
   </div>
-    <div class="middle-box text-center loginscreen animated fadeInDown">
-        <div>
-            <div>
-
-                <h1 class="logo-name">FN</h1>
-
-            </div>
-            <p>A place where charity flourishes
-                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
-            </p>
-            <h3>COMING SOON</h3>
-          
-            
-     			<p>Need Statistics</p>
-
-							
-							<ul> Shows how needs are distributed across people in countries. 
-</ul>
-
-        </div>
-        <hr>
-        <br>
-         <a href="{{Route('profile_me')}}"> Back to Dashboard </a>
-            <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
-               <small> A Mohammad Rahman Production</small>
+    
+    <div>
+       graph
     </div>
-
    
 
 </body>
