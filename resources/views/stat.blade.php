@@ -74,10 +74,10 @@
     </nav>
   </div>
   
-  @if(empty($data))
+  @if(session()->has('warn'))
 
     <div class="alert alert-info">
-        {{ session()->get('data') }}
+        {{ session()->get('warn') }}
 
     </div>
 

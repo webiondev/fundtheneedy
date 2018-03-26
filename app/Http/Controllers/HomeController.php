@@ -880,18 +880,24 @@ $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(
            
         }
 
-        if (!(empty($type)) || !(empty($data))){
+
+    if (!(empty($type[0]->category))) {
+         $i=0;
        
-  
+        while($i<sizeof($type)){
+            
+        
        $need_stat->addStringColumn('Country')
             
-            ->addNumberColumn($type[0]->category)
-            ->addNumberColumn($type[1]->category)
+            ->addNumberColumn($type[$i]->category)
+             ->addNumberColumn($type[$i+=1]->category)
             
            ->addRows(array($statistics));
+
+           $i++;
           
-
-
+       
+}
         $stat->GeoChart('need_stat', $need_stat);
          
          return view('stat')->with('data', $stat);
@@ -899,7 +905,8 @@ $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(
      }
 
      else {
-            return view('stat')->with('data', 'No statistics as of yet');
+            
+            return redirect()->to('/')->with('message', 'No statistics as of yet');
 
         }
        
