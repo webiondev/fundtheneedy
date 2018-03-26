@@ -80,7 +80,7 @@
         {{ session()->get('data') }}
 
     </div>
-@endif
+
 
   @else
    <div id="pop-div" style="width:1000px;border:1px solid black; margin:auto"></div>
