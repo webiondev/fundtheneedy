@@ -897,8 +897,8 @@ $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(
         }
 
         catch(OutOfRangeException $e){
-
-             return view('stat')->with('data', null);
+            echo "error";
+             //return view('stat')->with('data', null);
             }
        
         }
