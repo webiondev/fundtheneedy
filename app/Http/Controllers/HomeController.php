@@ -880,8 +880,8 @@ $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(
            
         }
 
-     
-       try{
+        if (!(empty($type)) || !(empty($data))){
+       
   
        $need_stat->addStringColumn('Country')
             
@@ -893,13 +893,15 @@ $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(
 
 
         $stat->GeoChart('need_stat', $need_stat);
+         
          return view('stat')->with('data', $stat);
-        }
+        
+     }
 
-        catch(OutOfRangeException $e){
-            echo "error";
-             //return view('stat')->with('data', null);
-            }
+     else {
+            return view('stat')->with('data', 'No statistics as of yet');
+
+        }
        
         }
     public function log_out(Request $request){
