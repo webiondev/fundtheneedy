@@ -1,9 +1,5 @@
 
-<?php
 
-$data=$data[0];
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -77,12 +73,10 @@ $data=$data[0];
       </div>
     </nav>
   </div>
-    
-    <div>
-       graph
-    </div>
+  
+   <div id="pop-div" style="width:1000px;border:1px solid black; margin:auto"></div>
+      <?= $data->render('GeoChart', 'need_stat', 'pop-div') ?>
    
-
 </body>
 
 </html>

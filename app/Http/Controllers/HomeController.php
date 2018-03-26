@@ -22,6 +22,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Mail;
 use App\Notifications\NewMessage;
 use App\Notifications\NewDonation;
+use Khill\Lavacharts\Lavacharts;
 
 class HomeController extends Controller
 {
@@ -854,13 +855,46 @@ if(($request->email==auth()->user()->email)){
 
     public function stat(){
 
+       $stat = new Lavacharts;
+       $need_stat=$stat->DataTable();
 
 
-       $data= DB::select('SELECT user_id,category, count(*) FROM need group by category having user_id in(select id from users)');
+     
+         
+
+       // $data1=  User::join('need', 'need.user_id', '=', 'users.id')->select('users.country as 0', 'need.category as 1')->get()->toArray();
+$data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(DB::raw("count(*) as count,category as category, users.country as country"))->groupBy('category')->get()->toArray();
+
+    $type=Need::select('category')->get();
+
+        $statistics=array();
+       
+        foreach ($data as $key => $value) {
+            # code...
+           $statistics[0]= $value->country;
+             
+           $statistics[1]= $value->count;
+           
+        
+
+           
+        }
+
+     
+       
+  
+       $need_stat->addStringColumn('Country')
+            
+            ->addNumberColumn($type[0]->category)
+            ->addNumberColumn($type[1]->category)
+            
+           ->addRows(array($statistics));
+          
 
 
-      
-        return view('stat')->with('data', $data);
+        $stat->GeoChart('need_stat', $need_stat);
+        
+        return view('stat')->with('data', $stat);
         }
     public function log_out(Request $request){
 
