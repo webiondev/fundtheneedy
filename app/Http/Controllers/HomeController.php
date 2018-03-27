@@ -8,6 +8,7 @@ use App\User;
 use App\Message;
 use App\Donation;
 use App\Favorite;
+use App\Stat;
 
 use Validator;
 use Input;
@@ -858,55 +859,30 @@ if(($request->email==auth()->user()->email)){
        $stat = new Lavacharts;
        $need_stat=$stat->DataTable();
 
+        DB::raw('(insert into `stat` (`count`, `category`, `country`, `user_id` ) select count(`category`), `category`, `country`, `user_id` from `need` INNER JOIN `users` on `need`.`user_id` =`users`.`id` group by `category`;)');
 
-        $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(DB::raw("count(*) as count,category as category, users.country as country"))->groupBy('category')->get()->toArray();
 
-            $type=Need::select('category')->get();
-
-                $statistics=array();
-               
-                foreach ($data as $key => $value) {
-                    # code...
-                   $statistics[0]= $value->country;
-                     
-                   $statistics[1]= $value->count;
-           
-        
+        $data= Stat::select("country as 0","category as 1", "count as 2")->get()->toArray();
 
            
-        }
 
 
-    if (!(empty($type[0]->category))) {
-         $i=0;
-       
-        while($i<sizeof($type)){
-            
-        
-       $need_stat->addStringColumn('Country')
-            
-            ->addNumberColumn($type[$i]->category)
-             ->addNumberColumn($type[$i+=1]->category)
-            
-           ->addRows(array($statistics));
+        $need_stat->addStringColumn('country')
+          ->addStringColumn('category')
+          ->addNumberColumn('count');
+      
 
-           $i++;
-          
-       
-}
-        $stat->GeoChart('need_stat', $need_stat);
+        $need_stat->addRows($data);
+           
+         $stat->GeoChart('need_stat', $need_stat);
          
-         return view('stat')->with('data', $stat);
+          return view('stat')->with('data', $stat);
         
      }
 
-     else {
-            
-            return redirect()->to('/')->with('message', 'No statistics as of yet');
-
-                }
+   
        
-        }
+        
     public function log_out(Request $request){
 
          Auth::guard()->logout();
