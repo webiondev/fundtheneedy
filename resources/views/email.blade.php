@@ -19,7 +19,7 @@
                             <h1 class="cta-title">{{$title}}</h1>
                             <div class="cta-desc">
                                 
-                                <p>{{$content}]</p>
+                                <p>{{$content}}</p>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
