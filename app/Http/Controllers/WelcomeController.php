@@ -54,5 +54,10 @@ class WelcomeController extends Controller
         return redirect()->back()->with('message', 'message send success');
     }
 
+    public function email(){
+
+        return view ('email');
+            }
+
  
 }

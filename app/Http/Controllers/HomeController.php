@@ -859,21 +859,17 @@ if(($request->email==auth()->user()->email)){
        $need_stat=$stat->DataTable();
 
 
-     
-         
+        $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(DB::raw("count(*) as count,category as category, users.country as country"))->groupBy('category')->get()->toArray();
 
-       // $data1=  User::join('need', 'need.user_id', '=', 'users.id')->select('users.country as 0', 'need.category as 1')->get()->toArray();
-$data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(DB::raw("count(*) as count,category as category, users.country as country"))->groupBy('category')->get()->toArray();
+            $type=Need::select('category')->get();
 
-    $type=Need::select('category')->get();
-
-        $statistics=array();
-       
-        foreach ($data as $key => $value) {
-            # code...
-           $statistics[0]= $value->country;
-             
-           $statistics[1]= $value->count;
+                $statistics=array();
+               
+                foreach ($data as $key => $value) {
+                    # code...
+                   $statistics[0]= $value->country;
+                     
+                   $statistics[1]= $value->count;
            
         
 
@@ -908,7 +904,7 @@ $data=DB::table('need')->join('users', 'need.user_id', '=', 'users.id')->select(
             
             return redirect()->to('/')->with('message', 'No statistics as of yet');
 
-        }
+                }
        
         }
     public function log_out(Request $request){
