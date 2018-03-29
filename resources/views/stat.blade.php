@@ -74,18 +74,30 @@
     </nav>
   </div>
   
-  @if(session()->has('warn'))
+  <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
 
-    <div class="alert alert-info">
-        {{ session()->get('warn') }}
+                <h1 class="logo-name">FN</h1>
 
+            </div>
+            <p>A place where charity flourishes
+                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+            </p>
+            <h3>Global Statistics</h3>
+          
+            
+          <p>Coming Soon </p>
+              <p> Here you can see what kinds of needs affect people. A statsitical distrbution for all countries which has fundtheneedy membership</p>
+
+
+        </div>
+        <hr>
+        <br>
+          <a href="{{Route('profile_me')}}"> Back to Dashboard </a>
+            <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
+               <small> A Mohammad Rahman Production</small>
     </div>
-
-
-  @else
-   <div id="pop-div" style="width:1000px;border:1px solid black; margin:auto"></div>
-      <?= $data->render('GeoChart', 'need_stat', 'pop-div') ?>
-   @endif
 </body>
 
 </html>
