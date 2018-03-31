@@ -72,7 +72,7 @@
 
             </div>
             <h3>Welcome to Fundtheneedy</h3>
-           
+            
             <p>A place where charity flourishes
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
@@ -84,6 +84,7 @@
         </div>
         <hr>
         <br>
+        <i>They ask thee what they should spend (In charity). Say: Whatever ye spend that is good, is for parents and kindred and orphans and those in want and for wayfarers. And whatever ye do that is good, -God knoweth it well. (Quran 2:215) </i>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>
