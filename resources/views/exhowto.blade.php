@@ -77,10 +77,10 @@
           <h5>For givers:<h5>
 
           <h5>Fill in your info<h5>
-             <div><img src="{{asset('img/reg2.png')}}" height='300' width='300' style="margin: auto;"></div>
+             <div><img src="{{asset('img/reg2.jpg')}}" height='300' width='300' style="margin: auto;"></div>
           <h5>Once you register you will receive an email of confirmation</h5>
           
-             <div><img src="{{asset('img/success1.png')}}"  width='300' style="margin: auto;"></div>
+             <div><img src="{{asset('img/success1.jpg')}}"  width='300' style="margin: auto;"></div>
 
             <h4>Step 2:</h4> 
 
@@ -88,20 +88,20 @@
 
             <h5>You will arrive on this page where you can add your plea/crowdfunding appeal</h5>
 
-             <div><img src="{{asset('img/seeker1.png')}}" height='300' width='300' style="margin: auto;"></div>
+             <div><img src="{{asset('img/seeker1.jpg')}}" height='300' width='300' style="margin: auto;"></div>
 
              <h4>Givers</h4>
              <h5>Givers can see all the plea on seekers page</h5>
-               <div><img src="{{asset('img/giver1.png')}}" height='300' width='450' style="margin: auto;"></div>
+               <div><img src="{{asset('img/giver1.jpg')}}" height='300' width='450' style="margin: auto;"></div>
 
               <h5>Givers can initiate interaction with seekers</h5>
               <h5>Givers can see all the plea on seekers page</h5>
-               <div><img src="{{asset('img/giver2.png')}}" height='300' width='450' style="margin: auto;"></div>
+               <div><img src="{{asset('img/giver2.jpg')}}" height='300' width='450' style="margin: auto;"></div>
 
                <h5>Once Giver has donated a fund or good he or she should confirm the donation so that seeker appeal is updated</h5>
 
 <h5>Giver can know more about seeker on know more page as well as knowing how many givers have corroborated this claim.</h5>
- <div><img src="{{asset('img/giver3.png')}}" height='300' width='450' style="margin: auto;"></div>
+ <div><img src="{{asset('img/giver3.jpg')}}" height='300' width='450' style="margin: auto;"></div>
 
 
         </div>
