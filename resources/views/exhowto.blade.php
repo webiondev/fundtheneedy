@@ -73,7 +73,7 @@
 
            <h5>Fill in your info<h5>
 
-           <div><img src="{{asset('img/reg1.png')}}" height='300' width='300' style="margin: auto;"></div>
+           <div><img src="{{asset('img/reg1.jpg')}}" height='300' width='300' style="margin: auto;"></div>
           <h5>For givers:<h5>
 
           <h5>Fill in your info<h5>
