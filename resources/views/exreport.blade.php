@@ -42,6 +42,7 @@
                   <li ><a href="{{Route('excontact')}}"> Contact </a></li>
                    <li ><a href="{{Route('exreport')}}"> Complaints </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
+                   <li ><a href="{{Route('exhowto')}}"> How To Use </a></li>
                   <li ><a href="{{url('/')}}"> Back to Main </a></li>
           
 

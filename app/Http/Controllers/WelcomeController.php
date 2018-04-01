@@ -37,6 +37,13 @@ class WelcomeController extends Controller
         
         return view('exreport');
     }
+
+       public function exhowto(){
+
+        
+        return view('exhowto');
+    }
+
     public function sendexreport(Request $request){
 
     
@@ -54,10 +61,7 @@ class WelcomeController extends Controller
         return redirect()->back()->with('message', 'message send success');
     }
 
-    // public function email(){
-
-    //     return view ('email');
-    //         }
+         //}
 
  
 }

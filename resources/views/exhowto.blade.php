@@ -6,30 +6,26 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
-    <title>Fundtheneedy | Welcome
-       
-    </title>
+
+    <title>Fundtheneedy | About</title>
 
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    
-
-
+    <meta name="description" content="Fundtheneedy is a crowdsourcing platform"/>
 
 </head>
 
 <body class="gray-bg">
-@if(session()->has('message'))
+   @if(session()->has('message'))
     <div class="alert alert-info">
         {{ session()->get('message') }}
 
     </div>
-@endif
-   <div class="container-fluid">
+@endif   
+    <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default">
       <div >
@@ -54,7 +50,8 @@
                    <li ><a href="{{Route('exreport')}}"> Complaints </a></li>
                   <li ><a href="{{Route('exterm')}}"> Terms of Service </a></li>
                    <li ><a href="{{Route('exhowto')}}"> How To Use </a></li>
-
+                  <li ><a href="{{url('/')}}"> Back to Main </a></li>
+          
 
             </ul>
         
@@ -62,49 +59,62 @@
       </div>
     </nav>
   </div>
-
-        
-          
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
-            <div>
-
-                <h1 class="logo-name">FN</h1>
-
-            </div>
-            <h3>Welcome to Fundtheneedy</h3>
             
-            <p>A place where charity flourishes
-                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
-            </p>
+          
+            <h3>How To Use</h3>
+          
+            <h4>Step 1: Registration  </h4>
+
             
-     			 <a class="btn btn-primary block full-width m-b" href="{{route('login')}}">Login</a>
-     			 <p class="text-muted text-center"><small>Do not have an account?</small></p>
-     			  <a class="btn btn-primary block full-width m-b" href="{{route('register')}}">Register</a>
+
+            <h5>For Seekers:<h5>
+
+           <h5>Fill in your info<h5>
+
+           <div><img src="{{asset('img/reg1.png')}}" height='300' width='300' style="margin: auto;"></div>
+          <h5>For givers:<h5>
+
+          <h5>Fill in your info<h5>
+             <div><img src="{{asset('img/reg2.png')}}" height='300' width='300' style="margin: auto;"></div>
+          <h5>Once you register you will receive an email of confirmation</h5>
+          
+             <div><img src="{{asset('img/success1.png')}}"  width='300' style="margin: auto;"></div>
+
+            <h4>Step 2:</h4> 
+
+            <h5>Seekers</h5>
+
+            <h5>You will arrive on this page where you can add your plea/crowdfunding appeal</h5>
+
+             <div><img src="{{asset('img/seeker1.png')}}" height='300' width='300' style="margin: auto;"></div>
+
+             <h4>Givers</h4>
+             <h5>Givers can see all the plea on seekers page</h5>
+               <div><img src="{{asset('img/giver1.png')}}" height='300' width='450' style="margin: auto;"></div>
+
+              <h5>Givers can initiate interaction with seekers</h5>
+              <h5>Givers can see all the plea on seekers page</h5>
+               <div><img src="{{asset('img/giver2.png')}}" height='300' width='450' style="margin: auto;"></div>
+
+               <h5>Once Giver has donated a fund or good he or she should confirm the donation so that seeker appeal is updated</h5>
+
+<h5>Giver can know more about seeker on know more page as well as knowing how many givers have corroborated this claim.</h5>
+ <div><img src="{{asset('img/giver3.png')}}" height='300' width='450' style="margin: auto;"></div>
+
 
         </div>
         <hr>
         <br>
-        <i>They ask thee what they should spend (In charity). Say: Whatever ye spend that is good, is for parents and kindred and orphans and those in want and for wayfarers. And whatever ye do that is good, -God knoweth it well. (Quran 2:215) </i>
+         <a href="{{url('/')}}"> Back to Main </a>
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
     </div>
 
-    <!-- Mainly scripts -->
-    <script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
+        <script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-   <!--  <script type="text/javascript">
-  
-     swal({
-  title: "Welcome!",
-  text: "Fundtheneedy is still under testing but you can join and be one of our founding members!",
-  icon: "info",
-  button: "Aww yiss!",
-});
-    </script> -->
+
 </body>
 
 </html>
-
- 
