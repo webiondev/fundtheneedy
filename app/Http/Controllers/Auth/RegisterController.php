@@ -123,12 +123,16 @@ class RegisterController extends Controller
             $message->to($data['email']);
 
         });
-    //     $message="Welcome to Fundtheneedy!";
-    //        Mail::send('newUser', function($message){
-    //     $message->from('support@fundtheneedy.com');
-    //     $message->subject('welcome');
-    //     $message->to($newUser['email']);
-    // });
+ 
+    Mail::send('email', ['title' => 'New Registration', 'content' => 'You have a new registration'], function ($message)  use ($data)
+        {
+
+            //$message->from('support@fundtheneedy.com', 'Fundtheneedy');
+            $message->subject('Fundtheneedy Registration Success');
+            $message->to('support@fundtheneedy.com');
+
+        });
+ 
 
 
            return $newUser;
