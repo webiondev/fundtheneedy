@@ -75,11 +75,9 @@
         <h2>Fundtheneedy Support</h2>
         <address>
           <strong><a href="mailto:support@fundtheneedy.com">support@fundtheneedy.com</a></strong><br>
-          Subang Jaya<br>
-          USJ 19<br>
-         Selangor<br>
-          Malaysia<br>
-          47630<br>
+           Uttara<br>
+          Dhaka<br>
+          Bangladesh<br>
             <a href="https://twitter.com/fundtheneedy" title="twitter" class="btn btn-social-icon btn-lg btn-twitter">
       <span class="fa fa-twitter"></span>
       </a>
