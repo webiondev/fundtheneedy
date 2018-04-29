@@ -760,7 +760,7 @@
         </address>
           </div>
           <div class="col-md-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Around the Web</h4>
+           <!--  <h4 class="text-uppercase mb-4">Around the Web</h4>
             <ul class="list-inline mb-0">
               <li class="list-inline-item">
                 <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
@@ -787,7 +787,7 @@
                   <i class="fa fa-fw fa-dribbble"></i>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </div>
           <div class="col-md-4" id="term">
             <h4 class="text-uppercase mb-4">Terms of Service</h4>
