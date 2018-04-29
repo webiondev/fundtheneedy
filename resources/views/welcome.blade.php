@@ -32,14 +32,14 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 
   </head>
-  @if(session()->has('message'))
+ 
+  <body id="page-top">
+ @if(session()->has('message'))
     <div class="alert alert-success">
-        {{ session()->get('message') }}
-        
+       <script> alert({{ session()->get('message') }})
+        </script>
     </div>
   @endif
-  <body id="page-top">
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
