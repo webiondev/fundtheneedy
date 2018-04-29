@@ -41,7 +41,7 @@ class WelcomeController extends Controller
     public function exreport(){
 
         
-        return view('exreport');
+        return view('welcome');
     }
 
        public function exhowto(){
