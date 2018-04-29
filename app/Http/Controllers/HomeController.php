@@ -464,10 +464,17 @@ if(($request->email==auth()->user()->email)){
         $message->save();
         $lastInsertedId = $message->id;
         $message->message_root=$lastInsertedId;
-        if($message->save())
+         $user=User::find($id1);
+       
+       
+     
 
+        if($message->save()){
+            $message_new=Message::find($lastInsertedId);
+            
+            $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
-
+        }
     }
 
     public function askseekerinfo($id1,$id2){
