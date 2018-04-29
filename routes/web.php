@@ -24,7 +24,7 @@ Route::get('/', function(){
 	 if(Auth::check()==true and auth()->user()->type=='seeker')
             return view('seekfund');
      elseif (Auth::check()==true and auth()->user()->type=='giver') {
-     	return view('terms');
+     	return view('welcome');
      }
 	return view('welcome');
 });
