@@ -36,7 +36,7 @@
   <body id="page-top">
  @if(session()->has('message'))
     <div class="alert alert-success">
-       <script> alert({{ session()->get('message') }})
+       <script> alert("Message Sent")
         </script>
     </div>
   @endif
