@@ -343,9 +343,10 @@ if(($request->email==auth()->user()->email)){
     public function deletemessage($id){
 
         $msg=Message::find($id);
-        
+
         if($msg->delete()){
-            
+        $count=Message::where('to_', "=", auth()->user()->id)->whereNull('message.deleted_at')->where('status', '=', '0')->count();                  
+            Session::put('count', ($count-1));
             return redirect()->back()->with('message', 'message deleted');
 
         }
@@ -462,14 +463,17 @@ if(($request->email==auth()->user()->email)){
             'need_id'=>$id2
         ]);
         $message->save();
-        $lastInsertedId = $message->id;
-        $message->message_root=$lastInsertedId;
-         $user=User::find($id1);
+        // $lastInsertedId = $message->id;
+        // $message->message_root=$lastInsertedId;
+        //  $user=User::find($id1);
        
        
      
 
         if($message->save()){
+            $lastInsertedId = $message->id;
+            $message->message_root=$lastInsertedId;
+             $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
             
             $user->notify(new NewMessage($message_new));
