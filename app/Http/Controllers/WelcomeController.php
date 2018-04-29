@@ -15,6 +15,12 @@ class WelcomeController extends Controller
         return view('exabout');
     }
 
+     public function welcome_v1(){
+
+        
+        return view('welcome_v1');
+    }
+
      public function exvision(){
 
     	

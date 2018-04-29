@@ -108,7 +108,7 @@
                  <li ><a href="{{Route('about')}}"> About Us </a></li>
                   <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
                   <li ><a href="{{Route('contact')}}"> Contact </a></li>
-                   <li ><a href="{{Route('report')}}"> Complaints </a></li>
+                   <!-- <li ><a href="{{Route('report')}}"> Complaints </a></li> -->
                   <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
                  
                   
@@ -131,7 +131,7 @@
                 </li>
 
             </ul>
-         <div class="row border-bottom">
+        <!--  <div class="row border-bottom"> -->
 
           <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -165,7 +165,7 @@
             @endif
 
         </div>
-      </div>
+      <!-- </div> -->
 
         </div>
         

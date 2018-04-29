@@ -46,7 +46,7 @@ class HomeController extends Controller
 public function about(){
 
       
-        return view('about');
+        return view('welcome');
     
             }
 
@@ -55,18 +55,18 @@ public function about(){
       public function vision(){
 
         
-        return view('vision');
+          return view('welcome');
     }
      public function contact(){
 
         
-        return view('contact');
+          return view('welcome');
     }
 
     public function term(){
 
         
-        return view('terms');
+         return view('welcome');
     }       
     Public function index(){
 

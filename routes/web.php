@@ -9,14 +9,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/exabout', 'WelcomeController@exabout')->name('exabout');
-Route::get('/exvision', 'WelcomeController@exvision')->name('exvision');
-Route::get('/excontact', 'WelcomeController@excontact')->name('excontact');
-Route::get('/exreport', 'WelcomeController@exreport')->name('exreport');
-Route::post('/sendexreport', 'WelcomeController@sendexreport')->name('sendexreport');
-Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
-Route::get('/exhowto', 'WelcomeController@exhowto')->name('exhowto');
+//Route::get('/welcome_v1', 'WelcomeController@welcome_v1')->name('welcome_v1');
+// Route::get('/exabout', 'WelcomeController@exabout')->name('exabout');
+// Route::get('/exvision', 'WelcomeController@exvision')->name('exvision');
+// Route::get('/excontact', 'WelcomeController@excontact')->name('excontact');
+// Route::get('/exreport', 'WelcomeController@exreport')->name('exreport');
+// Route::post('/sendexreport', 'WelcomeController@sendexreport')->name('sendexreport');
+// Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
+// Route::get('/exhowto', 'WelcomeController@exhowto')->name('exhowto');
 //Route::get('/email', 'WelcomeController@email');
 
 Route::get('/', function(){
