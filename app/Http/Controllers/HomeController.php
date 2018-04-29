@@ -346,7 +346,7 @@ if(($request->email==auth()->user()->email)){
 
         if($msg->delete()){
         $count=Message::where('to_', "=", auth()->user()->id)->whereNull('message.deleted_at')->where('status', '=', '0')->count();                  
-            Session::put('count', ($count-1));
+            //Session::put('count', ($count-1));
             return redirect()->back()->with('message', 'message deleted');
 
         }
