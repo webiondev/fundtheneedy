@@ -184,10 +184,10 @@
 
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     
     function forget(forget){
 
         Session::forget('count');
     }
-</script> -->
+</script>
