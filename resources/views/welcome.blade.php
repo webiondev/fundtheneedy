@@ -183,10 +183,10 @@
                         </div>
                     </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('email1') ? ' has-error' : '' }}">
                            
-                        <input type="email" name ="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required="">
-                         @if ($errors->has('email'))
+                        <input type="email" name ="email1" class="form-control" placeholder="Email" value="{{ old('email') }}" required="">
+                         @if ($errors->has('email1'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
