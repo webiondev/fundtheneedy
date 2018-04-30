@@ -126,7 +126,7 @@
         </div>
          @if( !(\Auth::check()))
         <div class="text-center mt-4">
-          <a class="btn btn-xl btn-outline-light" href="{{Route('register')}}">
+          <a class="btn btn-xl btn-outline-light" href="#register">
             <i class=" mr-2"></i>
             Register
           </a>
@@ -151,7 +151,7 @@
         </div>
          @if( !(\Auth::check()))
         <div class="text-center mt-4">
-          <a class="btn btn-xl btn-outline-light" href="{{Route('register')}}">
+          <a class="btn btn-xl btn-outline-light" href="#register">
             <i class=" mr-2"></i>
             Register
           </a>
