@@ -791,7 +791,7 @@
             </ul> -->
           </div>
           <div class="col-md-4" id="term">
-            <h4 class="text-uppercase mb-4">Terms of Service</h4>
+            <h4 class="text-center text-uppercase text-white">Terms of Service</h4>
             <p>Fundtheneedy must not be misused or abused in any way. You cannot fraud anyone. You must maintain honesty, integrity and sincerity in seeking aid or giving aid.</p>
 
           <p>Seekers must be careful in giving their personal information to recieve aid. This world goes a lot further with trust also. Seekers must maintain a proffesional relationship with the givers.</p>
