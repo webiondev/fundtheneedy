@@ -306,7 +306,7 @@
                         <h6>Once giver logs in can initiate donation</h6>
                         <img src="img/giver1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                         <h6>Various communications options</h6>
-                        <img src="img/giver2.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <img src="img/giver2.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                          <h6>Seeker details</h6>
                         <img src="img/giver3.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                       
