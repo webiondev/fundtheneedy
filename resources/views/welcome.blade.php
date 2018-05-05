@@ -262,8 +262,8 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-              <div class="m-t" id="fn-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+              <div class="m-t">
+                      
 
 
                       <!-- Upload image of user -->
@@ -271,7 +271,7 @@
                       <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
                         <h5>User Registration Seeker</h5>
                         <h6>Fill in Info</h6>
-                        <img src="img/reg1.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <img src="img/reg1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                        
 
                          </div>  
@@ -279,7 +279,7 @@
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
                         <h5>User Registration Giver</h5>
                         <h6>Fill in Info</h6>
-                        <img src="img/reg2.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <img src="img/reg2.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                        
 
                          </div> 
@@ -288,7 +288,7 @@
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
                         <h5>User Registration Notification</h5>
                         <h6>Check Email</h6>
-                        <img src="img/success1.png" class="form-control" alt="form" width="200px" height="100px"/>
+                        <img src="img/success1.jpg" class="form-control" alt="form" width="200px" height="100px"/>
                        
 
                          </div> 
@@ -296,7 +296,7 @@
                         <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
                         <h5>Seeker Add Plea</h5>
                         <h6>Once seeker logs in seeker can add the plea</h6>
-                        <img src="img/seeker1.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <img src="img/seeker1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                        
 
                          </div> 
@@ -304,11 +304,11 @@
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
                         <h5>Giver See Seekers List</h5>
                         <h6>Once giver logs in can initiate donation</h6>
-                        <img src="img/giver1.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <img src="img/giver1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                         <h6>Various communications options</h6>
                         <img src="img/giver2.png" class="form-control" alt="form" width="200px" height="500px"/>
                          <h6>Seeker details</h6>
-                        <img src="img/giver3.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <img src="img/giver3.jpg" class="form-control" alt="form" width="200px" height="500px"/>
                       
                          </div>  
 
