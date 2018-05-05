@@ -53,37 +53,38 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#about">About</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#vision">Vision</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#vision">Vision</a>
             </li>
 
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#contact">Contact</a>
             </li>
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#term">Terms of Service</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#term">Terms of Service</a>
             </li>
             @if( !(\Auth::check()))
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#register">Register</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#register">Register</a>
             </li>
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login">Login</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#login">Login</a>
             
             </li>
+           
             
              @endif 
         @if((\Auth::check()) and \Auth::user()->type== "seeker")
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{url('home')}}">Home</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">Home</a>
             
             </li>
             @endif
             @if( (\Auth::check()) and \Auth::user()->type=="giver")
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{url('home')}}">Home</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">Home</a>
             
             </li>
             @endif
@@ -133,6 +134,12 @@
           </a>
         </div>
         @endif
+          <div class="text-center mt-4">
+          <a class="btn btn-xl btn-outline-light" href="#how">
+            <i class=" mr-2"></i>
+            How to Use?
+          </a>
+        </div>
       </div>
     </section>
     <!-- Our Vision -->
@@ -158,6 +165,12 @@
           </a>
         </div>
       @endif
+        <div class="text-center mt-4">
+          <a class="btn btn-xl btn-outline-light" href="#how">
+            <i class=" mr-2"></i>
+            How to Use?
+          </a>
+        </div>
       </div>
     </section>
      <section id="contact">
@@ -239,6 +252,75 @@
           </div>
         </div>
       </div>
+    </section>
+    <!-- How to use? -->
+    <section id="how">
+      <div class="container">
+        <h4 class="text-center text-uppercase text-secondary mb-0">How to Use?</h4>
+        <hr class="star-dark mb-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+              <div class="m-t" id="fn-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+
+
+                      <!-- Upload image of user -->
+
+                      <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                        <h5>User Registration Seeker</h5>
+                        <h6>Fill in Info</h6>
+                        <img src="img/reg1.png" class="form-control" alt="form" width="200px" height="500px"/>
+                       
+
+                         </div>  
+
+                           <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                        <h5>User Registration Giver</h5>
+                        <h6>Fill in Info</h6>
+                        <img src="img/reg2.png" class="form-control" alt="form" width="200px" height="500px"/>
+                       
+
+                         </div> 
+
+
+                           <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                        <h5>User Registration Notification</h5>
+                        <h6>Check Email</h6>
+                        <img src="img/success1.png" class="form-control" alt="form" width="200px" height="100px"/>
+                       
+
+                         </div> 
+
+                        <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                        <h5>Seeker Add Plea</h5>
+                        <h6>Once seeker logs in seeker can add the plea</h6>
+                        <img src="img/seeker1.png" class="form-control" alt="form" width="200px" height="500px"/>
+                       
+
+                         </div> 
+
+                           <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                        <h5>Giver See Seekers List</h5>
+                        <h6>Once giver logs in can initiate donation</h6>
+                        <img src="img/giver1.png" class="form-control" alt="form" width="200px" height="500px"/>
+                        <h6>Various communications options</h6>
+                        <img src="img/giver2.png" class="form-control" alt="form" width="200px" height="500px"/>
+                         <h6>Seeker details</h6>
+                        <img src="img/giver3.png" class="form-control" alt="form" width="200px" height="500px"/>
+                      
+                         </div>  
+
+
+                        
+
+   
+
+          </div>
+        </div>
+      </div>
+    </div>
     </section>
     <!-- Register section -->
      @if( !(\Auth::check()))
