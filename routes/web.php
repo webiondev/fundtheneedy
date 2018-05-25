@@ -66,6 +66,7 @@ Route::get('/profile_this/{id}', 'HomeController@profileThis')->name('profile_th
 Route::get('/askseekeracc/{id1}/{id2}', 'HomeController@askseekeracc')->name('askseekeracc');
 Route::get('/askseekerinfo/{id1}/{id2}', 'HomeController@askseekerinfo')->name('askseekerinfo');
 Route::get('/askseekerver/{id1}/{id2}', 'HomeController@askseekerver')->name('askseekerver');
+Route::get('/pay_card/{id}', 'HomeController@pay_card')->name('pay_card');
 Route::get('/adfav/{id1}/{id2}', 'HomeController@addFav')->name('addfav');
 Route::get('/corroborate/{id1}/{id2}', 'HomeController@corroborate')->name('corroborate');
 Route::get('/corroborate_count/{id}', 'HomeController@corroborate_count')->name('corroborate_count');

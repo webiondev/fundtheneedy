@@ -892,7 +892,15 @@ if(($request->email==auth()->user()->email)){
         
      }
 
-   
+   public function pay_card($id){
+
+
+         $data = User::join('need', 'users.id', '=', 'need.user_id')
+
+            ->select('users.id','users.name','users.email','users.file','users.city','users.country','users.occupation', 'need.*')->where('need.id', $id)->get();                                                                              
+           
+        return view('payment')->with('data', $data);
+                   }
        
         
     public function log_out(Request $request){
