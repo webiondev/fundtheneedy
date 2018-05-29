@@ -33,7 +33,8 @@
                                 @endif
 
                          </div> 
-                          <button type="submit" class="btn btn-xs block full-width m-b">Upload pic</button>
+                         
+                          <button type="submit" class="btn btn-primary block full-width m-b">Upload pic</button>
 
                         </form>
            
