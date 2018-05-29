@@ -411,7 +411,7 @@ if(($request->email==auth()->user()->email)){
              $lastInsertedId = $message->id;
             $message_new=Message::find($lastInsertedId);
             
-            $user->notify(new NewMessage($message_new));
+            //$user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
 
     }}
