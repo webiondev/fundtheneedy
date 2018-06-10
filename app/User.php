@@ -32,10 +32,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function __construct(User $user){
+    // public function __construct(){
 
-        $this->user = $user;
-                }
+       
+    //             }
    public function need()
     {
         return $this->hasOne('App\Need');
