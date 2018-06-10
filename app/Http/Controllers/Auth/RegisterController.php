@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Notifications\NewMessage;
 use Intervention\Image\Facades\Image;
 
+use Illuminate\Auth\Events\Registered;
 
+use App\Jobs\SendVerificationEmail;
 class RegisterController extends Controller
 {
     /*
@@ -110,6 +112,7 @@ class RegisterController extends Controller
             'country'=>$data['country'],
             'type'=>$data['type'],
             'occupation'=>$data['occupation'],
+            'email_token' => base64_encode($data['email']),
             //'file'=>$file[1],
             'file'=>$file,
             

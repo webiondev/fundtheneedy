@@ -16,10 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     use SoftDeletes;
-
+    protected $user;
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'name', 'email', 'password','city', 'country', 'type','occupation','verify','deleted_at', 'file' 
+        'name', 'email', 'password','city', 'country', 'type','occupation',
+        'deleted_at', 'file', 'verified', 'email_token' 
     ];
 
     /**
@@ -31,6 +32,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function __construct($user;){
+
+        $this->user = $user;
+                }
    public function need()
     {
         return $this->hasOne('App\Need');
