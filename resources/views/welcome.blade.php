@@ -181,7 +181,7 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-             <form class="m-t" id="fn-form" method="POST" action="{{route('sendexreport')}}" enctype="multipart/form-data">
+             <form class="m-t" id="fn-form" method="POST" action="{{route('sendexreport')}}" enctype="multipart/form-data" autocomplete="off">
                      {{ csrf_field() }}
                 <div class="control-group">
                <!--  <div class="form-group floating-label-form-group controls mb-0 pb-2">      -->
@@ -269,46 +269,46 @@
                       <!-- Upload image of user -->
 
                       <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>User Registration Seeker</h5>
-                        <h6>Fill in Info</h6>
-                        <img src="img/reg1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
+                        <h5>User Registration: Seeker</h5>
+                        <h6>Fill in Info in registration form</h6>
+                        <!-- <img src="img/reg1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                        
 
                          </div>  
 
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>User Registration Giver</h5>
-                        <h6>Fill in Info</h6>
-                        <img src="img/reg2.jpg" class="form-control" alt="form" width="200px" height="500px"/>
+                        <h5>User Registration: Giver</h5>
+                        <h6>Fill in Info in registration form</h6>
+                       <!--  <img src="img/reg2.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                        
 
                          </div> 
 
 
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>User Registration Notification</h5>
-                        <h6>Check Email</h6>
-                        <img src="img/success1.jpg" class="form-control" alt="form" width="200px" height="100px"/>
+                        <h5>User Registration: Notification</h5>
+                        <h6>Check Email for successful registration</h6>
+                        <!-- <img src="img/success1.jpg" class="form-control" alt="form" width="200px" height="100px"/> -->
                        
 
                          </div> 
 
                         <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>Seeker Add Plea</h5>
+                        <h5>Add Plea: Seeker</h5>
                         <h6>Once seeker logs in seeker can add the plea</h6>
-                        <img src="img/seeker1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
+                        <!-- <img src="img/seeker1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                        
 
                          </div> 
 
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>Giver See Seekers List</h5>
+                        <h5>See Seekers List: Giver </h5>
                         <h6>Once giver logs in can initiate donation</h6>
-                        <img src="img/giver1.jpg" class="form-control" alt="form" width="200px" height="500px"/>
+                       <!--  <img src="img/giver1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                         <h6>Various communications options</h6>
-                        <img src="img/giver2.jpg" class="form-control" alt="form" width="200px" height="500px"/>
+                       <!--  <img src="img/giver2.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                          <h6>Seeker details</h6>
-                        <img src="img/giver3.jpg" class="form-control" alt="form" width="200px" height="500px"/>
+                       <!--  <img src="img/giver3.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                       
                          </div>  
 
@@ -332,7 +332,7 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-              <form class="m-t" id="fn-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+              <form class="m-t" id="fn-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -790,7 +790,7 @@
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-              <form class="m-t" role="form" action="{{route('login')}}" method="post">
+              <form class="m-t" role="form" action="{{route('login')}}" method="post" autocomplete="off">
                 {{ csrf_field() }}
                 @if (Session::has('message'))
                     <div class="alert alert-info">{{ Session::get('message') }}

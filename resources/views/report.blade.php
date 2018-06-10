@@ -77,7 +77,7 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Complaint</p>
-          <form class="m-t" id="fn-form" method="POST" action="{{route('sendreport')}}" enctype="multipart/form-data">
+          <form class="m-t" id="fn-form" method="POST" action="{{route('sendreport')}}" enctype="multipart/form-data" autocomplete="off">
                      {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
