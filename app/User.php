@@ -32,7 +32,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function __construct($user){
+    public function __construct(User $user){
 
         $this->user = $user;
                 }
