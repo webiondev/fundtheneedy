@@ -7,6 +7,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\iplogs;
+use URL;
+//use Location;
 class LoginController extends Controller
 {
     /*
@@ -46,19 +49,34 @@ class LoginController extends Controller
 
     public function login (Request $request){
 
+        $ip=  $request->getClientIp();
+        $iplog=new iplogs();
+         $refer= URL::previous();
+
+       
+
         if (Auth::attempt(['name' => $request->username, 'password' => $request->password])) {
+
 
         echo "success with username!";
 } 
 
 elseif (Auth::attempt(['email'=> $request->username, 'password' => $request->password])) {
+                    //set login status 
+$iplog->fill(['logged_in'=>1,'ipaddress'=>$ip, 'refer'=>$refer,'user_id'=>Auth::user()->id ]);
+            
+        $iplog->save();           
 
-        if(auth()->user()->type=='seeker')
+    
+        if(auth()->user()->type=='seeker'){
+
+
             return redirect()->route('seekfund');
-        else
+        }
+        else{//giver
 
             return redirect()->route('seeker');
-
+}
 } 
 
 
@@ -70,5 +88,10 @@ else {
 
 }
     }
+
+    //getIP
+
+    
+
 
 }
