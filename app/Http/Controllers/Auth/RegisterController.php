@@ -141,4 +141,27 @@ class RegisterController extends Controller
            return $newUser;
     }
 
+
+    public function register(Request $request)
+{
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        dispatch(new SendVerificationEmail($user));
+        return view(‘verification’);
+        }
+        /**
+        * Handle a registration request for the application.
+        *
+        * @param $token
+        * @return \Illuminate\Http\Response
+        */
+        public function verify($token)
+        {
+        $user = User::where('email_token',$token)->first();
+        $user->verified = 1;
+        if($user->save()){
+        return view('emailconfirm',['user'=>$user]);
+        }
+
+}
 }
