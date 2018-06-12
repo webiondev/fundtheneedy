@@ -22,12 +22,13 @@ Click the following link to verify your email {{url(‘/verifyemail/’.$email_t
                             <h1 class="cta-title">{{$title}}</h1>
                             <div class="cta-desc">
                                 
-                                <p>Click the following link to verify your email {{url('/verifyemail/'.$email_token)}}</p>
+                                <p>Click the following link to verify your email 
+                                    <a href="{{url('/verifyemail/'.$email_token)}}">Verify</a></p>
                             </div>
                         </div>
-                        <div class="col-md-3 cta-button">
+                       <!--  <div class="col-md-3 cta-button">
                             <a href="https://www.fundtheneedy.com" class="btn btn-lg btn-block btn-default">Go To FN</a>
-                        </div>
+                        </div> -->
                      </div>
                 </div>
 
