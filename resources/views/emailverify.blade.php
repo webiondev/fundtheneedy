@@ -16,7 +16,7 @@
                 <div class="bs-calltoaction bs-calltoaction-default">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">{{$title}}</h1>
+                            <h1 class="cta-title">Email verification</h1>
                             <div class="cta-desc">
                                 
                                 <p>Please verify your email.
