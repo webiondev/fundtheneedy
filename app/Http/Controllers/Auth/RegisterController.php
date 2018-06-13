@@ -135,6 +135,15 @@ class RegisterController extends Controller
             $message->to('support@fundtheneedy.com');
 
         });
+
+       Mail::send('emailverify', ['title' => 'Verify Email', 'content' => 'Please verify your email'], function ($message)  use ($data)
+        {
+
+            $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+            $message->subject('Email Verification');
+            $message->to($data['email']);
+
+        });
  
 
 
