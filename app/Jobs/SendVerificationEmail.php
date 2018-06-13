@@ -34,10 +34,10 @@ public $user;
      * @return void
      */
 
-    public function build()
-    {
-        return $this->markdown('emailconfirmed');
-    }
+    // public function build()
+    // {
+    //     return $this->markdown('emailconfirmed');
+    // }
     public function handle()
     {
         $email = new EmailVerification($this->user);
