@@ -1,15 +1,48 @@
-@extends('layouts.index')
-@section('content')
-<div class="container">
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
-<div class="panel panel-default">
-<div class="panel-heading">Registration</div>
-<div class="panel-body">
-You have successfully registered. An email is sent to you for verification.
-</div>
-</div>
-</div>
-</div>
-</div>
-@endsection
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fundtheneedy | Reset</title>
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../../css/animate.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">FN</h1>
+
+            </div>
+            <h3>Verify Email</h3>
+            <p>An email has been sent to your email for verification
+                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+            </p>
+           
+        
+            
+        </div>
+        <a href="{{url('/')}}"> Back to Main </a>
+        <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
+               <small> A Mohammad Rahman Production</small>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
