@@ -34,7 +34,7 @@ Route::middleware(['checkrole'])->group(/**
  */
     function () {
 
-    	
+
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/vision', 'HomeController@vision')->name('vision');
