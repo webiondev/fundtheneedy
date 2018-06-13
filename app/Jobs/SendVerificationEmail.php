@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Mail;
 use App\Mail\EmailVerification;
-use App/User;
+use App\User;
 
 class SendVerificationEmail extends Mailable  implements ShouldQueue
 {
