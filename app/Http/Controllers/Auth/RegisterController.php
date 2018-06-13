@@ -119,22 +119,22 @@ class RegisterController extends Controller
             
         ]);
 
-        // Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($data)
-        // {
-
-        //     $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-        //     $message->subject('Fundtheneedy Registration Success');
-        //     $message->to($data['email']);
-
-        // });
-       Mail::send('email', ['title' => 'Verify Email', 'content' => 'Please verify your email'], function ($message)  use ($data)
+        Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($data)
         {
 
             $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-            $message->subject('Email Verification');
+            $message->subject('Fundtheneedy Registration Success');
             $message->to($data['email']);
 
-        });  
+        });
+       // Mail::send('email', ['title' => 'Verify Email', 'content' => 'Please verify your email'], function ($message)  use ($data)
+       //  {
+
+       //      $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+       //      $message->subject('Email Verification');
+       //      $message->to($data['email']);
+
+       //  });  
  
     Mail::send('email', ['title' => 'New Registration', 'content' => 'You have a new registration'], function ($message)  use ($data)
         {
