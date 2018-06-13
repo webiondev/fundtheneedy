@@ -16,6 +16,7 @@ use Intervention\Image\Facades\Image;
 
 use Illuminate\Auth\Events\Registered;
 
+use App\Mail\EmailVerification;
 use App\Jobs\SendVerificationEmail;
 class RegisterController extends Controller
 {
