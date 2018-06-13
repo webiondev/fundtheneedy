@@ -20,7 +20,7 @@
                             <div class="cta-desc">
                                 
                                 <p>Please verify your email.
-                                    <a href="{{url('/verifyemail/'.$email_token)}}"></a>Verify</p>
+                                    <a href="{{url('/verifyemail/'.$email_token)}}">Verify</a></p>
                                 
                                 
                             </div>
