@@ -14,6 +14,7 @@ class SendVerificationEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+public $user;
     /**
      * Create a new job instance.
      *
@@ -32,6 +33,11 @@ class SendVerificationEmail implements ShouldQueue
      *
      * @return void
      */
+
+    public function build()
+    {
+        return $this->markdown('emailconfirmed');
+    }
     public function handle()
     {
         $email = new EmailVerification($this->user);
