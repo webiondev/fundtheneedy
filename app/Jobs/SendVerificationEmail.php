@@ -11,7 +11,7 @@ use Mail;
 use App\Mail\EmailVerification;
 use App/User;
 
-class SendVerificationEmail implements ShouldQueue
+class SendVerificationEmail extends Mailable  implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 

@@ -136,14 +136,14 @@ class RegisterController extends Controller
 
         });
 
-       Mail::send('emailverify', ['title' => 'Verify Email', 'content' => 'Please verify your email'], function ($message)  use ($data)
-        {
+       // Mail::send('emailverify', ['title' => 'Verify Email', 'content' => 'Please verify your email'], function ($message)  use ($data)
+       //  {
 
-            $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-            $message->subject('Email Verification');
-            $message->to($data['email']);
+       //      $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+       //      $message->subject('Email Verification');
+       //      $message->to($data['email']);
 
-        });
+       //  });
  
 
 
@@ -151,13 +151,13 @@ class RegisterController extends Controller
     }
 
 
-//     public function register(Request $request)
-// {
-//         $this->validator($request->all())->validate();
-//         event(new Registered($user = $this->create($request->all())));
-//         dispatch(new SendVerificationEmail($user));
-//         return view('verification');
-//         }
+    public function register(Request $request)
+{
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        dispatch(new SendVerificationEmail($user));
+        return view('verification');
+        }
         /**
         * Handle a registration request for the application.
         *
@@ -171,6 +171,12 @@ class RegisterController extends Controller
         if($user->save()){
         return view('emailconfirm',['user'=>$user]);
         }
+
+          protected function registered(Request $request, $user)
+    {
+        Mail::to($user)->send(new SendVerificationEmail($user));
+    }
+
 
 }
 }
