@@ -21,8 +21,8 @@ public $user;
      *
      * @return void
      */
-    protected $user;
-    public function __construct( User $user)
+   
+    public function __construct($user)
     {
         $this->user = $user;
     }
