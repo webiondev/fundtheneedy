@@ -12,7 +12,7 @@ use Illuminate\Mail\Mailable;
 use App\Mail\EmailVerification;
 use App\User;
 
-class SendVerificationEmail extends Mailable  implements ShouldQueue
+class SendVerificationEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
