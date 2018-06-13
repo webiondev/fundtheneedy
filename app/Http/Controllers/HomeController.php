@@ -654,7 +654,7 @@ if(($request->email==auth()->user()->email)){
         {
 
             $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-            $message->subject('Fundtheneedy Registration Success');
+            $message->subject('You have been verified');
             $message->to($user['email']);
 
         });                 
