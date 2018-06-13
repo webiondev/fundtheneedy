@@ -19,8 +19,8 @@
                             <h1 class="cta-title">{{$title}}</h1>
                             <div class="cta-desc">
                                 
-                                <p>{{content}}
-                                    <a href="{{url('/verifyemail/'.$email_token)}}"></a></p>
+                                <p>Please verify your email.
+                                    <a href="{{url('/verifyemail/'.$email_token)}}"></a>Verify</p>
                                 
                                 
                             </div>
