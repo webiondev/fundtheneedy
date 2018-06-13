@@ -78,7 +78,7 @@
            
             
              @endif 
-        @if((\Auth::check()) and \Auth::user()->type== "seeker")
+        @if((\Auth::check()) and \Auth::user()->type== "Seeker")
              <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">Home</a>
             
@@ -119,17 +119,17 @@
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p >Fundtheneedy is a crowdsourcing (a new form of crowdfunding) platform built in Laravel technology.It has two types of users: giver and seeker. Giver is the one who funds people where as seeker is the one acquiring the fund. This app has a mechanism of trust building called corroboration where givers can certify seekers as well as seekers can certify their claims through proofs. The final mode of crowdfunding takes place through exchange of transactional information where givers can transfer funds to bank account or goods to designated address.
+            <p >Fundtheneedy is a crowdsourcing (a new form of crowdfunding) platform built in Laravel technology.It has two types of users: giver and Seeker. Giver is the one who funds people where as Seeker is the one acquiring the fund. This app has a mechanism of trust building called corroboration where givers can certify Seekers as well as Seekers can certify their claims through proofs. The final mode of crowdfunding takes place through exchange of transactional information where givers can transfer funds to bank account or goods to designated address.
 
 </p>
           </div>
           <div class="col-lg-4 mr-auto">
            
-              <ul>No payment from seekers and givers</ul>
+              <ul>No payment from Seekers and givers</ul>
               <ul> However givers can be asked for voluntary donation</ul>
 <ul>Not only givers are able to donate money but also goods. So for example a poor farmer needs a machine and someone out of charity from China can ship him the machine.</ul>
-<ul>Seekers have to prove their claims. A giver has full flexibility to ask the seeker as to the merits and validity of the need.</ul>
-<ul>It is global and not based on country only so that people from one country can connect to people from another country. However if a person wishes he can filter seekers by country.</ul>
+<ul>Seekers have to prove their claims. A giver has full flexibility to ask the Seeker as to the merits and validity of the need.</ul>
+<ul>It is global and not based on country only so that people from one country can connect to people from another country. However if a person wishes he can filter Seekers by country.</ul>
 <ul>Mechanism so that only giver can start message initiation. This can help filter out those whose needs are not genuine.</ul>
           </div>
         </div>
@@ -302,8 +302,8 @@
 
                         <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
                         <h5>Add Plea: Seeker</h5>
-                        <h6>Once seeker logs in seeker can add the plea</h6>
-                        <!-- <img src="img/seeker1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
+                        <h6>Once Seeker logs in Seeker can add the plea</h6>
+                        <!-- <img src="img/Seeker1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
                        
 
                          </div> 
@@ -652,7 +652,7 @@
                             
                             <select id="type"  name="type" class="form-control" required> 
                                 <option selected disabled>Type</option>
-                                <option value="seeker">Seeker (Seeking Fund)</option>
+                                <option value="Seeker">Seeker (Seeking Fund)</option>
                                 <option value="giver">Giver (Giving Fund/Corroborate Seeker)</option>
                             </select>
                             
@@ -827,6 +827,53 @@
     </section>
 @endif
  
+   <section class="bg-primary text-white mb-0" id="faq">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Faq</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            
+              
+              <td><p><i>How does Fundtheneedy work?</i></p></td><br>
+              <td>Fundtheneedy has two kinds of users : Seekers who recieves donations from Givers. The donation exchange takes place either through bank transfer or card payment if it money or through delivery if these are goods</td><br><br>
+
+              <td><p><i>How does Seeker acquire the donation?</i></p></td><br>
+              <td>Depending on the type of donation (goods or money) Seeker can acquire the goods through Giver delivering and the money through bank transfer or paypal.</td><br><br>
+
+                <td><p><i>Do you charge for using Fundtheneedy</i></p></td><br>
+              <td>No! Fundtheneedy will be free forever. Voluntary donations may be added in future</td><br><br>
+
+              
+          </div>
+          <div class="col-lg-4 mr-auto">
+           
+               <td><p><i>Do you store our bank account and card information?</i></p></td><br>
+              <td>If Giver and Seeker wishes to exchange donation through bank, the bank information is stored as part of the messages that they exchange. For cards we do not store any information</td><br><br>
+
+               <td><p><i>What if I donate to a fraud account?</i></p></td><br>
+              <td>Fundtheneedy does not intermediate between Seeker and Giver. It is your responsibility to know who you are donating to. </td><br><br>
+
+               <td><p><i>What is trust building in Fundtheneedy?</i></p></td><br>
+              <td>A Seeker can get verified by Givers through corroboration. If enough Givers have verified a Seeker such a Seeker will have achieved a trust level.</td><br><br>
+          </div>
+        </div>
+         @if( !(\Auth::check()))
+        <div class="text-center mt-4">
+          <a class="btn btn-xl btn-outline-light" href="#register">
+            <i class=" mr-2"></i>
+            Register
+          </a>
+        </div>
+        @endif
+          <div class="text-center mt-4">
+          <a class="btn btn-xl btn-outline-light" href="#how">
+            <i class=" mr-2"></i>
+            How to Use?
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer text-center">
@@ -883,9 +930,9 @@
             <h4 class="text-center text-uppercase text-white">Terms of Service</h4>
             <p>Fundtheneedy must not be misused or abused in any way. You cannot fraud anyone. You must maintain honesty, integrity and sincerity in seeking aid or giving aid.</p>
 
-          <p>Seekers must be careful in giving their personal information to recieve aid. This world goes a lot further with trust also. Seekers must maintain a proffesional relationship with the givers.</p>
+          <p>Seekers must be careful in giving their personal information to recieve aid. This world goes a lot further with trust also. Seekers must maintain a proffesional relationship with the Givers.</p>
 
-          <p>Givers must only give aid and must not ask anything in exchange. Givers must maintain a proffesional relationship with the seekers.</p>
+          <p>Givers must only give aid and must not ask anything in exchange. Givers must maintain a proffesional relationship with the Seekers.</p>
               
           </div>
         </div>
