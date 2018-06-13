@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Mail;
 use App\Mail\EmailVerification;
+use App/User;
 
 class SendVerificationEmail implements ShouldQueue
 {
@@ -21,7 +22,7 @@ public $user;
      * @return void
      */
     protected $user;
-    public function __construct($user)
+    public function __construct( User $user)
     {
         $this->user = $user;
     }
