@@ -496,8 +496,13 @@ if(($request->email==auth()->user()->email)){
         $message->save();
         $lastInsertedId = $message->id;
         $message->message_root=$lastInsertedId;
-        if($message->save())
+        if($message->save()){
+             $user=User::find($id1);
+            $message_new=Message::find($lastInsertedId);
+            
+            $user->notify(new NewMessage($message_new));                     
             return redirect()->back()->with('message', 'message sent');
+        }
 
     }
 
@@ -515,9 +520,14 @@ if(($request->email==auth()->user()->email)){
         $message->save();
         $lastInsertedId = $message->id;
         $message->message_root=$lastInsertedId;
-        if($message->save())
-            return redirect()->back()->with('message', 'message sent');
+        if($message->save()){}
 
+             $user=User::find($id1);
+            $message_new=Message::find($lastInsertedId);
+            
+            $user->notify(new NewMessage($message_new));
+            return redirect()->back()->with('message', 'message sent');
+}
 
     }
 
@@ -634,6 +644,18 @@ if(($request->email==auth()->user()->email)){
 
         if(!(DB::table('corroborate')->where('need_id', $id2)->where('corroborate_by', auth()->user()->id)->first())) {
             if ($data->save()) {
+
+                 $user=User::find($id1);
+           
+
+        Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($data)
+        {
+
+            $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+            $message->subject('Fundtheneedy Registration Success');
+            $message->to($user['email']);
+
+        });                 
 
                 return redirect()->back()->with('message', 'You have corroborated this claim');
 
