@@ -642,13 +642,15 @@ if(($request->email==auth()->user()->email)){
         $data->need_id=$id2;
         $data->date=date("Y-m-d");
 
+       
+
         if(!(DB::table('corroborate')->where('need_id', $id2)->where('corroborate_by', auth()->user()->id)->first())) {
             if ($data->save()) {
 
-                 $user=User::find($id1);
-           
+            
+            $user=User::find($id1);
 
-        Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($data)
+        Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($user)
         {
 
             $message->from('support@fundtheneedy.com', 'Fundtheneedy');
