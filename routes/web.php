@@ -18,7 +18,7 @@ Route::post('/sendexreport', 'WelcomeController@sendexreport')->name('sendexrepo
 Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
 Route::get('/exhowto', 'WelcomeController@exhowto')->name('exhowto');
 //Route::get('/email', 'WelcomeController@email');
-Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+
 Route::get('/', function(){
 
 	 if(Auth::check()==true and auth()->user()->type=='seeker')
@@ -34,6 +34,8 @@ Route::middleware(['checkrole'])->group(/**
  */
     function () {
 
+    	
+Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/vision', 'HomeController@vision')->name('vision');
 Route::get('/contact', 'HomeController@contact')->name('contact');
