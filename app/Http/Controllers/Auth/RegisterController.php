@@ -81,7 +81,7 @@ class RegisterController extends Controller
     public function uploadfile(){
 
         
-          $request= Req::capture();  // This gives you the current 
+          $request= Request::capture();  // This gives you the current 
 
          //    //get file
             // $file =  $request->file('file')->store("public"); 
