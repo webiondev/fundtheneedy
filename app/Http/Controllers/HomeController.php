@@ -650,7 +650,7 @@ if(($request->email==auth()->user()->email)){
             
             $user=User::find($id1);
 
-        Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($user)
+        Mail::send('email', ['title' => 'Verification', 'content' => 'You have been verified by a user'], function ($message)  use ($user)
         {
 
             $message->from('support@fundtheneedy.com', 'Fundtheneedy');
