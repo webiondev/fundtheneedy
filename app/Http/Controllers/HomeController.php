@@ -520,7 +520,7 @@ if(($request->email==auth()->user()->email)){
         $message->save();
         $lastInsertedId = $message->id;
         $message->message_root=$lastInsertedId;
-        if($message->save()){}
+        if($message->save()){
 
              $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
