@@ -174,10 +174,10 @@ class RegisterController extends Controller
         return view('emailconfirm',['user'=>$user]);
         }
 
-          protected function registered(Request $request, $user)
-    {
-        Mail::to($user)->send(new SendVerificationEmail($user));
-    }
+    //       protected function registered(Request $request, $user)
+    // {
+    //     Mail::to($user)->send(new SendVerificationEmail($user));
+    // }
 
 
 }
