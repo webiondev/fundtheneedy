@@ -343,7 +343,7 @@ if(($request->email==auth()->user()->email)){
     public function deletemessage($id){
 
         $msg=Message::find($id);
-
+            
         if($msg->delete()){
         $count=Message::where('to_', "=", auth()->user()->id)->whereNull('message.deleted_at')->where('status', '=', '0')->count();
         if($count>0)                  
