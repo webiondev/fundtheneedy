@@ -37,7 +37,7 @@
 						<div class="table-container">
 							<table class="table table-filter">
 								<tbody>
-									<tr >
+									<tr class="inbox">
 										
 										<td>
 											
