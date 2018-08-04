@@ -32,7 +32,7 @@
     <li class="list-group-item">Occupation <span class="badge">{{$data_->occupation}}</span></li>
      <li class="list-group-item">Donated <span class="badge">{{$data_->amount}} [your currency]</span></li>
     
-    <li class="list-group-item">Donated for <span class="badge"><a href="{{Route('thisdonationdetails', $data_->id)}}">See Details</a></span></li>
+    <li class="list-group-item">Donated for <span class="badge"><a href="{{Route('thisdonationdetails', $data_->need_id)}}">See Details</a></span></li>
        <li class="list-group-item">Proof of Donation <span class="badge"><a href="{{asset('img/'.$data_->proof)}}" download>Download</a></span></li>
 
 
