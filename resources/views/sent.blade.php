@@ -21,14 +21,23 @@
 					<div class="panel-body">
 					 @foreach ($data as $messages)
 					 @if($messages->from==auth()->user()->id)
+							<div class="pull-right">
+						
+							<div class="btn-group">
+									
+					
+							</div>
 							
+
+							
+						</div>
 
 
 
 						<div class="table-container">
 							<table class="table table-filter">
 								<tbody>
-									<tr class="inbox">
+									<tr >
 										
 										<td>
 											
