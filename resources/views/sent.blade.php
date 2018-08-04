@@ -23,12 +23,7 @@
 					 @if($messages->from==auth()->user()->id)
 							<div class="pull-right">
 						
-							<div class="btn-group">
-				
-						
-									
-					
-							</div>
+							
 							
 
 							
