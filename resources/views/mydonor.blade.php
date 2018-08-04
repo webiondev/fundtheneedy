@@ -5,6 +5,8 @@
     <div class="container">
         <h3 class="site-title">Giver Information</h3>
         @foreach($data as $data_)
+       
+        
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
