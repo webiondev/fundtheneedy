@@ -21,13 +21,7 @@
 					<div class="panel-body">
 					 @foreach ($data as $messages)
 					 @if($messages->from==auth()->user()->id)
-							<div class="pull-right">
-						
 							
-							
-
-							
-						</div>
 
 
 
