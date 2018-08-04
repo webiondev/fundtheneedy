@@ -350,11 +350,12 @@
                     </div>
                 </div>
             </div>
-    	 </div>                 
+    	 </div> 
+	 @endif
 		</div>
 	</div>
 </div>
-@endif
+
 @endforeach
 {{$data->links()}}
 @endsection
