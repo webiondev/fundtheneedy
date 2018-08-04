@@ -26,7 +26,6 @@
 							<div class="btn-group">
 				
 						
-								   <!--<a  href="{{Route('deletemessage', $messages->id)}}" class="btn btn-warning btn-filter">Delete</a>-->
 									
 					
 							</div>
