@@ -884,7 +884,7 @@
            
         <address>
           <strong><a href="mailto:support@fundtheneedy.com">support@fundtheneedy.com</a></strong><br>
-           Uttara<br>
+           
           Dhaka<br>
           Bangladesh<br>
             <a href="https://twitter.com/fundtheneedy" title="twitter" class="btn btn-social-icon btn-lg btn-twitter">
