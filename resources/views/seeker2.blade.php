@@ -11,6 +11,8 @@
        ?>        
 
 <h3 class="site-title">Seekers</h3>
+<b>no seekers registered as of yet</b><br>
+		     <p>please check back later</p>
  @if (empty($data))
                      <b>no seekers registered as of yet</b><br>
 		     <p>please check back later</p>
