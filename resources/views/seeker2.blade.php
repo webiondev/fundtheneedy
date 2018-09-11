@@ -11,15 +11,16 @@
        ?>        
 
 <h3 class="site-title">Seekers</h3>
-
+ @if (empty($data))
+                     <b>no seekers registered as of yet</b><br>
+		     <p>please check back later</p>
+                     @endif
 @foreach($data as $data_)
 <div class="container">
        
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-		 @if (empty($data))
-                     <b>no seekers registered as of yet</b>
-                     @endif
+		
 @if ($i==0)
  <form id="seek_country"  action="{{Route('local')}}" method="GET">
        <div class="col-xs-9 col-sm-9 col-md-9">
