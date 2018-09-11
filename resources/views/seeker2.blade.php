@@ -11,12 +11,11 @@
        ?>        
 
 <h3 class="site-title">Seekers</h3>
-<b>no seekers registered as of yet</b><br>
-		     <p>please check back later</p>
- @if (empty($data))
+
+ @if($data->isEmpty())
                      <b>no seekers registered as of yet</b><br>
 		     <p>please check back later</p>
-                     @endif
+  @endif
 @foreach($data as $data_)
 <div class="container">
        
