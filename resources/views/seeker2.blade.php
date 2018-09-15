@@ -290,7 +290,7 @@
     	 <div >
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
-                    <h2>{{$data_->name}}</h2>
+                    <h2>{{$data_->name}}</h2> 
                     <p><strong>need category: </strong>{{$data_->category}} </p>
                     <p><strong>assistance type: </strong> {{$data_->medium}} </p>
                     <p><strong>deadline to get aid: </strong>
@@ -313,14 +313,7 @@
                         <span class="tags">{{$data_->country}}</span> 
                         
                     </p>
-                </div>             
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <img src="{{asset('img/'.$data_->file)}}" alt="" class="img-circle img-responsive">
-                       
-                    </figure>
-                </div>
-                 <div class="col-xs-12 col-sm-4 emphasis btn-group dropup btn-block">
+                       <div class="col-xs-12 col-sm-4 emphasis btn-group dropup btn-block">
                     <br>
                     
                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
@@ -341,6 +334,14 @@
                    
                    <!--  <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button> -->
                 </div>
+                </div>             
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <figure>
+                        <img src="{{asset('img/'.$data_->file)}}" alt="" class="img-circle img-responsive">
+                       
+                    </figure>
+                </div>
+              
             </div>            
             <div class="col-xs-12 divider text-center">
                 
