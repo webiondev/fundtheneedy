@@ -323,7 +323,7 @@
             </div>            
             <div class="col-xs-12 divider text-center">
                 
-                <div class="col-xs-12 col-sm-4 emphasis">
+                <div class="col-xs-12 col-sm-4 emphasis btn-group dropup btn-block">
                     <br>
                     
                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
