@@ -325,14 +325,14 @@
                 
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <br>
-                    <br>
+                    
                                       
                    
                     <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button>
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <br>
-                    <br>
+                   
                                        
                    
                     <div class="btn-group dropup btn-block">
