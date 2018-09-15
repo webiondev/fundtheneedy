@@ -323,13 +323,13 @@
             </div>            
             <div class="col-xs-12 divider text-center">
                 
-                <div class="col-xs-12 col-sm-4 emphasis">
+                <!-- <div class="col-xs-12 col-sm-4 emphasis">
                     <br>
                     
                                       
                    
                     <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button>
-                </div>
+                </div> -->
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <br>
                    
@@ -342,6 +342,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu text-left" role="menu">
+                            <li><a href="{{Route('profile_this', $data_->id)}}"  role="button">Know more</a></li>
                         <li><a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}"  role="button">ask bank account</a></li>
                         <li> <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}"  role="button">ask address/contact</a></li>
                         <li ><a href="{{Route('askseekerver', array($data_->user_id,$data_->id))}}"  role="button">ask verification</a></li>
