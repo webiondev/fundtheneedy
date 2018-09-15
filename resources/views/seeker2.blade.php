@@ -320,10 +320,7 @@
                        
                     </figure>
                 </div>
-            </div>            
-            <div class="col-xs-12 divider text-center">
-                
-                <div class="col-xs-12 col-sm-4 emphasis btn-group dropup btn-block">
+                 <div class="col-xs-12 col-sm-4 emphasis btn-group dropup btn-block">
                     <br>
                     
                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
@@ -344,6 +341,30 @@
                    
                    <!--  <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button> -->
                 </div>
+            </div>            
+            <div class="col-xs-12 divider text-center">
+                
+               <!--  <div class="col-xs-12 col-sm-4 emphasis btn-group dropup btn-block">
+                    <br>
+                    
+                   <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu text-left" role="menu">
+                            <li><a href="{{Route('profile_this', $data_->id)}}"  role="button">Know more</a></li>
+                        <li><a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}"  role="button">ask bank account</a></li>
+                        <li> <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}"  role="button">ask address/contact</a></li>
+                        <li ><a href="{{Route('askseekerver', array($data_->user_id,$data_->id))}}"  role="button">ask verification</a></li>
+                        <li> <a href="{{Route('corroborate',array($data_->user_id,$data_->id) )}}"  role="button">corroborate claim</a></li>
+                            <li><a href="{{Route('addfav', array($data_->user_id,$data_->id))}}"  role="button">add favorite</a></li>
+                        <li> <a href="{{Route('confirmthisdonation', $data_->id)}}"  role="button">confirm donation<sup>bank transfer</sup></a></li>
+                         <li><a href="{{Route('pay_card', $data_->id)}}"  role="button">pay by card</a></li> 
+                      </ul>  -->                  
+                   
+                   <!--  <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button> -->
+                <!-- </div> -->
                 <!-- <div class="col-xs-12 col-sm-4 emphasis">
                     <br>
                    
