@@ -369,7 +369,7 @@ if(($request->email==auth()->user()->email)){
             Session::put('count', $count);
         }
 
-        $root=DB::table('message')->where('created_at', '=',$id3)->get();
+        $root=DB::table('message')->where('created_at', '=',$id3)->where('id', '=', $id1)->get();
 
         $message=User::join('message', 'users.id', '=', 'message.from')
 

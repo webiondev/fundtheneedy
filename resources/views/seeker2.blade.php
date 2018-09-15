@@ -17,6 +17,7 @@
        
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+                    
 @if ($i==0)
  <form id="seek_country"  action="{{Route('local')}}" method="GET">
        <div class="col-xs-9 col-sm-9 col-md-9">
