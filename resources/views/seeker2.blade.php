@@ -344,12 +344,12 @@
                    
                    <!--  <button class="btn btn-info btn-block"><span class="fa fa-user"></span><a href="{{Route('profile_this', $data_->id)}}" class="btn btn-info btn-xs" role="button">know more</a></button> -->
                 </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
+                <!-- <div class="col-xs-12 col-sm-4 emphasis">
                     <br>
                    
                                        
                    
-                   <!--  <div class="btn-group dropup btn-block">
+                    <div class="btn-group dropup btn-block">
                       <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
                       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
@@ -365,8 +365,8 @@
                         <li> <a href="{{Route('confirmthisdonation', $data_->id)}}"  role="button">confirm donation<sup>bank transfer</sup></a></li>
                         <li><a href="{{Route('pay_card', $data_->id)}}"  role="button">pay by card</a></li> 
                       </ul>
-                    </div> -->
-                </div>
+                    </div> 
+                </div>-->
             </div>
     	 </div> 
 	 @endif
