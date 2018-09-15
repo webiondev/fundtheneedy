@@ -1,13 +1,26 @@
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116074766-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+   
 
-      gtag('config', 'UA-116074766-1');
-    </script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 799213066 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-799213066"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-799213066');
+</script>
+
+
+
+
+<!-- Event snippet for fundtheneedy conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-799213066/239QCK7ggYkBEIqMjP0C'});
+</script>
+
+
 
 <!--  -->
 <meta name="verifyownership" 
