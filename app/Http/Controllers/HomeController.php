@@ -354,7 +354,7 @@ if(($request->email==auth()->user()->email)){
 
     }
 
-    public function reply($id1,$id2,$id3)
+    public function reply($id1,$id2,$id3)//id, from, created_at
 
     {
         //reduce count by 1
@@ -369,11 +369,11 @@ if(($request->email==auth()->user()->email)){
             Session::put('count', $count);
         }
 
-        $root=DB::table('message')->where('created_at', '=',$id3)->where('id', '=', $id1)->get();
+        //$root=DB::table('message')->where('created_at', '=',$id3)->where('id', '=', $id1)->get();
 
         $message=User::join('message', 'users.id', '=', 'message.from')
 
-            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->Where('message_root', '=', $root[0]->message_root)->where('message.id', '=', $id1)->orderBy('created_at','DESC')->get();
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('users.id', '=', $id2)->where('users.id', '=', auth()->user()->id)->orderBy('created_at','DESC')->get();
         return view('reply')->with('id',$message);
 
     }
