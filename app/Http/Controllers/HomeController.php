@@ -473,7 +473,9 @@ if(($request->email==auth()->user()->email)){
 
         if($message->save()){
             $lastInsertedId = $message->id;
+
             $message->message_root=$lastInsertedId;
+            $message->save();
              $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
             
