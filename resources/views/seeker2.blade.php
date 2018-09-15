@@ -363,7 +363,7 @@
                         <li> <a href="{{Route('corroborate',array($data_->user_id,$data_->id) )}}"  role="button">corroborate claim</a></li>
                      	<li><a href="{{Route('addfav', array($data_->user_id,$data_->id))}}"  role="button">add favorite</a></li>
                         <li> <a href="{{Route('confirmthisdonation', $data_->id)}}"  role="button">confirm donation<sup>bank transfer</sup></a></li>
-                        <!-- <li><a href="{{Route('pay_card', $data_->id)}}"  role="button">pay by card</a></li> -->
+                        <li><a href="{{Route('pay_card', $data_->id)}}"  role="button">pay by card</a></li> 
                       </ul>
                     </div> -->
                 </div>
