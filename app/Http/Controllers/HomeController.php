@@ -463,19 +463,17 @@ if(($request->email==auth()->user()->email)){
             'message'=>'I am interested in helping you. please give me your bank account',
             'need_id'=>$id2
         ]);
-        //$message->save();
-        // $lastInsertedId = $message->id;
-        // $message->message_root=$lastInsertedId;
+        $message->save();
+        $lastInsertedId = $message->id;
+        $message->message_root=$lastInsertedId;
         //  $user=User::find($id1);
        
        
      
 
         if($message->save()){
-            $lastInsertedId = $message->id;
+            
 
-            $message->message_root=$lastInsertedId;
-            $message->save();
              $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
             
