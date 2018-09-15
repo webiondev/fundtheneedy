@@ -369,11 +369,11 @@ if(($request->email==auth()->user()->email)){
             Session::put('count', $count);
         }
 
-        //$root=DB::table('message')->where('created_at', '=',$id3)->where('id', '=', $id1)->get();Where('message_root', '=', $root[0]->message_root)->
+        $root=DB::table('message')->where('created_at', '=',$id3)->where('id', '=', $id1)->get();Where('message_root', '=', $root[0]->message_root)->
 
         $message=User::join('message', 'users.id', '=', 'message.from')
 
-            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.to_', '=', $id2)->orWhere('message.to_', '=', auth()->user()->id)->orderBy('created_at','DESC')->get();
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)->orWhere('message.to_', '=', auth()->user()->id)->orderBy('created_at','DESC')->get();
         return view('reply')->with('id',$message);
 
     }
