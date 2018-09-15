@@ -373,7 +373,7 @@ if(($request->email==auth()->user()->email)){
 
         $message=User::join('message', 'users.id', '=', 'message.from')
 
-            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)->where('message.to_', '=', $id2)->orderBy('created_at','DESC')->get();
+            ->select('users.id','users.file','users.name','users.email','users.city','users.country','users.occupation', 'message.*')->where('message.from', '=', auth()->user()->id)->andWhere('message.to_', '=', $id2)->orderBy('created_at','DESC')->get();
         return view('reply')->with('id',$message);
 
     }
