@@ -9,7 +9,7 @@
  <?php 
        $i=0;
        ?>        
-<?php dd($data); ?>
+
 <h3 class="site-title">Seekers</h3>
 
  @if($data->isEmpty())
