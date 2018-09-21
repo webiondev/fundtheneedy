@@ -397,5 +397,5 @@
 </div>
 
 @endforeach
-
+{{$data->links()}}
 @endsection
