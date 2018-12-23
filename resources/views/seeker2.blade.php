@@ -16,6 +16,7 @@
                      <b>no seekers registered as of yet</b><br>
 		     <p>please check back later</p>
   @endif
+{{$data->links()}}  
 @foreach($data as $data_)
 <div class="container">
        
@@ -396,5 +397,5 @@
 </div>
 
 @endforeach
-
+{{$data->links()}}
 @endsection
