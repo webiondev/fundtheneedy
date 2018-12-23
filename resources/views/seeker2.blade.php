@@ -285,8 +285,7 @@
       <?php $i++;
 
       ?>
-      
-      @if($data_->goods>0 || $data_->amount>0)
+      @if($data_->goods>0 || $data_->amount>0) 
     	 <div >
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
