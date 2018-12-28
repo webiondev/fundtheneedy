@@ -40,7 +40,7 @@ class RemindUsers extends Command
     {
 
               //$latest= User::where("type","seeker")->whereNull('deleted_at')->where('created_at', '<', now()->subDays(5))->get();
-              $latest=User::where("type", "seeker")->whereNull('deleted_at')->whereRaw("DATEDIFF(NOW(), created_at) > ?", [1])->get(); // users created > 10 days ago
+              $latest=User::where("type", "seeker")->whereNull('deleted_at')->whereRaw("DATEDIFF(NOW(), created_at) > ?", [3])->get(); // users created > 10 days ago
               $user = User::where("type","giver")->whereNull('deleted_at')->get();
               if(!$latest->isEmpty()){
               foreach($user as $user_)
@@ -53,7 +53,7 @@ class RemindUsers extends Command
 
                   $message->from('support@fundtheneedy.com', 'Fundtheneedy');
                   $message->subject('Reminder to Donate: Fundtheneedy!');
-                  $message->to('sokhter@yahoo.com');
+                  $message->to($user_->email);
 
               });
              }
