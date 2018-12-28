@@ -31,10 +31,20 @@ class CheckRole
 
            return Redirect::to('404');
 
-        elseif($request->is('thisdonationdetails') and auth()->user()->type=='giver')
+        elseif($request->is('thisdonationdetails/'.$request->id) and auth()->user()->type=='giver')
 
 
            return Redirect::to('404');
+
+      elseif($request->is('profile_this/'.$request->id) and auth()->user()->type=='seeker')
+
+
+              return Redirect::to('404');
+
+    elseif($request->is('confirmthisdonation/'.$request->id) and auth()->user()->type=='seeker')
+
+
+          return Redirect::to('404');
 
          elseif($request->is('mydonations') and auth()->user()->type=='seeker')
 
@@ -50,6 +60,11 @@ class CheckRole
 
 
            return Redirect::to('404');
+
+      elseif($request->is('reply/'.$request->id1.'/'.$request->id2.'/'.$request->id4.'/'.$request->id3) and auth()->user()->id!=$request->id4)
+
+
+             return Redirect::to('404');
 
 
 

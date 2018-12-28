@@ -76,7 +76,7 @@ Route::get('/mysent', 'HomeController@listsent')->name('mysent');
 Route::get('/confirmthisdonation/{id}', 'HomeController@confirmdonation')->name('confirmthisdonation');
  Route::post('/confirmingdonation', 'HomeController@confirmingdonation')->name('confirmingdonation');
 Route::get('/deletemessage/{id}', 'HomeController@deletemessage')->name('deletemessage');
-Route::get('/reply/{id1}/{id2}/{id3}', 'HomeController@reply')->name('reply');
+Route::get('/reply/{id1}/{id2}/{id4}/{id3}', 'HomeController@reply')->name('reply');
 Route::post('/replythis', 'HomeController@replythis')->name('replythis');
 Route::get('/seeker', 'HomeController@seeker')->name('seeker');
 
@@ -105,6 +105,6 @@ Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonat
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');
 Route::get('/report', 'HomeController@report')->name('report');
-
+Route::get('/admin_email_all', 'HomeController@admin_email_all')->name('admin_email_all');
 
 });

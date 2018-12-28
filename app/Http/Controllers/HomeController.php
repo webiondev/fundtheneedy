@@ -358,7 +358,7 @@ if(($request->email==auth()->user()->email)){
 
     }
 
-    public function reply($id1,$id2,$id3)//id, from, created_at
+    public function reply($id1,$id2,$id4,$id3)//id, from, created_at
 
     {
         //reduce count by 1

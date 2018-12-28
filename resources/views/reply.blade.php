@@ -43,6 +43,8 @@
                	<input type="hidden" name="root" value="{{$id_->message_root}}">
                	<input type="hidden" name="message_id" value="{{$id_->id}}">
                 <input type="hidden" name="need_id" value="{{$id_->need_id}}">
+                
+
                 <div class="form-group">
 				  <label for="comment">{{__('global.your_message')}}:</label>
 				  <textarea class="form-control" rows="5" id="comment" name="message"></textarea>
