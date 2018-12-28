@@ -45,29 +45,29 @@ class HomeController extends Controller
      */
 public function about(){
 
-      
+
         return view('welcome');
-    
+
             }
 
 
 
       public function vision(){
 
-        
+
           return view('welcome');
     }
      public function contact(){
 
-        
+
           return view('welcome');
     }
 
     public function term(){
 
-        
+
          return view('welcome');
-    }       
+    }
     Public function index(){
 
 
@@ -90,7 +90,11 @@ public function about(){
 
     public function searchneed(Request $request){
 
-        $data=Need::search($request->top_search)->paginate(10);
+      //  $data=Need::search($request->top_search)->paginate(10);
+        $data=User::join('need', 'users.id', '=', 'need.user_id')
+
+           ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')->where('need.category', '=', $request->top_search)->orderBy('need.created_at', 'DESC')->paginate(10);
+
 
 
         return view('seeker2')->with('data', $data);
@@ -98,19 +102,19 @@ public function about(){
 
      public function searchmessage(Request $request){
 
-       
+
              $data=Message::search($request->top_search)->Where('from', auth()->user()->id)->get();
 
              if (count($data)==0){
                 $data=Message::search($request->top_search)->Where('to_', auth()->user()->id)->get();
                  return view('search_result')->with('data', $data);
              }
-           
+
               return view('search_result')->with('data', $data);
 
         }
-        
-  
+
+
 
 
     public function displaythissearched($id){
@@ -131,7 +135,7 @@ public function about(){
     public function editprofile(Request $request)
     {
 
-          
+
 if(($request->email==auth()->user()->email)){
         $validated=$request->validate( [
             'name' => 'sometimes|nullable|string|max:255',
@@ -164,7 +168,7 @@ if(($request->email==auth()->user()->email)){
 
     }
 
-       
+
         if(empty($request->city)){
             $validated['city']=auth()->user()->city;
 
@@ -180,36 +184,36 @@ if(($request->email==auth()->user()->email)){
 
         }
 
-      
+
 
         try {
 
-        
+
             if(($request->email!=auth()->user()->email) and DB::table('users')->where('id', '=', auth()->user()->id)
                 ->update(array('name' => $validated['name'],'email' => $validated['email'],'password' => Hash::make($validated['password']),'city' => $validated['city'],'country' => $validated['country'],'occupation' => $validated['occupation'],
                    ))){
                 $user=User::find(auth()->user()->id);
                 return redirect::to('profile_me')->with('message', 'profile updated');
-                
+
             }
 
             elseif(($request->email==auth()->user()->email) and DB::table('users')->where('id', '=', auth()->user()->id)
                 ->update(array('name' => $validated['name'],'password' => Hash::make($validated['password']),'city' => $validated['city'],'country' => $validated['country'],'occupation' => $validated['occupation'],
                    ))){
                 $user=User::find(auth()->user()->id);
-                return redirect::to('profile_me')->with('message', 'profile updated'); 
+                return redirect::to('profile_me')->with('message', 'profile updated');
 
             {
 
                     $user=User::find(auth()->user()->id);
                 return redirect::to('profile_me')->with('message', 'profile updated');
             }
-     
+
         }
 
           }
-        
-        
+
+
         catch (\Illuminate\Database\QueryException $e) {
 
             $notification = array(
@@ -222,42 +226,42 @@ if(($request->email==auth()->user()->email)){
         }
     }
 
-    
+
 
 
     public function editprofilepic(Request $request){
 
          $validated=$request->validate( [
-          
+
             'file' => 'sometimes|nullable|image|max:1000',
 
         ]);;
 
 
             $file = $request->file('file');
-            
+
 
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $location = public_path('img/'. $filename);
             $file=Image::make($file)->resize(128,128)->save($location);
 
             $file->file = $filename;
-            
+
             if(DB::table('users')->where('id', '=', auth()->user()->id)
                 ->update(array('file'=>$file->file
                    ))){
                 $user=User::find(auth()->user()->id);
                 return redirect::to('profile_me')->with('message', 'profile pic updated');
             }
-                
-            
-         
+
+
+
 
     }
     public function deleteProfile(Request $request, $id){
 
         $user=User::find($id);
-       
+
 
         if ($request->isMethod('POST')){
 
@@ -269,7 +273,7 @@ if(($request->email==auth()->user()->email)){
 
             }}
         // return response()->json(['msg' => 'Account delete fail, Contact Fundtheneedy']);
-            
+
     }
 
     public function addFav ($id1,$id2){
@@ -284,13 +288,13 @@ if(($request->email==auth()->user()->email)){
         if(!(DB::table('favorite')->where('need_id', $id2)->where('favorite_to', auth()->user()->id)->first())) {
             if ($data->save()) {
 
-                return redirect()->back()->with('message', 'Added to your favorite list');
+                return redirect()->back()->with('message', __('global.added_to_fav'));
 
             }
         }
 
         else
-            return redirect()->back()->with('message', 'Already exists in your favorite list');
+            return redirect()->back()->with('message', __('global.already_added'));
 
 
     }
@@ -304,7 +308,7 @@ if(($request->email==auth()->user()->email)){
             ->join('favorite', 'favorite.need_id', '=', 'need.id')->select('users.name','users.email','users.city','users.country','users.occupation','users.type','need.*', 'favorite.created_at')->
             where('favorite.favorite_to', auth()->user()->id)->whereNull('favorite.deleted_at')
             ->paginate(10);
-         
+
 
         return view('fav')->with('data',$data);
     }
@@ -312,7 +316,7 @@ if(($request->email==auth()->user()->email)){
     public function remfav ($id){
 
          $data=Favorite::where('need_id', $id);
-       
+
           if ($data->delete())
 
              return  redirect()->back()->with('message', 'removed from favorite!');
@@ -343,10 +347,10 @@ if(($request->email==auth()->user()->email)){
     public function deletemessage($id){
 
         $msg=Message::find($id);
-            
+
         if($msg->delete()){
         $count=Message::where('to_', "=", auth()->user()->id)->whereNull('message.deleted_at')->where('status', '=', '0')->count();
-        if($count>0)                  
+        if($count>0)
             Session::put('count', ($count-1));
         return redirect()->back()->with('message', 'message deleted');
 
@@ -405,12 +409,12 @@ if(($request->email==auth()->user()->email)){
         );
 
         $user=User::find($to_);
-       
-       
+
+
         if($message->save()){
              $lastInsertedId = $message->id;
             $message_new=Message::find($lastInsertedId);
-            
+
             $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
 
@@ -427,8 +431,8 @@ if(($request->email==auth()->user()->email)){
 
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->paginate(10);                                                                                                                                                
-            
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount', '>', '0')->orWhere('goods', '>', '0')->paginate(10);
+
 
 
 
@@ -460,23 +464,23 @@ if(($request->email==auth()->user()->email)){
 
         $message->fill(['from'=>auth()->user()->id,
             'to_'=>$id1,
-            'message'=>'I am interested in helping you. please give me your bank account',
+            'message'=>__('global.ask_bank_message'),
             'need_id'=>$id2
         ]);
         $message->save();
         $lastInsertedId = $message->id;
         $message->message_root=$lastInsertedId;
         //  $user=User::find($id1);
-       
-       
-     
+
+
+
 
         if($message->save()){
-            
+
 
              $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
-            
+
             $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
         }
@@ -490,7 +494,7 @@ if(($request->email==auth()->user()->email)){
 
         $message->fill(['from'=>auth()->user()->id,
             'to_'=>$id1,
-            'message'=>'I am interested in helping you. please give me your contact info',
+            'message'=>__('global.ask_info'),
             'need_id'=>$id2
         ]);
         $message->save();
@@ -499,8 +503,8 @@ if(($request->email==auth()->user()->email)){
         if($message->save()){
              $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
-            
-            $user->notify(new NewMessage($message_new));                     
+
+            $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
         }
 
@@ -514,7 +518,7 @@ if(($request->email==auth()->user()->email)){
 
         $message->fill(['from'=>auth()->user()->id,
                 'to_'=>$id1,
-                'message'=>'I am interested in helping you. please give me your claim\'s verification. You can email me '.auth()->user()->email,
+                'message'=>__('global.verify_msg').auth()->user()->email,
                 'need_id'=>$id2,]
         );
         $message->save();
@@ -524,7 +528,7 @@ if(($request->email==auth()->user()->email)){
 
              $user=User::find($id1);
             $message_new=Message::find($lastInsertedId);
-            
+
             $user->notify(new NewMessage($message_new));
             return redirect()->back()->with('message', 'message sent');
 }
@@ -544,13 +548,15 @@ if(($request->email==auth()->user()->email)){
             ->get();
 
 
-      
-      
+
+
         return view('confirmed_donation')->with('data', $data);
 
 
 
     }
+
+
 
     public function confirmingdonation(Request $request){
 
@@ -559,7 +565,7 @@ if(($request->email==auth()->user()->email)){
             'amount' => 'Numeric',
             'quantity' => 'Integer',
             'date' => 'required|date',
-            'file' => 'required | image|max:1000',
+            'file' => 'required|image|max:1000',
 
 
         ]);
@@ -618,7 +624,7 @@ if(($request->email==auth()->user()->email)){
 
             $lastInsertedId = $donation->id;
             $donation_new=Donation::find($lastInsertedId);
-            
+
             $user->notify(new NewDonation($donation_new));
 
             return redirect()->back()->with('message', 'Confirmed!');
@@ -642,12 +648,12 @@ if(($request->email==auth()->user()->email)){
         $data->need_id=$id2;
         $data->date=date("Y-m-d");
 
-       
+
 
         if(!(DB::table('corroborate')->where('need_id', $id2)->where('corroborate_by', auth()->user()->id)->first())) {
             if ($data->save()) {
 
-            
+
             $user=User::find($id1);
 
         Mail::send('email', ['title' => 'Verification', 'content' => 'You have been verified by a user'], function ($message)  use ($user)
@@ -657,7 +663,7 @@ if(($request->email==auth()->user()->email)){
             $message->subject('You have been verified');
             $message->to($user['email']);
 
-        });                 
+        });
 
                 return redirect()->back()->with('message', 'You have corroborated this claim');
 
@@ -686,13 +692,13 @@ if(($request->email==auth()->user()->email)){
 
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')->where('amount', '>', '0')->orWhere('goods', '>', '0')
             ->paginate(10);
 
 
 
         if(empty($data[0]))
-           return  redirect()->back()->with('message', 'No seekers found in'.' '.$request->country);
+           return  redirect()->back()->with('message', __('global.no_seekers_found').' '.$request->country);
 
         else
              //return  redirect()->back()->with('data',$data);
@@ -735,7 +741,7 @@ if(($request->email==auth()->user()->email)){
 
         //add new plea
         $validated=$request->validate( [
-            'description' => 'required|string|max:1000',
+            'description' => 'required|string|min:100|max:1000',
             'category' => 'required',
             'deadline' => 'required|date',
             'verify'=>'required',
@@ -743,7 +749,7 @@ if(($request->email==auth()->user()->email)){
             'amount'=>'Numeric',
             'currency'=>'string',
             'goods'=>'Integer',
-            'file' => 'required | image|max:1000',
+            'file' => 'required |image|max:1024',
 
 
         ]);
@@ -798,7 +804,7 @@ if(($request->email==auth()->user()->email)){
             ->join('donation', 'donation.donated_by', '=', 'users.id')->select('users.*', 'donation.donated_by','donation.amount', 'donation.quantity','donation.file as proof' , 'donation.date', 'donation.need_id')->
             where('donation.donated_for', auth()->user()->id)
             ->paginate(10);
-        
+
         return view('mydonor')->with('data',$data);
 
     }
@@ -816,7 +822,7 @@ if(($request->email==auth()->user()->email)){
 
         $count_corroboration=DB::table('corroborate')->where('need_id', $id)->groupBy('need_id')->count();
 
-    
+
 
         return view('listthisdonation')->with('data', array($data, $count_corroboration));
     }
@@ -860,7 +866,7 @@ if(($request->email==auth()->user()->email)){
         return view('mydonation')->with('data',$data);
     }
 
-   
+
 
     // public function test(Request $request){
 
@@ -870,17 +876,17 @@ if(($request->email==auth()->user()->email)){
 
       public function report(){
 
-        
+
         return view('report');
     }
       public function sendreport(Request $request){
 
-    
+
 
         Mail::send('email', ['title' => 'Complaint', 'content' => $request->complaint], function ($message)  use ($request)
         {
 
-          
+
             $message->replyTo($request->email, $request->name);
             $message->subject($request->subject);
             $message->to('support@fundtheneedy.com', 'fundtheneedy');
@@ -900,20 +906,20 @@ if(($request->email==auth()->user()->email)){
 
         $data= Stat::select("country as 0","category as 1", "count as 2")->get()->toArray();
 
-           
+
 
 
         $need_stat->addStringColumn('country')
           ->addStringColumn('category')
           ->addNumberColumn('count');
-      
+
 
         $need_stat->addRows($data);
-           
+
          $stat->GeoChart('need_stat', $need_stat);
-         
+
           return view('stat')->with('data', $stat);
-        
+
      }
 
    public function pay_card($id){
@@ -921,12 +927,12 @@ if(($request->email==auth()->user()->email)){
 
          $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.file','users.city','users.country','users.occupation', 'need.*')->where('need.id', $id)->get();                                                                              
-           
+            ->select('users.id','users.name','users.email','users.file','users.city','users.country','users.occupation', 'need.*')->where('need.id', $id)->get();
+
         return view('payment')->with('data', $data);
                    }
-       
-        
+
+
     public function log_out(Request $request){
 
          Auth::guard()->logout();

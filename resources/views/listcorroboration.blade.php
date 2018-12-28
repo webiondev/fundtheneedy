@@ -6,7 +6,7 @@
     <div class="main-content">
 
         <div class="container">
-            <h3 class="site-title">Corroborators</h3>
+            <h3 class="site-title">{{__('global.corroborators')}}</h3>
 
             @foreach($data as $data_)
                 <div class="row">
@@ -23,13 +23,13 @@
                                     <div class="col-md-7">
                                         <div class="profile-block">
                                             <ul class="list-group">
-                                                <li class="list-group-item">Name <span class="badge">{{$data_->name}}</span></li>
-                                                <li class="list-group-item">Email <span class="badge">{{$data_->email}}</span></li>
-                                                <li class="list-group-item">City <span class="badge">{{$data_->city}}</span></li>
-                                                <li class="list-group-item">Country <span class="badge">{{$data_->country}}</span></li>
-                                                <li class="list-group-item">Type<span class="badge">{{$data_->type}}</span></li>
+                                                <li class="list-group-item">{{__('global.name')}} <span class="badge">{{$data_->name}}</span></li>
+                                                <li class="list-group-item">{{__('global.email')}} <span class="badge">{{$data_->email}}</span></li>
+                                                <li class="list-group-item">{{__('global.city')}} <span class="badge">{{$data_->city}}</span></li>
+                                                <li class="list-group-item">{{__('global.country')}} <span class="badge">{{$data_->country}}</span></li>
+                                                <li class="list-group-item">{{__('welcome.type')}}<span class="badge">{{$data_->type}}</span></li>
 
-                                                <li class="list-group-item">Occupation <span class="badge">{{$data_->occupation}}</span></li>
+                                                <li class="list-group-item">{{__('global.occupation')}} <span class="badge">{{$data_->occupation}}</span></li>
 
 
 

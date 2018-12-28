@@ -53,21 +53,21 @@ class LoginController extends Controller
         $iplog=new iplogs();
          $refer= URL::previous();
 
-       
+
 
         if (Auth::attempt(['name' => $request->username, 'password' => $request->password])) {
 
 
         echo "success with username!";
-} 
+}
 
 elseif (Auth::attempt(['email'=> $request->username, 'password' => $request->password])) {
-                    //set login status 
+                    //set login status
 $iplog->fill(['logged_in'=>1,'ipaddress'=>$ip, 'refer'=>$refer,'user_id'=>Auth::user()->id ]);
-            
-        $iplog->save();           
 
-    
+        $iplog->save();
+
+
         if(auth()->user()->type=='seeker'){
 
 
@@ -77,21 +77,21 @@ $iplog->fill(['logged_in'=>1,'ipaddress'=>$ip, 'refer'=>$refer,'user_id'=>Auth::
 
             return redirect()->route('seeker');
 }
-} 
+}
 
 
 else {
        // \Session::flash('message', "email/password wrong");
        //  return redirect()->route;
 
-    return redirect('login')->with('message', 'Email/Password Wrong!');
+    return redirect('login')->with('message', __('validation.credentials'));
 
 }
     }
 
     //getIP
 
-    
+
 
 
 }

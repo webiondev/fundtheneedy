@@ -4,17 +4,17 @@
 @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
-        
+
     </div>
 @endif
-<?php 
+<?php
        $i=0;
-       ?> 
+       ?>
     <div class="container">
 	<div class="row">
-		
+
 		<section class="content">
-				  <h3 class="site-title">My Sent</h3>
+				  <h3 class="site-title">{{__('global.my_sent')}}</h3>
 
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
@@ -22,14 +22,14 @@
 					 @foreach ($data as $messages)
 					 @if($messages->from==auth()->user()->id)
 							<div class="pull-right">
-						
-							<div class="btn-group">
-									
-					
-							</div>
-							
 
-							
+							<div class="btn-group">
+
+
+							</div>
+
+
+
 						</div>
 
 
@@ -38,9 +38,9 @@
 							<table class="table table-filter">
 								<tbody>
 									<tr class="inbox">
-										
+
 										<td>
-											
+
 											<div class="media">
 												<a href="#" class="pull-left">
 													<img src="/img/{{$messages->file}}" class="media-photo">
@@ -49,22 +49,22 @@
 
 													<span class="media-meta pull-right">{{$messages->created_at}}</span>
 													<h4 class="title">
-														
-														From: {{$messages->name}}
-														
+
+													{{__('global.from')}}: {{$messages->name}}
+
 														<span class="pull-right"></span>
 													</h4>
 													<p class="summary">{{$messages->message}}</p>
-													
+
 												</div>
 											</div>
-											
+
 
 										</td>
 									</tr>
-									
-								
-									
+
+
+
 								</tbody>
 							</table>
 						</div>
@@ -72,10 +72,10 @@
 						@endforeach
 					</div>
 				</div>
-			
+
 			</div>
 		</section>
-		
+
 	</div>
 </div>
 

@@ -25,11 +25,11 @@
                 <h1 class="logo-name">FN</h1>
 
             </div>
-            <h3>Welcome to Fundtheneedy</h3>
-            <p>A place where charity flourishes
+            <h3>{{__('global.welcome_to')}}</h3>
+            <p>{{__('welcome.a_place_where_charity_flourishes')}}
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
-            <p>Send Password Reset Link</p>
+            <p>{{__('global.send_reset')}}</p>
            <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -43,24 +43,24 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <!-- <label for="email" class="col-md-4 control-label">E-Mail Address</label> -->
                              <div class="form-group">
-                    <input type="email" id="email" name ="email" class="form-control" placeholder="Email"  value="{{ old('email') }}" required>
+                    <input type="email" id="email" name ="email" class="form-control" placeholder="{{__('global.email')}}"  value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                   
+
                 </div>
 
                         </div>
-      <button type="submit" class="btn btn-primary block full-width m-b">Send Password Reset Link</button>
+      <button type="submit" class="btn btn-primary block full-width m-b">{{__('global.send_reset')}}</button>
                     </form>
-            
+
         </div>
-        <a href="{{url('/')}}"> Back to Main </a>
-        <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
-               <small> A Mohammad Rahman Production</small>
+        <a href="{{url('/')}}"> {{__('global.main')}} </a>
+        <p class="m-t"> <small>{{__('welcome.copyright')}} &copy; {{__('welcome.fundtheneedy_2018')}}</small></p>
+               <small> {{__('welcome.rahman')}}</small>
     </div>
 
     <!-- Mainly scripts -->
@@ -70,4 +70,3 @@
 </body>
 
 </html>
-

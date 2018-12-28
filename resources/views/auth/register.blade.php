@@ -41,30 +41,30 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
                     </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                           
+
                         <input type="email" name ="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required="">
                          @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                           
+
                         <input type="password" name ="password" class="form-control" placeholder="Password" required="">
                          @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                            <div class="form-group">
@@ -72,18 +72,18 @@
                          </div>
 
                           <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-                           
+
                         <input type="city" name ="city" class="form-control" placeholder="City" required="">
                          @if ($errors->has('city'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('city') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                           <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-                           
+
                      <select class="form-control" class="select-picker" name="country">
                             <option selected disabled>Select Country</option>
                             <option value="AF">Afghanistan</option>
@@ -194,7 +194,7 @@
                             <option value="IQ">Iraq</option>
                             <option value="IE">Ireland</option>
                             <option value="IM">Isle of Man</option>
-                            
+
                             <option value="IT">Italy</option>
                             <option value="JM">Jamaica</option>
                             <option value="JP">Japan</option>
@@ -336,20 +336,20 @@
                             <option value="ZM">Zambia</option>
                             <option value="ZW">Zimbabwe</option>
                           </select>
-                        
+
                         </div>
 
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            
-                            <select id="type"  name="type" class="form-control" required> 
+
+                            <select id="type"  name="type" class="form-control" required>
                                 <option selected disabled>Type</option>
                                 <option value="seeker">Seeker (Seeking Fund)</option>
                                 <option value="giver">Giver (Giving Fund/Corroborate Seeker)</option>
                             </select>
                             
 
-                        
-                        
+
+
                         </div>
 
                            <div class="form-group{{ $errors->has('occupation') ? ' has-error' : '' }}">
@@ -453,8 +453,8 @@
               </div>
 
                        <!--  <div id="add_verify"  class="form-group{{ $errors->has('verify') ? ' has-error' : '' }}">
-                          
-   
+
+
                         </div> -->
 
                       <!-- Upload image of user -->
@@ -466,21 +466,21 @@
                                     </span>
                                 @endif
 
-                         </div>  
+                         </div>
                         </div>
 
                         <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
-                    
 
-                 
+
+
                     </form>
                              <a href="{{url('/')}}"> Back to Main </a>
 
             <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
                <small> A Mohammad Rahman Production</small>
-             
+
         </div>
-         
+
     </div>
 
     <!-- Mainly scripts -->
@@ -490,10 +490,10 @@
    <!--  <script type="text/javascript">
 
 
-       
+
          $('#type').change(function(){
              if( $(this).val() == 'seeker'){
-                
+
            $('#add_verify').append('<div id="new-field"><select id="verify" name="verify" class="form-control" required><option selected disabled>Verify</option><option value="I can verify my claim">I can verify my claim</option><option value="I cannot verify my claim">I cannot verify my claim</option></select></div>');
        }
 
@@ -503,12 +503,10 @@
 
        }
          });
-       
+
 
     </script> -->
 
 </body>
 
 </html>
-
- 

@@ -22,7 +22,7 @@
         <div>
             <div>
 
-                <h1 class="logo-name">IN+</h1>
+                <h1 class="logo-name">FN</h1>
 
             </div>
             <h3>Welcome to Fundtheneedy</h3>
@@ -43,9 +43,9 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                   
+
                 </div>
-                    
+
                                  <div class="form-group">
                     <input type="password" id="password" name ="password" class="form-control" placeholder="Password"   required>
 
@@ -54,13 +54,13 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                   
+
                 </div>
-                        
+
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 
-                             
+
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
 
                                 @if ($errors->has('password_confirmation'))
@@ -68,13 +68,13 @@
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                 @endif
-                         
-                         
+
+
                         </div>
 
                        <button type="submit" class="btn btn-primary block full-width m-b">Reset Password</button>
                     </form>
-            
+
         </div>
         <a href="{{url('/')}}"> Back to Main </a>
         <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
@@ -88,4 +88,3 @@
 </body>
 
 </html>
-

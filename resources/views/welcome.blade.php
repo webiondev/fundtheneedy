@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-<meta name="verifyownership" 
+<meta name="verifyownership"
  content="61595b65c75b09a950383c94111c52fb"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +16,7 @@
 
       gtag('config', 'UA-116074766-1');
     </script>
-   
+
     <title>Fundtheneedy</title>
 
     <!-- Bootstrap core CSS -->
@@ -34,7 +34,7 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 
   </head>
- 
+
   <body id="page-top">
  @if(session()->has('message'))
     <div class="alert alert-success">
@@ -45,7 +45,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 21px">Fundtheneedy</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 21px">{{__('welcome.fundtheneedy')}}<sup><a href="{{url('language', 'en')}}">en</a></sup><sup><a href="{{url('language', 'ar')}}">عربى</a></sup></a>
+
 
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -54,48 +55,49 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto" style="font-size: 16px">
             <li class="nav-item mx-0 mx-lg-1" >
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#about">About</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#about">{{__('welcome.about')}}</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#vision">Vision</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#vision">{{__('welcome.vision')}}</a>
             </li>
 
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#contact">Contact</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#contact">{{__('welcome.contact')}}</a>
             </li>
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#term">Terms of Service</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#term">{{__('welcome.term')}}</a>
             </li>
             @if( !(\Auth::check()))
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#register">Register</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#register">{{__('welcome.register')}}</a>
             </li>
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#login">Login</a>
-            
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#login">{{__('welcome.login')}}</a>
+
             </li>
 
-           
-            
-             @endif 
+
+
+             @endif
         @if((\Auth::check()) and \Auth::user()->type== "Seeker")
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">Home</a>
-            
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">{{__('welcome.home')}}</a>
+
             </li>
             @endif
             @if( (\Auth::check()) and \Auth::user()->type=="giver")
              <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">Home</a>
-            
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="{{url('home')}}">{{__('welcome.home')}}</a>
+
             </li>
             @endif
         <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#faq">FAQ</a>
-            
+              <a class="nav-link py-3 px-0 px-lg-3 rounded " href="#faq">{{__('welcome.faq')}}</a>
+
             </li>
-             
+
           </ul>
+
         </div>
       </div>
     </nav>
@@ -104,47 +106,47 @@
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="img/fn.png" alt="">
-        <h1 class="text-uppercase mb-0" >Fundtheneedy</h1>
+        <h1 class="text-uppercase mb-0" >{{__('welcome.fundtheneedy')}}</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0">A Place Where Charity clourishes</h2>
+        <h2 class="font-weight-light mb-0">{{__('welcome.a_place_where_charity_flourishes')}}</h2>
       </div>
     </header>
 
-  
+
 
     <!-- About Section -->
     <section class="bg-primary text-white mb-0" id="about">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white">About</h2>
+        <h2 class="text-center text-uppercase text-white">{{__('welcome.about')}}</h2>
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p >Fundtheneedy is a crowdsourcing (a new form of crowdfunding) platform built in Laravel technology.It has two types of users: giver and Seeker. Giver is the one who funds people where as Seeker is the one acquiring the fund. This app has a mechanism of trust building called corroboration where givers can certify Seekers as well as Seekers can certify their claims through proofs. The final mode of crowdfunding takes place through exchange of transactional information where givers can transfer funds to bank account or goods to designated address.
+            <p > {{__('welcome.crowdsourcing')}} </p>
 
 </p>
           </div>
           <div class="col-lg-4 mr-auto">
-           
-              <ul>No payment from Seekers and givers</ul>
-              <ul> However givers can be asked for voluntary donation</ul>
-<ul>Not only givers are able to donate money but also goods. So for example a poor farmer needs a machine and someone out of charity from China can ship him the machine.</ul>
-<ul>Seekers have to prove their claims. A giver has full flexibility to ask the Seeker as to the merits and validity of the need.</ul>
-<ul>It is global and not based on country only so that people from one country can connect to people from another country. However if a person wishes he can filter Seekers by country.</ul>
-<ul>Mechanism so that only giver can start message initiation. This can help filter out those whose needs are not genuine.</ul>
+
+              <ul>{{__('welcome.no_payment')}}</ul>
+              <ul> {{__('welcome.however')}}</ul>
+<ul>{{__('welcome.not_only')}}</ul>
+<ul>{{__('welcome.proof_claim')}}</ul>
+<ul>{{__('welcome.filter')}}</ul>
+<ul>{{__('welcome.initiate')}}</ul>
           </div>
         </div>
          @if( !(\Auth::check()))
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#register">
             <i class=" mr-2"></i>
-            Register
+            {{__('welcome.register')}}
           </a>
         </div>
         @endif
           <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#how">
             <i class=" mr-2"></i>
-            How to Use?
+            {{__('welcome.how_to')}}
           </a>
         </div>
       </div>
@@ -152,37 +154,37 @@
     <!-- Our Vision -->
       <section class="bg-primary text-white mb-0" id="vision">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white">Our Vision</h2>
+        <h2 class="text-center text-uppercase text-white">{{__('welcome.our_vision')}}</h2>
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p >Fundtheneedy will help people around the world gather in one place to voluntarily and out of love give and gratefully take charity. This is a time when our government is failing us and the economic system is creating the gap between rich and poor in a tremendous amount of pace (Forbes.com, 2018); (Oecd.org, 2018). My intention is to bride this gap between rich and poor through bringing them together in one place so they know each other and help the needy/poor ones. Can this app make a difference? I pray and greatly hope that it does. </p>
+            <p >{{__('welcome.people_around')}} </p>
           </div>
           <div class="col-lg-4 mr-auto">
-            
-          <p>Promote class interaction in society</p>
-          <p>Promote social welfare through crowdfunding</p>
+
+          <p>{{__('welcome.promote_class')}}</p>
+          <p>{{__('welcome.promote_social')}}</p>
           </div>
         </div>
          @if( !(\Auth::check()))
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#register">
             <i class=" mr-2"></i>
-            Register
+          {{__('welcome.register')}}
           </a>
         </div>
       @endif
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#how">
             <i class=" mr-2"></i>
-            How to Use?
+            {{__('welcome.how_to')}}
           </a>
         </div>
       </div>
     </section>
      <section id="contact">
       <div class="container">
-        <h4 class="text-center text-uppercase text-secondary mb-0">Contact Us</h4>
+        <h4 class="text-center text-uppercase text-secondary mb-0">{{__('welcome.contact_us')}}</h4>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -194,66 +196,66 @@
                <!--  <div class="form-group floating-label-form-group controls mb-0 pb-2">      -->
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <div class="form-group">
-                    <input type="text" name ="name" class="form-control" placeholder="Name" required="">
+                    <input type="text" name ="name" class="form-control" placeholder="{{__('global.name')}}" required="">
                          @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
                     </div>
 
                         <div class="form-group{{ $errors->has('email1') ? ' has-error' : '' }}">
-                           
-                        <input type="email" name ="email1" class="form-control" placeholder="Email" value="{{ old('email') }}" required="">
+
+                        <input type="email" name ="email1" class="form-control" placeholder="{{__('global.email')}}" value="{{ old('email') }}" required="">
                          @if ($errors->has('email1'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                        <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
-                           
-                        <input type="subject" name ="subject" class="form-control" placeholder="subject" value="{{ old('subject') }}" required="">
+
+                        <input type="subject" name ="subject" class="form-control" placeholder="{{__('global.subject')}}" value="{{ old('subject') }}" required="">
                          @if ($errors->has('subject'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('subject') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                          <div class="form-group{{ $errors->has('complaint') ? ' has-error' : '' }}">
                             <div class="form-group">
-                        <textarea class="form-control" rows="5" id="complaint" name="complaint" placeholder="Explain as clearly as possible" required=""></textarea>
+                        <textarea class="form-control" rows="5" id="complaint" name="complaint" placeholder="{{__('global.explain')}}" required=""></textarea>
                          @if ($errors->has('complaint'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('complaint') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
                       </div>
 
                        <!--  <div id="add_verify"  class="form-group{{ $errors->has('verify') ? ' has-error' : '' }}">
-                          
-   
+
+
                         </div> -->
 
                       <!-- Upload image of user -->
-                    
-                        </div>
-                     
-                    
-                     <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-              </div>
-                    
 
-                 
+                        </div>
+
+
+                     <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">{{__('welcome.send')}}</button>
+              </div>
+
+
+
                     </form>
 
           </div>
@@ -263,66 +265,66 @@
     <!-- How to use? -->
     <section id="how">
       <div class="container">
-        <h4 class="text-center text-uppercase text-secondary mb-0">How to Use?</h4>
+        <h4 class="text-center text-uppercase text-secondary mb-0">{{__('welcome.how_to')}}</h4>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
               <div class="m-t">
-                      
+
 
 
                       <!-- Upload image of user -->
 
                       <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>User Registration: Seeker</h5>
-                        <h6>Fill in Info in registration form</h6>
+                        <h5>{{__('welcome.how_to_1')}}</h5>
+                        <h6>{{__('welcome.how_to_2')}}</h6>
                         <!-- <img src="img/reg1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
-                       
 
-                         </div>  
+
+                         </div>
 
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>User Registration: Giver</h5>
-                        <h6>Fill in Info in registration form</h6>
+                        <h5>{{__('welcome.how_to_3')}}</h5>
+                        <h6>{{__('welcome.how_to_4')}}</h6>
                        <!--  <img src="img/reg2.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
-                       
 
-                         </div> 
+
+                         </div>
 
 
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>User Registration: Notification</h5>
-                        <h6>Check Email for successful registration</h6>
+                        <h5>{{__('welcome.how_to_5')}}</h5>
+                        <h6>{{__('welcome.how_to_6')}}</h6>
                         <!-- <img src="img/success1.jpg" class="form-control" alt="form" width="200px" height="100px"/> -->
-                       
 
-                         </div> 
+
+                         </div>
 
                         <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>Add Plea: Seeker</h5>
-                        <h6>Once Seeker logs in Seeker can add the plea</h6>
+                        <h5>{{__('welcome.how_to_7')}}</h5>
+                        <h6>{{__('welcome.how_to_8')}}</h6>
                         <!-- <img src="img/Seeker1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
-                       
 
-                         </div> 
+
+                         </div>
 
                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-                        <h5>See Seekers List: Giver </h5>
-                        <h6>Once giver logs in can initiate donation</h6>
+                        <h5>{{__('welcome.how_to_9')}} </h5>
+                        <h6>{{__('welcome.how_to_10')}}</h6>
                        <!--  <img src="img/giver1.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
-                        <h6>Various communications options</h6>
+                        <h6>{{__('welcome.how_to_11')}}</h6>
                        <!--  <img src="img/giver2.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
-                         <h6>Seeker details</h6>
+                         <h6>{{__('welcome.how_to_12')}}</h6>
                        <!--  <img src="img/giver3.jpg" class="form-control" alt="form" width="200px" height="500px"/> -->
-                      
-                         </div>  
+
+                         </div>
 
 
-                        
 
-   
+
+
 
           </div>
         </div>
@@ -333,7 +335,7 @@
      @if( !(\Auth::check()))
  <section id="register">
       <div class="container">
-        <h4 class="text-center text-uppercase text-secondary mb-0">Register</h4>
+        <h4 class="text-center text-uppercase text-secondary mb-0">{{__('welcome.register')}}</h4>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -344,326 +346,316 @@
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <div class="form-group">
-                    <input type="text" name ="name" class="form-control" placeholder="Name" required="">
+                    <input type="text" name ="name" class="form-control" placeholder="{{__('global.name')}}" required="">
                          @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
                     </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                           
-                        <input type="email" name ="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required="">
+
+                        <input type="email" name ="email" class="form-control" placeholder="{{__('global.email')}}" value="{{ old('email') }}" required="">
                          @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                           
-                        <input type="password" name ="password" class="form-control" placeholder="Password" required="">
+
+                        <input type="password" name ="password" class="form-control" placeholder="{{__('global.password')}}" required="">
                          @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                            <div class="form-group">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{__('global.confirm_password')}}" required>
                          </div>
 
                           <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-                           
-                        <input type="city" name ="city" class="form-control" placeholder="City" required="">
+
+                        <input type="city" name ="city" class="form-control" placeholder="{{__('global.city')}}" required="">
                          @if ($errors->has('city'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('city') }}</strong>
                                     </span>
                                 @endif
-                        
+
                         </div>
 
                           <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-                           
+
                      <select class="form-control" class="select-picker" name="country">
-                            <option selected disabled>Select Country</option>
-                            <option value="AF">Afghanistan</option>
-                            <option value="AX">Åland Islands</option>
-                            <option value="AL">Albania</option>
-                            <option value="DZ">Algeria</option>
-                            <option value="AS">American Samoa</option>
-                            <option value="AD">Andorra</option>
-                            <option value="AO">Angola</option>
-                            <option value="AI">Anguilla</option>
-                            <option value="AQ">Antarctica</option>
-                            <option value="AG">Antigua and Barbuda</option>
-                            <option value="AR">Argentina</option>
-                            <option value="AM">Armenia</option>
-                            <option value="AW">Aruba</option>
-                            <option value="AU">Australia</option>
-                            <option value="AT">Austria</option>
-                            <option value="AZ">Azerbaijan</option>
-                            <option value="BS">Bahamas</option>
-                            <option value="BH">Bahrain</option>
-                            <option value="BD">Bangladesh</option>
-                            <option value="BB">Barbados</option>
-                            <option value="BY">Belarus</option>
-                            <option value="BE">Belgium</option>
-                            <option value="BZ">Belize</option>
-                            <option value="BJ">Benin</option>
-                            <option value="BM">Bermuda</option>
-                            <option value="BT">Bhutan</option>
-                            <option value="BO">Bolivia, Plurinational State of</option>
-                            <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                            <option value="BA">Bosnia and Herzegovina</option>
-                            <option value="BW">Botswana</option>
-                            <option value="BV">Bouvet Island</option>
-                            <option value="BR">Brazil</option>
-                            <option value="IO">British Indian Ocean Territory</option>
-                            <option value="BN">Brunei Darussalam</option>
-                            <option value="BG">Bulgaria</option>
-                            <option value="BF">Burkina Faso</option>
-                            <option value="BI">Burundi</option>
-                            <option value="KH">Cambodia</option>
-                            <option value="CM">Cameroon</option>
-                            <option value="CA">Canada</option>
-                            <option value="CV">Cape Verde</option>
-                            <option value="KY">Cayman Islands</option>
-                            <option value="CF">Central African Republic</option>
-                            <option value="TD">Chad</option>
-                            <option value="CL">Chile</option>
-                            <option value="CN">China</option>
-                            <option value="CX">Christmas Island</option>
-                            <option value="CC">Cocos (Keeling) Islands</option>
-                            <option value="CO">Colombia</option>
-                            <option value="KM">Comoros</option>
-                            <option value="CG">Congo</option>
-                            <option value="CD">Congo, the Democratic Republic of the</option>
-                            <option value="CK">Cook Islands</option>
-                            <option value="CR">Costa Rica</option>
-                            <option value="CI">Côte d'Ivoire</option>
-                            <option value="HR">Croatia</option>
-                            <option value="CU">Cuba</option>
-                            <option value="CW">Curaçao</option>
-                            <option value="CY">Cyprus</option>
-                            <option value="CZ">Czech Republic</option>
-                            <option value="DK">Denmark</option>
-                            <option value="DJ">Djibouti</option>
-                            <option value="DM">Dominica</option>
-                            <option value="DO">Dominican Republic</option>
-                            <option value="EC">Ecuador</option>
-                            <option value="EG">Egypt</option>
-                            <option value="SV">El Salvador</option>
-                            <option value="GQ">Equatorial Guinea</option>
-                            <option value="ER">Eritrea</option>
-                            <option value="EE">Estonia</option>
-                            <option value="ET">Ethiopia</option>
-                            <option value="FK">Falkland Islands (Malvinas)</option>
-                            <option value="FO">Faroe Islands</option>
-                            <option value="FJ">Fiji</option>
-                            <option value="FI">Finland</option>
-                            <option value="FR">France</option>
-                            <option value="GF">French Guiana</option>
-                            <option value="PF">French Polynesia</option>
-                            <option value="TF">French Southern Territories</option>
-                            <option value="GA">Gabon</option>
-                            <option value="GM">Gambia</option>
-                            <option value="GE">Georgia</option>
-                            <option value="DE">Germany</option>
-                            <option value="GH">Ghana</option>
-                            <option value="GI">Gibraltar</option>
-                            <option value="GR">Greece</option>
-                            <option value="GL">Greenland</option>
-                            <option value="GD">Grenada</option>
-                            <option value="GP">Guadeloupe</option>
-                            <option value="GU">Guam</option>
-                            <option value="GT">Guatemala</option>
-                            <option value="GG">Guernsey</option>
-                            <option value="GN">Guinea</option>
-                            <option value="GW">Guinea-Bissau</option>
-                            <option value="GY">Guyana</option>
-                            <option value="HT">Haiti</option>
-                            <option value="HM">Heard Island and McDonald Islands</option>
-                            <option value="VA">Holy See (Vatican City State)</option>
-                            <option value="HN">Honduras</option>
-                            <option value="HK">Hong Kong</option>
-                            <option value="HU">Hungary</option>
-                            <option value="IS">Iceland</option>
-                            <option value="IN">India</option>
-                            <option value="ID">Indonesia</option>
-                            <option value="IR">Iran, Islamic Republic of</option>
-                            <option value="IQ">Iraq</option>
-                            <option value="IE">Ireland</option>
-                            <option value="IM">Isle of Man</option>
-                            
-                            <option value="IT">Italy</option>
-                            <option value="JM">Jamaica</option>
-                            <option value="JP">Japan</option>
-                            <option value="JE">Jersey</option>
-                            <option value="JO">Jordan</option>
-                            <option value="KZ">Kazakhstan</option>
-                            <option value="KE">Kenya</option>
-                            <option value="KI">Kiribati</option>
-                            <option value="KP">Korea, Democratic People's Republic of</option>
-                            <option value="KR">Korea, Republic of</option>
-                            <option value="KW">Kuwait</option>
-                            <option value="KG">Kyrgyzstan</option>
-                            <option value="LA">Lao People's Democratic Republic</option>
-                            <option value="LV">Latvia</option>
-                            <option value="LB">Lebanon</option>
-                            <option value="LS">Lesotho</option>
-                            <option value="LR">Liberia</option>
-                            <option value="LY">Libya</option>
-                            <option value="LI">Liechtenstein</option>
-                            <option value="LT">Lithuania</option>
-                            <option value="LU">Luxembourg</option>
-                            <option value="MO">Macao</option>
-                            <option value="MK">Macedonia, the former Yugoslav Republic of</option>
-                            <option value="MG">Madagascar</option>
-                            <option value="MW">Malawi</option>
-                            <option value="MY">Malaysia</option>
-                            <option value="MV">Maldives</option>
-                            <option value="ML">Mali</option>
-                            <option value="MT">Malta</option>
-                            <option value="MH">Marshall Islands</option>
-                            <option value="MQ">Martinique</option>
-                            <option value="MR">Mauritania</option>
-                            <option value="MU">Mauritius</option>
-                            <option value="YT">Mayotte</option>
-                            <option value="MX">Mexico</option>
-                            <option value="FM">Micronesia, Federated States of</option>
-                            <option value="MD">Moldova, Republic of</option>
-                            <option value="MC">Monaco</option>
-                            <option value="MN">Mongolia</option>
-                            <option value="ME">Montenegro</option>
-                            <option value="MS">Montserrat</option>
-                            <option value="MA">Morocco</option>
-                            <option value="MZ">Mozambique</option>
-                            <option value="MM">Myanmar</option>
-                            <option value="NA">Namibia</option>
-                            <option value="NR">Nauru</option>
-                            <option value="NP">Nepal</option>
-                            <option value="NL">Netherlands</option>
-                            <option value="NC">New Caledonia</option>
-                            <option value="NZ">New Zealand</option>
-                            <option value="NI">Nicaragua</option>
-                            <option value="NE">Niger</option>
-                            <option value="NG">Nigeria</option>
-                            <option value="NU">Niue</option>
-                            <option value="NF">Norfolk Island</option>
-                            <option value="MP">Northern Mariana Islands</option>
-                            <option value="NO">Norway</option>
-                            <option value="OM">Oman</option>
-                            <option value="PK">Pakistan</option>
-                            <option value="PW">Palau</option>
-                            <option value="PS">Palestinian Territory, Occupied</option>
-                            <option value="PA">Panama</option>
-                            <option value="PG">Papua New Guinea</option>
-                            <option value="PY">Paraguay</option>
-                            <option value="PE">Peru</option>
-                            <option value="PH">Philippines</option>
-                            <option value="PN">Pitcairn</option>
-                            <option value="PL">Poland</option>
-                            <option value="PT">Portugal</option>
-                            <option value="PR">Puerto Rico</option>
-                            <option value="QA">Qatar</option>
-                            <option value="RE">Réunion</option>
-                            <option value="RO">Romania</option>
-                            <option value="RU">Russian Federation</option>
-                            <option value="RW">Rwanda</option>
-                            <option value="BL">Saint Barthélemy</option>
-                            <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-                            <option value="KN">Saint Kitts and Nevis</option>
-                            <option value="LC">Saint Lucia</option>
-                            <option value="MF">Saint Martin (French part)</option>
-                            <option value="PM">Saint Pierre and Miquelon</option>
-                            <option value="VC">Saint Vincent and the Grenadines</option>
-                            <option value="WS">Samoa</option>
-                            <option value="SM">San Marino</option>
-                            <option value="ST">Sao Tome and Principe</option>
-                            <option value="SA">Saudi Arabia</option>
-                            <option value="SN">Senegal</option>
-                            <option value="RS">Serbia</option>
-                            <option value="SC">Seychelles</option>
-                            <option value="SL">Sierra Leone</option>
-                            <option value="SG">Singapore</option>
-                            <option value="SX">Sint Maarten (Dutch part)</option>
-                            <option value="SK">Slovakia</option>
-                            <option value="SI">Slovenia</option>
-                            <option value="SB">Solomon Islands</option>
-                            <option value="SO">Somalia</option>
-                            <option value="ZA">South Africa</option>
-                            <option value="GS">South Georgia and the South Sandwich Islands</option>
-                            <option value="SS">South Sudan</option>
-                            <option value="ES">Spain</option>
-                            <option value="LK">Sri Lanka</option>
-                            <option value="SD">Sudan</option>
-                            <option value="SR">Suriname</option>
-                            <option value="SJ">Svalbard and Jan Mayen</option>
-                            <option value="SZ">Swaziland</option>
-                            <option value="SE">Sweden</option>
-                            <option value="CH">Switzerland</option>
-                            <option value="SY">Syrian Arab Republic</option>
-                            <option value="TW">Taiwan, Province of China</option>
-                            <option value="TJ">Tajikistan</option>
-                            <option value="TZ">Tanzania, United Republic of</option>
-                            <option value="TH">Thailand</option>
-                            <option value="TL">Timor-Leste</option>
-                            <option value="TG">Togo</option>
-                            <option value="TK">Tokelau</option>
-                            <option value="TO">Tonga</option>
-                            <option value="TT">Trinidad and Tobago</option>
-                            <option value="TN">Tunisia</option>
-                            <option value="TR">Turkey</option>
-                            <option value="TM">Turkmenistan</option>
-                            <option value="TC">Turks and Caicos Islands</option>
-                            <option value="TV">Tuvalu</option>
-                            <option value="UG">Uganda</option>
-                            <option value="UA">Ukraine</option>
-                            <option value="AE">United Arab Emirates</option>
-                            <option value="GB">United Kingdom</option>
-                            <option value="US">United States</option>
-                            <option value="UM">United States Minor Outlying Islands</option>
-                            <option value="UY">Uruguay</option>
-                            <option value="UZ">Uzbekistan</option>
-                            <option value="VU">Vanuatu</option>
-                            <option value="VE">Venezuela, Bolivarian Republic of</option>
-                            <option value="VN">Viet Nam</option>
-                            <option value="VG">Virgin Islands, British</option>
-                            <option value="VI">Virgin Islands, U.S.</option>
-                            <option value="WF">Wallis and Futuna</option>
-                            <option value="EH">Western Sahara</option>
-                            <option value="YE">Yemen</option>
-                            <option value="ZM">Zambia</option>
-                            <option value="ZW">Zimbabwe</option>
+                            <option selected disabled>{{__('welcome.select_country')}}</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antartica">Antarctica</option>
+                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Bouvet Island">Bouvet Island</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                            <option value="Brunei Darussalam">Brunei Darussalam</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands">Cayman Islands</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island">Christmas Island</option>
+                            <option value="Cocos Islands">Cocos (Keeling) Islands</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Congo">Congo, the Democratic Republic of the</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cota D'Ivoire">Cote d'Ivoire</option>
+                            <option value="Croatia">Croatia (Hrvatska)</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="East Timor">East Timor</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="France Metropolitan">France, Metropolitan</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia">French Polynesia</option>
+                            <option value="French Southern Territories">French Southern Territories</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
+                            <option value="Holy See">Holy See (Vatican City State)</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran (Islamic Republic of)</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+                            <option value="Korea">Korea, Republic of</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Lao">Lao People's Democratic Republic</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon" >Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macau">Macau</option>
+                            <option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Martinique">Martinique</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia">Micronesia, Federated States of</option>
+                            <option value="Moldova">Moldova, Republic of</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Netherlands Antilles">Netherlands Antilles</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Niue">Niue</option>
+                            <option value="Norfolk Island">Norfolk Island</option>
+                            <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Pitcairn">Pitcairn</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Reunion">Reunion</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russian Federation</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint LUCIA">Saint LUCIA</option>
+                            <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia (Slovak Republic)</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
+                            <option value="Span">Spain</option>
+                            <option value="SriLanka">Sri Lanka</option>
+                            <option value="St. Helena">St. Helena</option>
+                            <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syrian Arab Republic</option>
+                            <option value="Taiwan">Taiwan, Province of China</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania, United Republic of</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Turks and Caicos">Turks and Caicos Islands</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Viet Nam</option>
+                            <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+                            <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+                            <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
+                            <option value="Western Sahara">Western Sahara</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Yugoslavia">Yugoslavia</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
                           </select>
-                        
+
                         </div>
 
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                            
-                            <select id="type"  name="type" class="form-control" required> 
-                                <option selected disabled>Type</option>
-                                <option value="Seeker">Seeker (Seeking Fund)</option>
-                                <option value="giver">Giver (Giving Fund/Corroborate Seeker)</option>
-                            </select>
-                            
 
-                        
-                        
+                            <select id="type"  name="type" class="form-control" required>
+                                <option selected disabled>{{__('welcome.type')}}</option>
+                                <option value="Seeker">{{__('welcome.seeking')}}</option>
+                                <option value="giver">{{__('welcome.giving')}}</option>
+                            </select>
+
+
+
+
                         </div>
 
                            <div class="form-group{{ $errors->has('occupation') ? ' has-error' : '' }}">
                       <select class="form-control dropdown" id="occupation" name="occupation">
-                    <option value="" selected="selected" disabled="disabled">select occupation</option>
+                    <option value="" selected="selected" disabled="disabled">{{__('welcome.select_occuption')}}</option>
                     <optgroup label="Healthcare Practitioners and Technical Occupations:">
                       <option value="Chiropractor">-  Chiropractor</option>
                       <option value="Dentist">-  Dentist</option>
@@ -761,10 +753,11 @@
                   </select>
               </div>
 
-                       <!--  <div id="add_verify"  class="form-group{{ $errors->has('verify') ? ' has-error' : '' }}">
-                          
-   
-                        </div> -->
+              @if ($errors->has('occupation'))
+                         <span class="help-block">
+                             <strong>{{$errors->first('occupation')}}</strong>
+                         </span>
+                     @endif
 
                       <!-- Upload image of user -->
                       <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
@@ -775,11 +768,11 @@
                                     </span>
                                 @endif
 
-                         </div>  
+                         </div>
                            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Register</button></div>
+                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">{{__('welcome.register')}}</button></div>
 
-                 
+
                     </form>
 
           </div>
@@ -793,83 +786,83 @@
     @if( !(\Auth::check()))
   <section id="login">
       <div class="container">
-        <h4 class="text-center text-uppercase text-secondary mb-0">Login</h4>
+        <h4 class="text-center text-uppercase text-secondary mb-0">{{__('welcome.login')}}</h4>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-              <form class="m-t" role="form" action="{{route('login')}}" method="post" autocomplete="off">
+              <form class="m-t" role="form" action="{{route('login')}}" method="post" autocomplete="off" >
                 {{ csrf_field() }}
                 @if (Session::has('message'))
                     <div class="alert alert-info">{{ Session::get('message') }}
                     </div>
                 @endif
                 <div class="form-group">
-                    <input type="email" name ="username" class="form-control" placeholder="Username" required="">
+                    <input type="email" name ="username" class="form-control" placeholder="{{__('global.username')}}" required="">
 
-                   
+
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required="">
-                      
-                     
-                </div>
-                 <div><button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Login</button></div>
+                    <input type="password" name="password" class="form-control" placeholder="{{__('global.password')}}" required="">
 
- <a href="{{route('password.request')}}"><small>Forgot password?</small></a>
-              
-                
+
+                </div>
+                 <div><button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">{{__('welcome.login')}}</button></div>
+
+ <a href="{{route('password.request')}}"><small>{{__('welcome.forgot_password')}}</small></a>
+
+
             </form>
-           
+
 
           </div>
         </div>
       </div>
     </section>
 @endif
- 
+
    <section class="bg-primary text-white mb-0" id="faq">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white">Faq</h2>
+        <h2 class="text-center text-uppercase text-white">{{__('welcome.faq')}}</h2>
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            
-              
-              <td><p><i>How does Fundtheneedy work?</i></p></td><br>
-              <td>Fundtheneedy has two kinds of users : Seekers who recieves donations from Givers. The donation exchange takes place either through bank transfer or card payment if it money or through delivery if these are goods</td><br><br>
 
-              <td><p><i>How does Seeker acquire the donation?</i></p></td><br>
-              <td>Depending on the type of donation (goods or money) Seeker can acquire the goods through Giver delivering and the money through bank transfer or paypal.</td><br><br>
 
-                <td><p><i>Do you charge for using Fundtheneedy</i></p></td><br>
-              <td>No! Fundtheneedy will be free forever. Voluntary donations may be added in future</td><br><br>
+              <td><p><i>{{__('welcome.how_does')}}</i></p></td><br>
+              <td>{{__('welcome.two_kinds')}}</td><br><br>
 
-              
+              <td><p><i>{{__('welcome.how_acquire')}}</i></p></td><br>
+              <td>{{__('welcome.depending_on')}}<a href="https://www.paypal.com/fm/smarthelp/article/how-do-i-send-money-faq1684" style="color:black">{{__('welcome.paypal')}}</a></td><br><br>
+
+                <td><p><i>{{__('welcome.charge')}}</i></p></td><br>
+              <td>{{__('welcome.no_charge')}}</td><br><br>
+
+
           </div>
           <div class="col-lg-4 mr-auto">
-           
-               <td><p><i>Do you store our bank account and card information?</i></p></td><br>
-              <td>If Giver and Seeker wishes to exchange donation through bank, the bank information is stored as part of the messages that they exchange. For cards we do not store any information</td><br><br>
 
-               <td><p><i>What if I donate to a fraud account?</i></p></td><br>
-              <td>Fundtheneedy does not intermediate between Seeker and Giver. It is your responsibility to know who you are donating to. </td><br><br>
+               <td><p><i>{{__('welcome.do_you_store')}}</i></p></td><br>
+              <td>{{__('welcome.storage_rule')}}</td><br><br>
 
-               <td><p><i>What is trust building in Fundtheneedy?</i></p></td><br>
-              <td>A Seeker can get verified by Givers through corroboration. If enough Givers have verified a Seeker such a Seeker will have achieved a trust level.</td><br><br>
+               <td><p><i>{{__('welcome.fraud_account')}}</i></p></td><br>
+              <td>{{__('welcome.intermediate')}} </td><br><br>
+
+               <td><p><i>{{__('welcome.trust_building')}}</i></p></td><br>
+              <td>{{__('welcome.trust_building_2')}}</td><br><br>
           </div>
         </div>
          @if( !(\Auth::check()))
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#register">
             <i class=" mr-2"></i>
-            Register
+            {{__('welcome.register')}}
           </a>
         </div>
         @endif
           <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#how">
             <i class=" mr-2"></i>
-            How to Use?
+            {{__('welcome.how_to')}}
           </a>
         </div>
       </div>
@@ -880,20 +873,20 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Support</h4>
-           
+            <h4 class="text-uppercase mb-4">{{__('welcome.support')}}</h4>
+
         <address>
           <strong><a href="mailto:support@fundtheneedy.com">support@fundtheneedy.com</a></strong><br>
-           
-          Dhaka<br>
-          Bangladesh<br>
+
+          {{__('welcome.dhaka')}}<br>
+          {{__('welcome.bangladesh')}}<br>
             <a href="https://twitter.com/fundtheneedy" title="twitter" class="btn btn-social-icon btn-lg btn-twitter">
       <span class="fa fa-twitter"></span>
       </a>
         <a href="https://www.facebook.com/fundtheneedyCharity/" title="facebook" class="btn btn-social-icon btn-lg btn-facebook">
       <span class="fa fa-facebook"></span>
       </a>
-          
+
         </address>
           </div>
           <div class="col-md-4 mb-5 mb-lg-0">
@@ -927,13 +920,13 @@
             </ul> -->
           </div>
           <div class="col-md-4" id="term">
-            <h4 class="text-center text-uppercase text-white">Terms of Service</h4>
-            <p>Fundtheneedy must not be misused or abused in any way. You cannot fraud anyone. You must maintain honesty, integrity and sincerity in seeking aid or giving aid.</p>
+            <h4 class="text-center text-uppercase text-white">{{__('welcome.term')}}</h4>
+            <p>{{__('welcome.terms_1')}}</p>
 
-          <p>Seekers must be careful in giving their personal information to recieve aid. This world goes a lot further with trust also. Seekers must maintain a proffesional relationship with the Givers.</p>
+          <p>{{__('welcome.terms_2')}}</p>
 
-          <p>Givers must only give aid and must not ask anything in exchange. Givers must maintain a proffesional relationship with the Seekers.</p>
-              
+          <p>{{__('welcome.terms_3')}}</p>
+
           </div>
         </div>
       </div>
@@ -941,8 +934,8 @@
 
     <div class="copyright py-4 text-center text-white">
       <div class="container">
-        <small>Copyright &copy; Fundtheneedy 2018</small><br>
-         <small> A Mohammad Rahman Production</small>
+        <small>{{__('welcome.copyright')}} &copy; {{__('welcome.fundtheneedy_2018')}}</small><br>
+         <small> {{__('welcome.rahman')}}</small>
       </div>
     </div>
 

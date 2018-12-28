@@ -21,7 +21,7 @@ $data=$data[0];
 <div class="main-content">
 
     <div class="container">
-        <h3 class="site-title">Your Need Which Recieved Donations</h3>
+        <h3 class="site-title">{{__('global.need_donated')}}</h3>
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
@@ -35,10 +35,10 @@ $data=$data[0];
             <h3>{{$data[0]->name}} </h3>
             <div class="profile-ratings">
                 <!-- corroborrated by..link to them -->
-                <a href="{{Route('corroborate_count',$data[0]->id )}}">corroborated by {{$count_corroborate}} givers</a> <p></p><br/>
+                <a href="{{Route('corroborate_count',$data[0]->id )}}">{{__('global.corroborated_by')}} {{$count_corroborate}} {{__('global.givers')}}</a> <p></p><br/>
 
             </div>
-            
+
 
            <hr>
 
@@ -49,28 +49,28 @@ $data=$data[0];
                 <div class="col-md-7">
                      <div class="profile-block">
                 <ul class="list-group">
-    <li class="list-group-item">Email <span class="badge">{{$data[0]->email}}</span></li>
-    <li class="list-group-item">City <span class="badge">{{$data[0]->city}}</span></li>
-    <li class="list-group-item">Country <span class="badge">{{$data[0]->country}}</span></li>
-    <li class="list-group-item">Type<span class="badge">{{$data[0]->type}}</span></li>
+    <li class="list-group-item">{{__('global.email')}} <span class="badge">{{$data[0]->email}}</span></li>
+    <li class="list-group-item">{{__('global.city')}} <span class="badge">{{$data[0]->city}}</span></li>
+    <li class="list-group-item">{{__('global.country')}} <span class="badge">{{$data[0]->country}}</span></li>
+    <li class="list-group-item">{{__('global.type')}}<span class="badge">{{$data[0]->type}}</span></li>
 
-    <li class="list-group-item">Occupation <span class="badge">{{$data[0]->occupation}}</span></li>
+    <li class="list-group-item">{{__('global.occupation')}} <span class="badge">{{$data[0]->occupation}}</span></li>
 
-    <li class="list-group-item">Category <span class="badge">{{$data[0]->category}}</span></li>
-    <li class="list-group-item">Deadline<span class="badge">{{$data[0]->deadline}}</span></li>
-    <li class="list-group-item">Verify<span class="badge">{{$data[0]->verify}}</span>
-      <li class="list-group-item">Assistance Type<span class="badge">{{$data[0]->medium}}</span>
+    <li class="list-group-item">{{__('global.need_category')}} <span class="badge">{{$data[0]->category}}</span></li>
+    <li class="list-group-item">{{__('global.deadline')}}<span class="badge">{{$data[0]->deadline}}</span></li>
+    <li class="list-group-item">{{__('global.verification')}}<span class="badge">{{$data[0]->verify}}</span>
+      <li class="list-group-item">{{__('global.assistance_type')}}<span class="badge">{{$data[0]->medium}}</span>
          @if ($data[0]->medium=='money')
              @if($data[0]->amount=='0')
-                            <li class="list-group-item">Amount<span class="badge">all amounts acquired</span></li>
+                            <li class="list-group-item">{{__('global.amount')}}<span class="badge">{{__('global.all_amounts')}}</span></li>
              @else
-                <li class="list-group-item">Amount<span class="badge">{{$data[0]->amount}} {{$data[0]->currency}}</span></li>
+                <li class="list-group-item">{{__('global.amount')}}<span class="badge">{{$data[0]->amount}} {{$data[0]->currency}}</span></li>
              @endif
          @else
              @if($data[0]->goods=='0')
-                            <li class="list-group-item">Quantity<span class="badge">all goods acquired</span></li>
+                            <li class="list-group-item">{{__('global.quantity')}}<span class="badge">{{__('global.all_goods')}}</span></li>
              @else
-                <li class="list-group-item">Quantity<span class="badge">{{$data[0]->goods}}</span></li>
+                <li class="list-group-item">{{__('global.quantity_donated')}}<span class="badge">{{$data[0]->goods}}</span></li>
               @endif
       @endif
 
@@ -104,5 +104,5 @@ $data=$data[0];
 
         </div>
     </div>
- 
+
 @endsection

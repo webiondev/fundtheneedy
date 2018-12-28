@@ -3,78 +3,78 @@
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                        <div class="dropdown profile-element"> 
+                        <div class="dropdown profile-element">
 
                              <span>
-                            <img alt="image" class="img-circle" 
+                            <img alt="image" class="img-circle"
                             src="{{asset('img/'.auth()->user()->file)}}" />
                              </span>
-                            
+
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> {{Auth::user()->name}}</strong>
 
                              </span> <span class="text-muted text-xs block">{{Auth::user()->type}},{{Auth::user()->city}},{{Auth::user()->country}}</b></span> </span> </a>
 
-                               
-                            
+
+
                         </div>
 
                     </li>
 
-                 
+
 
                     <li class="active">
-                        <a href="#"><i class="fa fa-address-book-o"></i> <span class="nav-label">Profile</span> <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-address-book-o"></i> <span class="nav-label">{{__('global.profile')}}</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                                <li><a href="{{Route('profile_me')}}">Profile</a></li>
+                                <li><a href="{{Route('profile_me')}}">{{__('global.profile')}}</a></li>
                                 @if(auth()->user()->type=='giver')
-                                <li><a href="{{Route('listfav')}}">Favourites</a></li>
+                                <li><a href="{{Route('listfav')}}">{{__('global.fav')}}</a></li>
                                  @endif
                                <li>
 
-                                <a href="#" class="nav-label">Messages <sup  style="color:red">{{Session::get('count')}} </sup></a>
+                                <a href="#" class="nav-label">{{__('global.messages')}} <sup  style="color:red">{{Session::get('count')}} </sup></a>
                                  <ul class="nav nav-third-level">
-                                    <li ><a href="{{Route('mymessage')}}">Inbox<sup  style="color:red"></sup></a></li>
-                                     <li ><a href="{{Route('mysent')}}">Sent<sup  style="color:red"></sup></a></li>
+                                    <li ><a href="{{Route('mymessage')}}">{{__('global.inbox')}}<sup  style="color:red"></sup></a></li>
+                                     <li ><a href="{{Route('mysent')}}">{{__('global.sent')}}<sup  style="color:red"></sup></a></li>
                                 </ul>
                                 <li class="divider"></li>
                                <li>
-                                   
+
                                      <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
-                                           Log out
-                                        </a> 
+                                           {{__('global.logout')}}
+                                        </a>
                                </li>
                         </ul>
-                    </li>       
+                    </li>
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-money"></i> <span class="nav-label">Funding</span> <span class="fa arrow"></span></a>
+                        <a href="index.html"><i class="fa fa-money"></i> <span class="nav-label">{{__('global.funding')}}</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
 
                             @if(auth()->user()->type=='giver')
-                        	<li><a href="{{route('seeker')}}">Seekers</a></li>
-                            <li><a href="{{Route('giverdonation')}}">Donations</a></li>
+                        	<li><a href="{{route('seeker')}}">{{__('global.seekers')}}</a></li>
+                            <li><a href="{{Route('giverdonation')}}">{{__('global.donations')}}</a></li>
                             @endif
                             @if (auth()->user()->type=='seeker')
-                            <li><a href="{{route('seekfund')}}">Seek Fund</a></li>
-                            <li><a href="{{route('listplea')}}">My Plea</a></li>
-                             <li><a href="{{route('donorall')}}">My Donors</a></li>
+                            <li><a href="{{route('seekfund')}}">{{__('global.seek_fund')}}</a></li>
+                            <li><a href="{{route('listplea')}}">{{__('global.my_plea')}}</a></li>
+                             <li><a href="{{route('donorall')}}">{{__('global.my_donors')}}</a></li>
                             @endif
-                            
+
                             <!-- <li><a href="{{Route('profile_me')}}">Corroborate</a></li> -->
-                            
+
                         </ul>
                     </li>
-                   
+
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Statistics</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{__('global.stats')}}</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{route('showstat')}}">Need Stats</a></li>
-                           
+                            <li><a href="{{route('showstat')}}">{{__('global.stats')}}</a></li>
+
                         </ul>
                     </li>
-                    
-                    
- 
+
+
+
                 </ul>
 
             </div>
@@ -84,8 +84,8 @@
 
           <div class="row border-bottom">
            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-          
-      
+
+
     <div class="container-fluid">
     <!-- Second navbar for categories -->
     <nav class="navbar navbar-default">
@@ -98,36 +98,38 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         
+
         </div>
-    
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-                
+
                 <!--  <li ><a href="{{Route('about')}}"> About Us </a></li>
-                  <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
+                  <li ><a href="{{Route('vision')}}"> Our Vision </a></li>
                   <li ><a href="{{Route('contact')}}"> Contact </a></li> -->
-                   <li ><a href="{{Route('about')}}"> Main </a></li>
+                   <li ><a href="{{url('language', 'en')}}">en</a></li>
+                    <li ><a href="{{url('language', 'ar')}}">عربى</a></li>
+                   <li ><a href="{{Route('about')}}"> {{__('global.main')}} </a></li>
                  <!--  <li ><a href="{{Route('term')}}"> Main </a></li> -->
-                 
-                  
 
 
-                
+
+
+
                 <li>
-                      
-                   
+
+
                     <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
-                        <i class="fa fa-sign-out"></i> Log out
-                    </a> 
-               
+                        <i class="fa fa-sign-out"></i>  {{__('global.logout')}}
+                    </a>
+
 
                 </li>
-               
+
 
                 <li>
-                  
+
                 </li>
 
             </ul>
@@ -136,31 +138,31 @@
           <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
 
-           
+
             @if( auth()->user()->type=='giver' and (\Request::is('mymessage')) || (\Request::is('mysent')))
             <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
                 <div class="form-group">
-                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
+                    <input type="search" placeholder="{{__('global.search_messages')}}" class="form-control" name="top_search" id="top-search">
 
                 </div>
-                
+
             </form>
              @elseif( auth()->user()->type=='giver')
             <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchneed')}}">
                 <div class="form-group">
-                    <input type="search" placeholder="Search need" class="form-control" name="top_search" id="top-search">
+                    <input type="search" placeholder="{{__('global.search_need')}}" class="form-control" name="top_search" id="top-search">
 
                 </div>
-                
+
             </form>
              @elseif(auth()->user()->type=='giver' || auth()->user()->type=='seeker' )
 
             <form role="search" method="GET" class="navbar-form-custom" action="{{Route('searchmessage')}}">
                 <div class="form-group">
-                    <input type="search" placeholder="Search messages" class="form-control" name="top_search" id="top-search">
+                    <input type="search" placeholder="{{__('global.search_messages')}}" class="form-control" name="top_search" id="top-search">
 
                 </div>
-                
+
             </form>
             @endif
 
@@ -168,24 +170,24 @@
       <!-- </div> -->
 
         </div>
-        
+
       </div>
     </nav>
 
 
-       
+
   </div>
 </div>
 
 
-           
-       
-     
+
+
+
 
 
 
 <script type="text/javascript">
-    
+
     function forget(forget){
 
         Session::forget('count');

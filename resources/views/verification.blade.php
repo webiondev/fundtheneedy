@@ -8,11 +8,17 @@
 
     <title>Fundtheneedy | Reset</title>
 
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
-    <link href="../../css/animate.css" rel="stylesheet">
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="{{asset('css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
+    <!-- <link href="../../css/bootstrap.min.css" rel="stylesheet">
+      <link href="../../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+      <link href="../../css/animate.css" rel="stylesheet">
+      <link href="../../css/style.css" rel="stylesheet"> -->
 
 </head>
 
@@ -25,17 +31,17 @@
                 <h1 class="logo-name">FN</h1>
 
             </div>
-            <h3>Verify Email</h3>
-            <p>An email has been sent to your email for verification
+            <h3>{{__('global.verification')}} {{__('global.email')}}</h3>
+            <p>{{__('global.email_sent')}}
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
-           
-        
-            
+
+
+
         </div>
-        <a href="{{url('/')}}"> Back to Main </a>
-        <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
-               <small> A Mohammad Rahman Production</small>
+        <a href="{{url('/')}}"> {{__('global.main')}} </a>
+        <p class="m-t"> <small>{{__('welcome.fundtheneedy_2018')}}</small></p>
+               <small> {{(__('welcome.rahman'))}}</small>
     </div>
 
     <!-- Mainly scripts -->
@@ -45,4 +51,3 @@
 </body>
 
 </html>
-

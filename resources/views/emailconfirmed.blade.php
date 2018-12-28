@@ -25,17 +25,17 @@
                 <h1 class="logo-name">FN</h1>
 
             </div>
-            <h3>Verification Success</h3>
-            <p>Your Email is successfully verified. Click here to <a href="{{url('/login')}}">login</a>
+            <h3>{{__('global.verify_success')}}</h3>
+            <p>{{__('global.click_go')}} <a href="{{url('/login')}}">{{__('welcome.login')}}</a>
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
-           
-        
-            
+
+
+
         </div>
-        <a href="{{url('/')}}"> Back to Main </a>
-        <p class="m-t"> <small>Fundtheneedy &copy; 2018</small></p>
-               <small> A Mohammad Rahman Production</small>
+        <a href="{{url('/')}}"> {{__('global.main')}} </a>
+        <p class="m-t"> <small>{{__('welcome.fundtheneedy_2018')}}</small></p>
+               <small> {{(__('welcome.rahman'))}}</small>
     </div>
 
     <!-- Mainly scripts -->
@@ -45,9 +45,3 @@
 </body>
 
 </html>
-
-
-
-
-
-

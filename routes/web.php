@@ -10,6 +10,22 @@
 |
 */
 //Route::get('/welcome_v1', 'WelcomeController@welcome_v1')->name('welcome_v1');
+
+Route::get('language/{lang}', function ($lang) {
+     /**
+       * whenever you change locale
+       * by passing language ISO code (like en, pl, pt-BR etc.)
+       * add/update passed language to a session value with key 'locale'
+       */
+       Session::put('locale', $lang);
+
+      /**
+       * and now return back to a page
+       * on which you changed language
+       */
+       return back();
+})->name('language');
+Route::get('/english', 'WelcomeController@english')->name('english');
 Route::get('/exabout', 'WelcomeController@exabout')->name('exabout');
 Route::get('/exvision', 'WelcomeController@exvision')->name('exvision');
 Route::get('/excontact', 'WelcomeController@excontact')->name('excontact');

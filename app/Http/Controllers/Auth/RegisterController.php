@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -80,30 +81,30 @@ class RegisterController extends Controller
 
     public function uploadfile(){
 
-        
-          $request= Request::capture();  // This gives you the current 
+
+          $request= Request::capture();  // This gives you the current
 
          //    //get file
-            // $file =  $request->file('file')->store("public"); 
-          
+            // $file =  $request->file('file')->store("public");
+
             // return $file;
 
-         $file =$request->file('file');      
-    
+         $file =$request->file('file');
+
             $filename = time() . '.' . $file->getClientOriginalExtension();
                 $location = public_path('img/'. $filename);
                 $file=Image::make($file)->resize(128,128)->save($location);
 
                 $file->file = $filename;
-                //$file->save();  
+                //$file->save();
                 return $file->file;
         }
- 
+
     protected function create(array $data)
     {
         $file=$this->uploadfile();
-           
-          
+
+
         //$file=explode("/", $file);
         $newUser= User::create([
             'name' => $data['name'],
@@ -116,27 +117,50 @@ class RegisterController extends Controller
             'email_token' => base64_encode($data['email']),
             //'file'=>$file[1],
             'file'=>$file,
-            
+
         ]);
 
-        Mail::send('email', ['title' => 'Welcome', 'content' => 'Welcome to Fundtheneedy!'], function ($message)  use ($data)
+
+
+
+        Mail::send(['html'=>'email'], ['title' => __('global.welcome'), 'content' => __('global.welcome_to')], function ($message)  use($data)
         {
 
             $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-            $message->subject('Fundtheneedy Registration Success');
+            $message->subject(__('global.reg_success'));
             $message->to($data['email']);
 
         });
-       // Mail::send('email', ['title' => 'Verify Email', 'content' => 'Please verify your email'], function ($message)  use ($data)
-       //  {
+        //
+        
 
-       //      $message->from('support@fundtheneedy.com', 'Fundtheneedy');
-       //      $message->subject('Email Verification');
-       //      $message->to($data['email']);
 
-       //  });  
- 
-    Mail::send('email', ['title' => 'New Registration', 'content' => 'You have a new registration'], function ($message)  use ($data)
+      //   if ($data['type'] == 'Seeker') {
+      //
+      //   $user = User::where("type","giver")->whereNull('deleted_at')->get();
+      //
+      //
+      //
+      //   foreach($user as $user_)
+      //   {
+      //   //
+      //   //
+      //
+      //     Mail::send('email', ['title' => __('global.new_seeker'), 'content' => __('global.new_seeker2')], function ($message)  use($user_)
+      //      {
+      //
+      //          $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+      //          $message->subject(__('global.new_seeker'));
+      //          $message->to($user_->email); //myemail@gmail.com
+      //
+      //
+      //   });
+      //
+      //  }
+      // }
+
+
+    Mail::send('email', ['title' => 'New Registration', 'content' => 'You have a new registration'], function ($message)  use($data)
         {
 
             //$message->from('support@fundtheneedy.com', 'Fundtheneedy');
@@ -145,8 +169,8 @@ class RegisterController extends Controller
 
         });
 
-      
- 
+
+
 
 
            return $newUser;
@@ -171,13 +195,12 @@ class RegisterController extends Controller
         $user = User::where('email_token',$token)->first();
         $user->verified = 1;
         if($user->save()){
+
+
         return view('emailconfirmed',['user'=>$user]);
         }
 
-    //       protected function registered(Request $request, $user)
-    // {
-    //     Mail::to($user)->send(new SendVerificationEmail($user));
-    // }
+
 
 
 }
