@@ -109,6 +109,7 @@
         <h1 class="text-uppercase mb-0" >{{__('welcome.fundtheneedy')}}</h1>
         <hr class="star-light">
         <h2 class="font-weight-light mb-0">{{__('welcome.a_place_where_charity_flourishes')}}</h2>
+        <h7><i>{!! trans('welcome.hadith') !!}</i></h7>
       </div>
     </header>
 
