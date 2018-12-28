@@ -45,6 +45,7 @@ return [
     'money_needed'=>'المال اللازم',
     'goods_needed'=>'البضائع اللازمة',
     'description'=>'وصف',
+    'need_detais_max'=>'(1000 حرف كحد أقصى)',
 
     'seeker_info'=>'معلومات طالب',
     'giver_info'=>'معلومات المانحين',

@@ -741,7 +741,7 @@ if(($request->email==auth()->user()->email)){
 
         //add new plea
         $validated=$request->validate( [
-            'description' => 'required|string|min:100|max:1000',
+            'description' => 'required|string|max:1000',
             'category' => 'required',
             'deadline' => 'required|date',
             'verify'=>'required',

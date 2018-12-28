@@ -14,7 +14,7 @@
 
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <div class="form-group">
-                        <textarea class="form-control" rows="5" id="description" name="description" placeholder="{{__('global.need_detais')}}" required=""></textarea>
+                        <textarea class="form-control" rows="5" id="description" name="description" placeholder="{{__('global.need_detais')}} {{__('global.need_detais_max')}}" required=""></textarea>
                          @if ($errors->has('description'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
