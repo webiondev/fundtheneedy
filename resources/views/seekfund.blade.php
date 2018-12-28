@@ -9,7 +9,7 @@
 
    <div class="middle-box text-center loginscreen animated fadeInDown">
 <form class="m-t" id="fn-form" method="POST" action="{{'addplea'}}" enctype="multipart/form-data">
-  <h3 class="site-title">Add Plea</h3>
+  <h3 class="site-title">{{__('global.add_plea')}}</h3>
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">

@@ -9,7 +9,7 @@
  <?php
        $i=0;
        ?>
-<h3 class="site-title">My Plea</h3>
+<h3 class="site-title">{{__('global.my_plea')}}</h3>
 @foreach($data as $data_)
 <div class="container">
 
