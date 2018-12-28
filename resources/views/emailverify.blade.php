@@ -59,7 +59,7 @@ a:hover, a:active {
 
               <p style="padding:20px; text-align:center;;">
 
-              {{__('please_verify')}}</p>
+              {{__('global.please_verify')}}</p>
               <a href="{{url('/verifyemail/'.$email_token)}}" >https://www.fundtheneedy.com/verify</a>
 
               <!-- <a class="mui-btn mui-btn-primary mui-btn-lg" href="{{url('/verifyemail/'.$email_token)}}">Verify</a> -->
