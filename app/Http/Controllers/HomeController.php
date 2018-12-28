@@ -746,9 +746,9 @@ if(($request->email==auth()->user()->email)){
             'deadline' => 'required|date',
             'verify'=>'required',
             'medium'=>'required',
-            'amount'=>'Numeric',
+            'amount'=>'Numeric|min:1',
             'currency'=>'string',
-            'goods'=>'Integer',
+            'goods'=>'Integer|min:1',
             'file' => 'required |image|max:1024',
 
 
