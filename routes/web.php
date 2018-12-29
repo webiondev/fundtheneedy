@@ -35,19 +35,19 @@ Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
 Route::get('/exhowto', 'WelcomeController@exhowto')->name('exhowto');
 //Route::get('/email', 'WelcomeController@email');
 
-Route::get('/', function(){
-
-	 // if(Auth::check()==true and auth()->user()->type=='seeker')
-   //          return view('seekfund');
-     // elseif (Auth::check()==true and auth()->user()->type=='giver') {
-     // 	return view('welcome');
-     // }
-
-     if (Auth::check()==true and auth()->user()->type=='admin') {
-     	return view('welcome_Admin');
-     }
-	return view('welcome');
-});
+// Route::get('/', function(){
+//
+// 	 // if(Auth::check()==true and auth()->user()->type=='seeker')
+//    //          return view('seekfund');
+//      // elseif (Auth::check()==true and auth()->user()->type=='giver') {
+//      // 	return view('welcome');
+//      // }
+//
+//      // if (Auth::check()==true and auth()->user()->type=='admin') {
+//      // 	return view('welcome_Admin');
+//      // }
+// 	// return view('welcome');
+// });
 Auth::routes();
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Route::get('/about', 'HomeController@about')->name('about');
@@ -75,13 +75,17 @@ Route::get('/log_out', 'HomeController@log_out')->name('log_out');
 
 
 //admin
+Route::middleware(['admin'])->group(/**
+ *
+ */
+    function () {
 Route::get('/welcome_Admin', 'AdminController@welcome_Admin')->name('welcome_Admin');
 
 Route::get('/admin_email_all', 'AdminController@admin_email_all')->name('admin_email_all');
 Route::get('/alldonations', 'AdminController@alldonations')->name('alldonations');
 Route::get('/allmessages', 'AdminController@allmessages')->name('allmessages');
 Route::get('/allusers', 'AdminController@allusers')->name('allusers');
-
+});
 Route::middleware(['giver'])->group(/**
  *
  */

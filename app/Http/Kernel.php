@@ -63,6 +63,6 @@ class Kernel extends HttpKernel
         'checkrole'=> \App\Http\Middleware\CheckRole::class,
         'giver'=> \App\Http\Middleware\Giver::class,
         'seeker'=> \App\Http\Middleware\Seeker::class,
-
+        'admin'=> \App\Http\Middleware\Admin::class,
     ];
 }
