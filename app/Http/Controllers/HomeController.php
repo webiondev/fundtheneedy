@@ -941,7 +941,7 @@ if(($request->email==auth()->user()->email)){
       $refer= URL::previous();
       $iplog->fill(['logged_in'=>0,'ipaddress'=>$ip, 'refer'=>$refer,'user_id'=>Auth::user()->id ]);
 
-              $iplog->save();
+        $iplog->save();
          Auth::guard()->logout();
         $request->session()->flush();
         $request->session()->regenerate();

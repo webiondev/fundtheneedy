@@ -30,7 +30,7 @@
                     <h2>{{$data_->name}}</h2>
                       <p><strong>{{__('global.user_id')}} : </strong>{{$data_->id}} </p>
                     <p><strong>{{__('global.ipaddress')}} : </strong>{{$data_->ipaddress}} </p>
-                    <p><strong>{{__('global.logged_in')}} : </strong>{{$data_->logged_in}} </p>
+                    <!-- <p><strong>{{__('global.logged_in')}} : </strong>{{$data_->logged_in}} </p> -->
                     <p><strong>{{__('global.name')}} : </strong>{{$data_->name}} </p>
                     <p><strong>{{__('global.email')}} : </strong> {{$data_->email}} </p>
                     <p><strong>{{__('global.city')}} : </strong>

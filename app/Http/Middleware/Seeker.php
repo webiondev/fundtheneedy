@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
-class admin
+class Seeker
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,9 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+      if (Auth::check()==true and auth()->user()->type=='seeker')
+         return $next($request);
+
+    return redirect(404);
     }
 }
