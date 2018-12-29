@@ -14,7 +14,7 @@
                      <b>{{__('global.no_seekers')}}</b><br>
 		     <p>{{__('global.check_later')}}</p>
   @endif
-
+{{$data->links()}
 @foreach($data as $data_)
 <div class="container">
 
