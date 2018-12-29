@@ -692,7 +692,7 @@ if(($request->email==auth()->user()->email)){
 
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')->where('amount', '>', '0')->orWhere('goods', '>', '0')
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')
             ->paginate(10);
 
 
