@@ -16,7 +16,7 @@
                      <b>{{__('global.no_seekers')}}</b><br>
 		     <p>{{__('global.check_later')}}</p>
   @endif
-
+{{$data->links()}
 @foreach($data as $data_)
 <div class="container">
 
@@ -276,7 +276,7 @@
       <?php $i++;
 
       ?>
-{{$data->links()}}
+
     	 <div >
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
