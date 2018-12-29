@@ -9,7 +9,8 @@ use App\Message;
 use App\Donation;
 use App\Favorite;
 use App\Stat;
-
+use App\iplogs;
+use URL;
 use Validator;
 use Input;
 use Redirect;
@@ -935,11 +936,17 @@ if(($request->email==auth()->user()->email)){
 
 
     public function log_out(Request $request){
+      $ip=  $request->getClientIp();
+      $iplog=new iplogs();
+      $refer= URL::previous();
+      $iplog->fill(['logged_in'=>0,'ipaddress'=>$ip, 'refer'=>$refer,'user_id'=>Auth::user()->id ]);
 
+              $iplog->save();
          Auth::guard()->logout();
         $request->session()->flush();
         $request->session()->regenerate();
         // $this->performLogout($request);
+
 
        return redirect('/');
     }

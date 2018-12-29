@@ -26,12 +26,12 @@ use Khill\Lavacharts\Lavacharts;
 class AdminController extends Controller
 {
 
-    function welcome_Admin(){
+  public function welcome_Admin(){
 
       return view ('welcome_Admin');
     }
 
-    function alldonations(){
+  public  function alldonations(){
 
       $data=DB::table('users')
           ->join('need', 'users.id', '=', 'need.user_id')
@@ -41,7 +41,7 @@ class AdminController extends Controller
       return view('mydonation')->with('data',$data);
     }
 
-    function allmessages(){
+  public  function allmessages(){
 
       $messages=User::join('message', 'users.id', '=', 'message.from')
 
@@ -50,7 +50,7 @@ class AdminController extends Controller
       return view('allmessages')->with('data', $messages);
     }
 
-    function admin_email_all(){
+    public function admin_email_all(){
 
         $user = User::where("type","giver")->whereNull('deleted_at')->get();
 
@@ -82,5 +82,14 @@ class AdminController extends Controller
        }
         return Redirect::to('welcome_Admin')->with('message', 'Message sent to everyone');
     }
+
+  public  function allusers(){
+    $data = User::join('iplogs', 'users.id', '=', 'iplogs.user_id')
+
+        ->select('users.*','iplogs.*')->orderBy('users.created_at', 'DESC')->groupBy('users.name')->paginate(10);
+
+        return view('allusers')->with('data',$data) ;
+
+  }
 
 }

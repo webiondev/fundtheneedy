@@ -31,7 +31,7 @@
 
                         <li><a href="{{Route('allmessages')}}">{{__('global.all_messages')}}</a></li>
 
-                          <li><a href="{{Route('admin_email_all')}}">{{__('global.all_messages')}}</a></li>
+                          <li><a href="{{Route('allusers')}}">{{__('global.all_users')}}</a></li>
 
 
 

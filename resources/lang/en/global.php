@@ -129,4 +129,10 @@ return [
 'all_messages'=> 'All Messages',
 'messaging'=>'Messaging',
 'send_message_all'=>'Message everyone',
+'all_users'=>'All Users',
+'ipaddress'=>'IP',
+'logged_in'=>'Logged in',
+'user_id'=>'User ID',
+'email_verified'=>'Email Verified',
+'created_at'=>'Created on',
 ];

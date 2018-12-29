@@ -46,7 +46,7 @@ return [
     'goods_needed'=>'البضائع اللازمة',
     'description'=>'وصف',
     'need_detais_max'=>'(1000 حرف كحد أقصى)',
-
+    'email_verification'=>'Email Verified',
     'seeker_info'=>'معلومات طالب',
     'giver_info'=>'معلومات المانحين',
     'options'=>'خيارات',
@@ -131,6 +131,12 @@ return [
     'all_messages'=>'',
     'messaging'=>'Messaging',
     'send_message_all'=>'Message everyone',
+    'ipaddress'=>'IP',
+    'logged_in'=>'Logged in',
+    'user_id'=>'User ID',
+    'email_verified'=>'Email Verified',
+    'created_at'=>'Created on',
+
 
 
 

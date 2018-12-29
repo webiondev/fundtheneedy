@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 class iplogs extends Model
 {
     // use Notifiable;
@@ -13,7 +13,7 @@ class iplogs extends Model
      *
      * @var array
      */
-    use SoftDeletes;
+    // use SoftDeletes;
 
     //protected $dates = ['deleted_at'];
     protected $fillable = [

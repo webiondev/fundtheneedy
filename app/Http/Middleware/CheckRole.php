@@ -66,7 +66,7 @@ class CheckRole
 
              return Redirect::to('404');
 
-    elseif(($request->is('alldonations') || $request->is('admin_email_all')) and ( auth()->user()->type=='giver'|| auth()->user()->type=='seeker'))
+    elseif(($request->is('alldonations') || $request->is('admin_email_all')|| $request->is('allusers')) and ( auth()->user()->type=='giver'|| auth()->user()->type=='seeker'))
 
 
                 return Redirect::to('404');

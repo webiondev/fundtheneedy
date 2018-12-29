@@ -115,5 +115,6 @@ Route::get('/welcome_Admin', 'AdminController@welcome_Admin')->name('welcome_Adm
 Route::get('/admin_email_all', 'AdminController@admin_email_all')->name('admin_email_all');
 Route::get('/alldonations', 'AdminController@alldonations')->name('alldonations');
 Route::get('/allmessages', 'AdminController@allmessages')->name('allmessages');
+Route::get('/allusers', 'AdminController@allusers')->name('allusers');
 
 });
