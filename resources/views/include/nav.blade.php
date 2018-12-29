@@ -93,7 +93,7 @@
 
 
                             @if(auth()->user()->type=='admin')
-                        	<li><a href="{{route('seeker')}}">{{__('global.seekers')}}</a></li>
+                        	<li><a href="{{route('allseekers')}}">{{__('global.seekers')}}</a></li>
                             <li><a href="{{route('alldonations')}}">{{__('global.all_donations')}}</a></li>
                             @endif
 

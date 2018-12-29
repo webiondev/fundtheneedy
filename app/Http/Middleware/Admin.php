@@ -17,6 +17,6 @@ class Admin
     {
       if(Auth::check()==true and auth()->user()->type=='admin')
           return $next($request);
-          return redirect(404);
+      return redirect(404);
     }
 }
