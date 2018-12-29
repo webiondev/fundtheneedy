@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     function admin_email_all(){
 
-        $user = User::where("type","admin")->whereNull('deleted_at')->get();
+        $user = User::where("type","giver")->whereNull('deleted_at')->get();
 
 
 
