@@ -276,7 +276,7 @@
       <?php $i++;
 
       ?>
-
+{{$data->links()}}
     	 <div >
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
@@ -383,7 +383,7 @@
                 </div>-->
             </div>
     	 </div>
-      
+
 
 		</div>
 	</div>
