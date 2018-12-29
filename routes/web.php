@@ -35,20 +35,24 @@ Route::get('/exterm', 'WelcomeController@exterm')->name('exterm');
 Route::get('/exhowto', 'WelcomeController@exhowto')->name('exhowto');
 //Route::get('/email', 'WelcomeController@email');
 
-// Route::get('/', function(){
-//
-// 	 // if(Auth::check()==true and auth()->user()->type=='seeker')
-//    //          return view('seekfund');
-//      // elseif (Auth::check()==true and auth()->user()->type=='giver') {
-//      // 	return view('welcome');
-//      // }
-//
-//      // if (Auth::check()==true and auth()->user()->type=='admin') {
-//      // 	return view('welcome_Admin');
-//      // }
-// 	// return view('welcome');
-// });
+ Route::get('/', function(){
+// //
+// // 	 // if(Auth::check()==true and auth()->user()->type=='seeker')
+// //    //          return view('seekfund');
+// //      // elseif (Auth::check()==true and auth()->user()->type=='giver') {
+// //      // 	return view('welcome');
+// //      // }
+// //
+// //      // if (Auth::check()==true and auth()->user()->type=='admin') {
+// //      // 	return view('welcome_Admin');
+// //      // }
+	return view('welcome');
+});
 Auth::routes();
+Route::middleware(['auth','web'])->group(/**
+ *
+ */
+    function () {
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/vision', 'HomeController@vision')->name('vision');
@@ -72,7 +76,7 @@ Route::get('/mysent', 'HomeController@listsent')->name('mysent');
 Route::post('/deleteProfile/{id}', 'HomeController@deleteProfile')->name('deleteprofile');
 
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');
-
+});
 
 //admin
 Route::middleware(['admin'])->group(/**
@@ -90,7 +94,7 @@ Route::middleware(['giver'])->group(/**
  *
  */
     function () {
-//Route::get('/deletemessage/{id}', 'HomeController@deletemessage')->name('deletemessage');
+Route::get('/deletemessage/{id}', 'HomeController@deletemessage')->name('deletemessage');
 
 //only giver
 
