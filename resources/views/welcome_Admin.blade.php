@@ -1,9 +1,15 @@
 @extends('layouts.index')
     @section('content')
+
     <div id="wrapper">
 
 
+      @if(session()->has('message'))
+          <div class="alert alert-success">
+              {{ session()->get('message') }}
 
+          </div>
+      @endif
     <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">

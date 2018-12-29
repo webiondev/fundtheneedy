@@ -31,6 +31,8 @@
 
                         <li><a href="{{Route('allmessages')}}">{{__('global.all_messages')}}</a></li>
 
+                          <li><a href="{{Route('admin_email_all')}}">{{__('global.all_messages')}}</a></li>
+
 
 
 
@@ -99,14 +101,29 @@
 
                         </ul>
                     </li>
-
+                      @if(auth()->user()->type!='admin')
                     <li>
+
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{__('global.stats')}}</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{route('showstat')}}">{{__('global.stats')}}</a></li>
 
                         </ul>
                     </li>
+                    @endif
+
+                    @if(auth()->user()->type=='admin')
+                  <li>
+
+                      <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{__('global.messaging')}}</span><span class="fa arrow"></span></a>
+                      <ul class="nav nav-second-level collapse">
+                          <li><a href="{{route('admin_email_all')}}">{{__('global.send_message_all')}}</a></li>
+
+                      </ul>
+                  </li>
+                  @endif
+
+
 
 
 

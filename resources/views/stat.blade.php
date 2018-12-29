@@ -38,42 +38,43 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         
+
         </div>
          <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-                
+
                   <li ><a href="{{Route('about')}}"> About Us </a></li>
-                  <li ><a href="{{Route('vision')}}"> Our Vision </a></li> 
+                  <li ><a href="{{Route('vision')}}"> Our Vision </a></li>
                   <li ><a href="{{Route('contact')}}"> Contact </a></li>
                   <li ><a href="{{Route('term')}}"> Terms of Service </a></li>
+
                     <li ><a href="{{Route('profile_me')}}"> Back to Dashboard </a></li>
                   
 
 
-                
+
                 <li>
-                      
-                   
+
+
                     <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
                         <i class="fa fa-sign-out"></i> Log out
-                    </a> 
-               
+                    </a>
+
 
                 </li>
-               
+
 
                 <li>
-                  
+
                 </li>
 
             </ul>
-        
+
         </div>
       </div>
     </nav>
   </div>
-  
+
   <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
@@ -85,8 +86,8 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <h3>Global Statistics</h3>
-          
-            
+
+
           <p>Coming Soon </p>
               <p> Here you can see what kinds of needs affect people. A statsitical distrbution for all countries which has fundtheneedy membership</p>
 
@@ -101,6 +102,3 @@
 </body>
 
 </html>
-
-
-  

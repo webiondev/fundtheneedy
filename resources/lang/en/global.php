@@ -127,4 +127,6 @@ return [
 'all_donations'=>'All Donations',
 'admin'=>'Admin',
 'all_messages'=> 'All Messages',
+'messaging'=>'Messaging',
+'send_message_all'=>'Message everyone',
 ];

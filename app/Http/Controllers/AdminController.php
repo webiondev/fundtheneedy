@@ -49,4 +49,38 @@ class AdminController extends Controller
           ->get();
       return view('allmessages')->with('data', $messages);
     }
+
+    function admin_email_all(){
+
+        $user = User::where("type","admin")->whereNull('deleted_at')->get();
+
+
+
+        foreach($user as $user_)
+        {
+        //
+        //
+
+        //   Mail::send('email', ['title' => __('global.new_seeker'), 'content' => __('global.new_seeker2')], function ($message)  use($user_)
+        //    {
+        //
+        //        $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+        //        $message->subject(__('global.new_seeker'));
+        //        $message->to($user_->email); //myemail@gmail.com
+        //       //$message->to('sokhter@yahoo.com');
+        //
+        // });
+
+        Mail::send(['html'=>'email'], ['title' => 'Reminder to donate the needy!', 'content' => 'Dear donor, it is a gentle reminder for donations. New seekers have registered their appeal.'], function ($message) use($user_)
+        {
+
+            $message->from('support@fundtheneedy.com', 'Fundtheneedy');
+            $message->subject('Reminder to Donate: Fundtheneedy!');
+            $message->to($user_->email);
+
+        });
+       }
+        return Redirect::to('welcome_Admin')->with('message', 'Message sent to everyone');
+    }
+
 }

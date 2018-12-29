@@ -129,6 +129,8 @@ return [
     'all_donations'=>'',
     'admin'=>'',
     'all_messages'=>'',
+    'messaging'=>'Messaging',
+    'send_message_all'=>'Message everyone',
 
 
 

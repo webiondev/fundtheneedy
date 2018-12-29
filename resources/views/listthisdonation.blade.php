@@ -52,7 +52,7 @@ $data=$data[0];
     <li class="list-group-item">{{__('global.email')}} <span class="badge">{{$data[0]->email}}</span></li>
     <li class="list-group-item">{{__('global.city')}} <span class="badge">{{$data[0]->city}}</span></li>
     <li class="list-group-item">{{__('global.country')}} <span class="badge">{{$data[0]->country}}</span></li>
-    <li class="list-group-item">{{__('global.type')}}<span class="badge">{{$data[0]->type}}</span></li>
+    <li class="list-group-item">{{__('welcome.type')}}<span class="badge">{{$data[0]->type}}</span></li>
 
     <li class="list-group-item">{{__('global.occupation')}} <span class="badge">{{$data[0]->occupation}}</span></li>
 
