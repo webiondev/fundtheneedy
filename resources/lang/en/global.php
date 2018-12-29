@@ -124,4 +124,7 @@ return [
 'proof_of_donation'=>'Proof of Donation',
 'need_donated'=>'Your Need Which Recieved Donations',
 'need_detais_max'=>'(1000 characters max)',
+'all_donations'=>'All Donations',
+'admin'=>'Admin',
+'all_messages'=> 'All Messages',
 ];

@@ -24,7 +24,34 @@
 
 
                     <li class="active">
+                      @if(auth()->user()->type=='admin' )
+                      <a href="#"><i class="fa fa-address-book-o"></i> <span class="nav-label">{{__('global.admin')}}</span> <span class="fa arrow"></span></a>
+
+                      <ul class="nav nav-second-level">
+
+                        <li><a href="{{Route('allmessages')}}">{{__('global.all_messages')}}</a></li>
+
+
+
+
+
+                             <li>
+
+
+                              <li class="divider"></li>
+                             <li>
+
+                                   <a class="forget" onclick="forget(this)" href="{{route('log_out')}}">
+                                         {{__('global.logout')}}
+                                      </a>
+                             </li>
+                      </ul>
+                  </li>
+                  @endif
+                      <!-- Non-Admin -->
+                        @if(auth()->user()->type=='giver' || auth()->user()->type=='seeker')
                         <a href="#"><i class="fa fa-address-book-o"></i> <span class="nav-label">{{__('global.profile')}}</span> <span class="fa arrow"></span></a>
+
                         <ul class="nav nav-second-level">
                                 <li><a href="{{Route('profile_me')}}">{{__('global.profile')}}</a></li>
                                 @if(auth()->user()->type=='giver')
@@ -46,6 +73,8 @@
                                </li>
                         </ul>
                     </li>
+
+                    @endif
                     <li class="active">
                         <a href="index.html"><i class="fa fa-money"></i> <span class="nav-label">{{__('global.funding')}}</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -58,6 +87,12 @@
                             <li><a href="{{route('seekfund')}}">{{__('global.seek_fund')}}</a></li>
                             <li><a href="{{route('listplea')}}">{{__('global.my_plea')}}</a></li>
                              <li><a href="{{route('donorall')}}">{{__('global.my_donors')}}</a></li>
+                            @endif
+
+
+                            @if(auth()->user()->type=='admin')
+                        	<li><a href="{{route('seeker')}}">{{__('global.seekers')}}</a></li>
+                            <li><a href="{{route('alldonations')}}">{{__('global.all_donations')}}</a></li>
                             @endif
 
                             <!-- <li><a href="{{Route('profile_me')}}">Corroborate</a></li> -->

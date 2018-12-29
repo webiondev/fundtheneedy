@@ -42,6 +42,10 @@ Route::get('/', function(){
      elseif (Auth::check()==true and auth()->user()->type=='giver') {
      	return view('welcome');
      }
+
+     elseif (Auth::check()==true and auth()->user()->type=='admin') {
+     	return view('welcome_Admin');
+     }
 	return view('welcome');
 });
 Auth::routes();
@@ -105,6 +109,11 @@ Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonat
 Route::get('/stat', 'HomeController@stat')->name('showstat');
 Route::get('/log_out', 'HomeController@log_out')->name('log_out');
 Route::get('/report', 'HomeController@report')->name('report');
-Route::get('/admin_email_all', 'HomeController@admin_email_all')->name('admin_email_all');
+
+Route::get('/welcome_Admin', 'AdminController@welcome_Admin')->name('welcome_Admin');
+
+Route::get('/admin_email_all', 'AdminController@admin_email_all')->name('admin_email_all');
+Route::get('/alldonations', 'AdminController@alldonations')->name('alldonations');
+Route::get('/allmessages', 'AdminController@allmessages')->name('allmessages');
 
 });

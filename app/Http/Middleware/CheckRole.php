@@ -22,50 +22,54 @@ class CheckRole
 
 
 
-        if($request->is('seeker') and auth()->user()->type=='seeker')
+        if($request->is('seeker') and (auth()->user()->type=='seeker' ))
 
               return Redirect::to('404');
 
-        elseif($request->is('seekfund') and auth()->user()->type=='giver')
+        elseif($request->is('seekfund') and (auth()->user()->type=='giver' || auth()->user()->type=='admin'))
 
 
            return Redirect::to('404');
 
-        elseif($request->is('thisdonationdetails/'.$request->id) and auth()->user()->type=='giver')
+        elseif($request->is('thisdonationdetails/'.$request->id) and (auth()->user()->type=='giver' || auth()->user()->type=='admin'))
 
 
            return Redirect::to('404');
 
-      elseif($request->is('profile_this/'.$request->id) and auth()->user()->type=='seeker')
+      elseif($request->is('profile_this/'.$request->id) and ( auth()->user()->type=='seeker'))
 
 
               return Redirect::to('404');
 
-    elseif($request->is('confirmthisdonation/'.$request->id) and auth()->user()->type=='seeker')
+    elseif($request->is('confirmthisdonation/'.$request->id) and( auth()->user()->type=='seeker'|| auth()->user()->type=='admin'))
 
 
           return Redirect::to('404');
 
-         elseif($request->is('mydonations') and auth()->user()->type=='seeker')
+         elseif($request->is('mydonations') and (auth()->user()->type=='seeker'|| auth()->user()->type=='admin'))
 
 
            return Redirect::to('404');
 
-        elseif($request->is('myplea') and auth()->user()->type=='giver')
+        elseif($request->is('myplea') and ( auth()->user()->type=='giver'|| auth()->user()->type=='admin'))
 
 
            return Redirect::to('404');
 
-         elseif($request->is('donorall') and auth()->user()->type=='giver')
+         elseif($request->is('donorall') and (auth()->user()->type=='giver'|| auth()->user()->type=='admin'))
 
 
            return Redirect::to('404');
 
-      elseif($request->is('reply/'.$request->id1.'/'.$request->id2.'/'.$request->id4.'/'.$request->id3) and auth()->user()->id!=$request->id4)
+      elseif($request->is('reply/'.$request->id1.'/'.$request->id2.'/'.$request->id4.'/'.$request->id3) and (auth()->user()->id!=$request->id4|| auth()->user()->type=='admin') )
 
 
              return Redirect::to('404');
 
+    elseif($request->is('alldonations') and ( auth()->user()->type=='giver'|| auth()->user()->type=='seeker'))
+
+
+                return Redirect::to('404');
 
 
         return $next($request);

@@ -126,6 +126,9 @@ return [
     'mode_of_assistance'=>'طريقة المساعدة',
     'proof_of_donation'=>'دليل التبرع',
     'need_donated'=>'حاجتك التي تلقي التبرعات',
+    'all_donations'=>'',
+    'admin'=>'',
+    'all_messages'=>'',
 
 
 

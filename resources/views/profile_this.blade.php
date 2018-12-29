@@ -37,13 +37,14 @@ $data=$data[0];
                 <a href="{{Route('corroborate_count',$data[0]->id )}}">{{__('global.corroborated_by')}} {{$count_corroborate}} {{__('global.givers')}}</a> <p></p><br/>
 
             </div>
+            @if(auth()->user()->type=='giver')
              <p><a href="{{Route('askseekeracc', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">{{__('global.ask_bank')}}</a></p>
              <p><a href="{{Route('askseekerinfo', array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">{{__('global.ask_address_contact')}}</a></p>
              <p><a href="{{Route('askseekerver',  array($data[0]->user_id,$data[0]->id ))}}" class="btn btn-info btn-xs" role="button">{{__('global.ask_verification')}}</a></p>
              <p><a href="{{Route('corroborate',array($data[0]->user_id,$data[0]->id) )}}" class="btn btn-info btn-xs" role="button">{{__('global.corroborate')}}</a></p>
             <p><a href="{{Route('addfav', array($data[0]->user_id,$data[0]->id))}}" class="btn btn-info btn-xs" role="button">{{__('global.add_fav')}}</a></p>
              <p><a href="{{Route('confirmthisdonation', $data[0]->id)}}" class="btn btn-info btn-xs" role="button">{{__('global.confirm_donation')}}</a></p>
-
+             @endif
            <hr>
 
 

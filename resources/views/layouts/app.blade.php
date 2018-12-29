@@ -8,10 +8,30 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'FN Admin') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{{asset('vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{{asset('css/freelancer.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+
+
+    <link href="{{asset('css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
+
+
+    <link href="{{asset('js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
+
+    <link href="{{asset('css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,7 +49,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'FN Admin') }}
                     </a>
                 </div>
 
@@ -74,7 +94,7 @@
         @yield('content')
     </div>
 
-   
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

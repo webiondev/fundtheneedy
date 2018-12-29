@@ -313,12 +313,14 @@
                       </button>
                       <ul class="dropdown-menu text-left" role="menu">
                             <li><a href="{{Route('profile_this', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
+                          @if(auth()->user()->type=='giver')
                         <li><a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_bank')}}</a></li>
                         <li> <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_address_contact')}}</a></li>
                         <li ><a href="{{Route('askseekerver', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.verification')}}</a></li>
                         <li> <a href="{{Route('corroborate',array($data_->user_id,$data_->id) )}}"  role="button">{{__('global.corroborate')}}</a></li>
                             <li><a href="{{Route('addfav', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.add_fav')}}</a></li>
                         <li> <a href="{{Route('confirmthisdonation', $data_->id)}}"  role="button">{{__('global.confirm_donation')}}<sup>{{__('global.bank_transfer')}}</sup></a></li>
+                        @endif
                         <!-- <li><a href="{{Route('pay_card', $data_->id)}}"  role="button">pay by card</a></li> -->
                       </ul>
 
@@ -381,7 +383,7 @@
                 </div>-->
             </div>
     	 </div>
-	 
+
 		</div>
 	</div>
 </div>

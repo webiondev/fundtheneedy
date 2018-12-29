@@ -73,10 +73,16 @@ $iplog->fill(['logged_in'=>1,'ipaddress'=>$ip, 'refer'=>$refer,'user_id'=>Auth::
 
             return redirect()->route('seekfund');
         }
-        else{//giver
+        else if(auth()->user()->type=='giver'){//giver
 
             return redirect()->route('seeker');
 }
+
+        else if(auth()->user()->type=='admin'){
+
+          return redirect()->route('welcome_Admin');
+        }
+
 }
 
 

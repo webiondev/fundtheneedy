@@ -20,23 +20,23 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('city');
             $table->string('country');
-            $table->enum('type', ['seeker','giver']);
+            $table->enum('type', ['seeker','giver','admin']);
             $table->string('occupation');
             $table->string('file', 1024);
             $table->tinyInteger('verified')->default(0);
             $table->string('email_token')->nullable();
               $table->softDeletes();
-            //$table->binary('file'); 
+            //$table->binary('file');
             $table->rememberToken();
             $table->timestamps();
 
         });
 
-      
+
 
 }
 
-    
+
 
     /**
      * Reverse the migrations.
@@ -47,9 +47,9 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
 
-   
+
 
     }
 
-  
+
 }

@@ -12,12 +12,14 @@
                     @endif
 
                     You are logged in!
-                    {{Auth::user()->name}}
+                    {{Auth::user()[0]['id']}}
 
                 </div>
 
 
-   List how to identify bogus claim
+                make admin portal
+                      display and delete for users, need, donation, iplog
+                      send email
 
 </body>
 </html>
