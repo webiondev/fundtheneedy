@@ -262,7 +262,8 @@ if(($request->email==auth()->user()->email)){
     public function deleteProfile(Request $request, $id){
 
         $user=User::find($id);
-
+        $user['email']=str_random(30);;
+        $user->save();
 
         if ($request->isMethod('POST')){
 
