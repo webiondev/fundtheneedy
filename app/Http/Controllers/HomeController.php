@@ -782,6 +782,25 @@ if(($request->email==auth()->user()->email)){
             return view('showcategoryseeker')->with('data',$data) ;
     }
 
+    public function showcategory(Request $request)
+
+    {
+
+        $data = User::join('need', 'users.id', '=', 'need.user_id')
+
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('category', '=', $request->category)->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->orwhere('goods','>','0')
+            ->get();
+
+
+
+        if(empty($data[0]))
+           return  redirect()->back()->with('message', __('global.no_category_found').' '.$request->category);
+
+        else
+             //return  redirect()->back()->with('data',$data);
+            return view('showcategory')->with('data',$data) ;
+    }
+
 
       public function showfavlocal(Request $request)
 
