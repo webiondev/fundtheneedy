@@ -851,7 +851,7 @@ if(($request->email==auth()->user()->email)){
 
         ]);
 
-        $search=DB::table('need')->where('user_id', auth()->user()->id)->WHere('category', $validated['category'])->get();
+        $search=DB::table('need')->where('user_id', auth()->user()->id)->Where('category', $validated['category'])->where('deleted_at',NULL)->get();
 
 
         $file = $request->file('file');

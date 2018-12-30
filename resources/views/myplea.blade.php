@@ -10,6 +10,8 @@
        $i=0;
        ?>
 <h3 class="site-title">{{__('global.my_plea')}}</h3>
+{{$data->links()}}
+
 @foreach($data as $data_)
 <div class="container">
 
@@ -79,5 +81,6 @@
 </div>
 
 @endforeach
+{{$data->links()}}
 
 @endsection

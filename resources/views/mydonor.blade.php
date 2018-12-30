@@ -4,6 +4,8 @@
 
     <div class="container">
         <h3 class="site-title">{{__('global.giver_info')}}</h3>
+        {{$data->links()}}
+
         @foreach($data as $data_)
 
 
