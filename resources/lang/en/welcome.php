@@ -78,7 +78,7 @@ return [
     'copyright'=>'Copyright',
     'fundtheneedy_2018'=>'Fundtheneedy 2019',
     'rahman'=>'A Mohammad Rahman Production',
-    'hadith'=>'The Prophet (pbuh) said, \'The best of people is he who<br> gives away his hard-earned money [in charity]\'(Kan Al-Ummal)',
+    'hadith'=>'The Prophet (pbuh) said, \'The best of people is he who<br> gives away his hard-earned money [in charity]\'(Kanz Al-Ummal)',
 
 
 ];
