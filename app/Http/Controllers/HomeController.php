@@ -441,7 +441,44 @@ if(($request->email==auth()->user()->email)){
         return view('seeker2')->with('data',$data) ;
     }
 
+    public function otherseekers()
+
+    {
+
+        $count=Message::where('to_', "=", auth()->user()->id)->whereNull('message.deleted_at')->where('status', '=', '0')->count();
+        Session::put('count', $count);
+
+
+
+        $data = User::join('need', 'users.id', '=', 'need.user_id')
+
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*')->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->orwhere('goods','>','0')->paginate(10);
+
+
+
+
+        return view('seeker2')->with('data',$data) ;
+    }
+
     public function profileThis($id){
+
+
+
+        $data=DB::table('users')
+            ->join('need', function($join) use ($id)
+            {
+                $join->on('users.id', '=', 'need.user_id')
+                    ->where('need.id', '=', $id);
+            })
+            ->get();
+
+        $count_corroboration=DB::table('corroborate')->where('need_id', $id)->groupBy('need_id')->count();
+
+        return view('profile_this')->with('data', array($data, $count_corroboration));
+
+    }
+
+    public function seeker_profile_this($id){
 
 
 
@@ -706,6 +743,45 @@ if(($request->email==auth()->user()->email)){
              //return  redirect()->back()->with('data',$data);
             return view('showlocal')->with('data',$data) ;
     }
+
+    public function showlocalseeker(Request $request)
+
+    {
+
+        $data = User::join('need', 'users.id', '=', 'need.user_id')
+
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->orwhere('goods','>','0')
+            ->get();
+
+
+
+        if(empty($data[0]))
+           return  redirect()->back()->with('message', __('global.no_seekers_found').' '.$request->country);
+
+        else
+             //return  redirect()->back()->with('data',$data);
+            return view('showlocalseeker')->with('data',$data) ;
+    }
+
+    public function showcategoryseeker(Request $request)
+
+    {
+
+        $data = User::join('need', 'users.id', '=', 'need.user_id')
+
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('category', '=', $request->category)->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->orwhere('goods','>','0')
+            ->get();
+
+
+
+        if(empty($data[0]))
+           return  redirect()->back()->with('message', __('global.no_category_found').' '.$request->category);
+
+        else
+             //return  redirect()->back()->with('data',$data);
+            return view('showcategoryseeker')->with('data',$data) ;
+    }
+
 
       public function showfavlocal(Request $request)
 

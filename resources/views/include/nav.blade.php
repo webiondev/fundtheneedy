@@ -89,6 +89,7 @@
                             <li><a href="{{route('seekfund')}}">{{__('global.seek_fund')}}</a></li>
                             <li><a href="{{route('listplea')}}">{{__('global.my_plea')}}</a></li>
                              <li><a href="{{route('donorall')}}">{{__('global.my_donors')}}</a></li>
+                             <li><a href="{{route('otherseekers')}}">{{__('global.other_seekers')}}</a></li>
                             @endif
 
 

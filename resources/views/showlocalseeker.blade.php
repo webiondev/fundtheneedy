@@ -16,7 +16,7 @@
                      <b>{{__('global.no_seekers')}}</b><br>
 		     <p>{{__('global.check_later')}}</p>
   @endif
-{{$data->links()}}
+
 @foreach($data as $data_)
 <div class="container">
 
@@ -24,26 +24,9 @@
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 
 @if ($i==0)
-<form id="seek_country"  action="{{Route('category')}}" method="GET">
-      <div class="col-xs-9 col-sm-9 col-md-9">
-         <select class="form-control" class="select-picker" name="category" onchange="this.form.submit();">
-           <option selected="" disabled="">{{__('global.select_category')}}</option>
-           <option value="health">{{__('global.health')}}</option>
-           <option value="environment">{{__('global.environment')}}</option>
-           <option value="natural disaster">{{__('global.natural')}}</option>
-           <option value="Education">{{__('global.education')}}</option>
-           <option value="community">{{__('global.community')}}</option>
-           <option value="orphan">{{__('global.orphan')}}</option>
-           <option value="marriage">{{__('global.marriage')}}</option>
-           <option value="loan">{{__('global.loan_repay')}}</option>
-           <option value="bail">{{__('global.bailing')}}</option>
-           <option value="food and shelter">{{__('global.food')}}</option>
-         </select>
-      </div>
-    </form>
- <form id="seek_country"  action="{{Route('local')}}" method="GET">
-       <div class="col-xs-9 col-sm-9 col-md-9">
-         <select class="form-control" class="select-picker" name="country" onchange="this.form.submit();">
+ <!-- <form id="seek_country"  action="{{Route('local')}}" method="GET">
+       <div class="col-xs-9 col-sm-9 col-md-9"> -->
+         <!-- <select class="form-control" class="select-picker" name="country" onchange="this.form.submit();">
                             <option selected disabled>{{__('welcome.select_country')}}</option>
                             <option value="Afghanistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
@@ -287,7 +270,7 @@
                           </select>
 
                         </div>
-          </form>
+          </form> -->
 
       @endif
       <?php $i++;
@@ -329,7 +312,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu text-left" role="menu">
-                            <li><a href="{{Route('adminprofileThis', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
+                            <li><a href="{{Route('profile_this', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
                           @if(auth()->user()->type=='giver')
                         <li><a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_bank')}}</a></li>
                         <li> <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_address_contact')}}</a></li>
@@ -407,5 +390,5 @@
 </div>
 
 @endforeach
-{{$data->links()}}
+
 @endsection

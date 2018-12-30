@@ -136,6 +136,8 @@ return [
     'user_id'=>'User ID',
     'email_verified'=>'Email Verified',
     'created_at'=>'Created on',
+    'no_category_found'=>'No category found in',
+    'other_seekers'=>'Other Seekers',
 
 
 

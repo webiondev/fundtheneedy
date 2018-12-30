@@ -119,6 +119,7 @@ Route::get('/adfav/{id1}/{id2}', 'HomeController@addFav')->name('addfav');
 Route::get('/corroborate/{id1}/{id2}', 'HomeController@corroborate')->name('corroborate');
 Route::get('/corroborate_count/{id}', 'HomeController@corroborate_count')->name('corroborate_count');
 Route::get('/showlocal', 'HomeController@showlocal')->name('local');
+Route::get('/showcategory', 'HomeController@showcategory')->name('category');
 Route::get('/showfavlocal', 'HomeController@showfavlocal')->name('favlocal');
 Route::get('/mydonations', 'HomeController@listgiverdonation')->name('giverdonation');
 });
@@ -136,5 +137,8 @@ Route::get('/deleteplea/{data}', 'HomeController@deleteplea')->name('deleteplea'
 Route::post('/addplea', 'HomeController@addplea')->name('addplea');
 Route::get('/donorall', 'HomeController@listdonor')->name('donorall');
 Route::get('/thisdonationdetails/{id}', 'HomeController@thisdonationdetails')->name('thisdonationdetails');
-
+Route::get('/otherseekers', 'HomeController@otherseekers')->name('otherseekers');
+Route::get('/seeker_profile_this', 'HomeController@seeker_profile_this')->name('seeker_profile_this');
+Route::get('/showlocalseeker', 'HomeController@showlocalseeker')->name('localseeker');
+Route::get('/showcategoryseeker', 'HomeController@showcategoryseeker')->name('categoryseeker');
 });

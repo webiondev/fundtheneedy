@@ -24,7 +24,34 @@
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 
 @if ($i==0)
+@if(auth()->user()->type=='seeker')
+<form id="seek_country"  action="{{Route('categoryseeker')}}" method="GET">
+  @endif
+@if(auth()->user()->type=='giver')
+<form id="seek_country"  action="{{Route('category')}}" method="GET">
+  @endif
+      <div class="col-xs-9 col-sm-9 col-md-9">
+         <select class="form-control" class="select-picker" name="category" onchange="this.form.submit();">
+           <option selected="" disabled="">{{__('global.select_category')}}</option>
+           <option value="health">{{__('global.health')}}</option>
+           <option value="environment">{{__('global.environment')}}</option>
+           <option value="natural disaster">{{__('global.natural')}}</option>
+           <option value="Education">{{__('global.education')}}</option>
+           <option value="community">{{__('global.community')}}</option>
+           <option value="orphan">{{__('global.orphan')}}</option>
+           <option value="marriage">{{__('global.marriage')}}</option>
+           <option value="loan">{{__('global.loan_repay')}}</option>
+           <option value="bail">{{__('global.bailing')}}</option>
+           <option value="food and shelter">{{__('global.food')}}</option>
+         </select>
+      </div>
+    </form>
+    @if(auth()->user()->type=='seeker')
+   <form id="seek_country"  action="{{Route('localseeker')}}" method="GET">
+  @endif
+  @if(auth()->user()->type=='giver')
  <form id="seek_country"  action="{{Route('local')}}" method="GET">
+@endif
        <div class="col-xs-9 col-sm-9 col-md-9">
          <select class="form-control" class="select-picker" name="country" onchange="this.form.submit();">
                             <option selected disabled>{{__('welcome.select_country')}}</option>
@@ -276,7 +303,7 @@
       <?php $i++;
 
       ?>
-    
+
     	 <div >
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
@@ -312,7 +339,13 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu text-left" role="menu">
+                        @if(auth()->user()->type=='seeker')
+                            <li><a href="{{Route('seeker_profile_this', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
+                        @endif
+                        @if(auth()->user()->type=='giver')
                             <li><a href="{{Route('profile_this', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
+                        @endif
+
                           @if(auth()->user()->type=='giver')
                         <li><a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_bank')}}</a></li>
                         <li> <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_address_contact')}}</a></li>

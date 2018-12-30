@@ -65,6 +65,7 @@ return [
 'my_inbox'=>'My Inbox',
 'my_sent'=>'My Sent',
 'no_seekers_found'=>'No Seekers found in',
+'no_category_found'=>'No category found in',
 'occupation'=>'Occupation',
 'city'=>'City',
 'country'=>'Country',
@@ -135,4 +136,6 @@ return [
 'user_id'=>'User ID',
 'email_verified'=>'Email Verified',
 'created_at'=>'Created on',
+'other_seekers'=>'Others like me',
+
 ];
