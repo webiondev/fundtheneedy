@@ -104,4 +104,19 @@ class AdminController extends Controller
 
   }
 
+public function adminprofilethis ($id){
+
+  $data=DB::table('users')
+      ->join('need', function($join) use ($id)
+      {
+          $join->on('users.id', '=', 'need.user_id')
+              ->where('need.id', '=', $id);
+      })
+      ->get();
+
+  $count_corroboration=DB::table('corroborate')->where('need_id', $id)->groupBy('need_id')->count();
+
+  return view('admin_profile_this')->with('data', array($data, $count_corroboration));
+}
+
 }
