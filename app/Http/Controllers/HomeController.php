@@ -756,13 +756,12 @@ if(($request->email==auth()->user()->email)){
 
         ]);
 
-        $search=Need::find(auth()->user()->id)->where('description', $validated['description'] )->orWhere('category', $validated['category'] )->get();
+        $search=DB::table('need')->where('user_id', auth()->user()->id)->WHere('category', $validated['category'])->get();
 
-        
 
         $file = $request->file('file');
 
-      if($search->isNotEmpty())
+      if(!empty($search[0]))
           return redirect()->back()->with('message', 'You have already added a similar plea! Try selecting a different category with different description');
 
 
