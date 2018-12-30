@@ -756,11 +756,18 @@ if(($request->email==auth()->user()->email)){
 
         ]);
 
+        $search=Need::find(auth()->user()->id)->where('description', $validated['description'] )->orWhere('category', $validated['category'] )->get();
 
+        
 
         $file = $request->file('file');
 
+      if($search->isNotEmpty())
+          return redirect()->back()->with('message', 'You have already added a similar plea! Try selecting a different category with different description');
 
+
+
+      else{
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $location = public_path('img/'. $filename);
         $file=Image::make($file)->resize(350,350)->save($location);
@@ -780,6 +787,9 @@ if(($request->email==auth()->user()->email)){
 
             return redirect()->back()->with('message', 'something went wrong!! Enter correct fields.');
         }
+      }
+
+
 
 
 
