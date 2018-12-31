@@ -138,7 +138,7 @@ return [
     'created_at'=>'Created on',
     'no_category_found'=>'No category found in',
     'other_seekers'=>'Other Seekers',
-    'no_corroborators'='No one has corroborated your claim yet',
+    'no_corroborators'=>'No one has corroborated your claim yet',
 
 
 
