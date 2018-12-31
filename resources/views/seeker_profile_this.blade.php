@@ -34,7 +34,7 @@ $data=$data[0];
             <h3>{{$data[0]->name}} </h3>
             <div class="profile-ratings">
                 <!-- corroborrated by..link to them -->
-                <a href="{{Route('corroborate_count',$data[0]->id )}}">{{__('global.corroborated_by')}} {{$count_corroborate}} {{__('global.givers')}}</a> <p></p><br/>
+                <a href="{{Route('corroborate_count_seeker',$data[0]->id )}}">{{__('global.corroborated_by')}} {{$count_corroborate}} {{__('global.givers')}}</a> <p></p><br/>
 
             </div>
             @if(auth()->user()->type=='giver')

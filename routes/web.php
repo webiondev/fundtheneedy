@@ -141,4 +141,5 @@ Route::get('/otherseekers', 'HomeController@otherseekers')->name('otherseekers')
 Route::get('/seeker_profile_this/{id}', 'HomeController@seeker_profile_this')->name('seeker_profile_this');
 Route::get('/showlocalseeker', 'HomeController@showlocalseeker')->name('localseeker');
 Route::get('/showcategoryseeker', 'HomeController@showcategoryseeker')->name('categoryseeker');
+Route::get('/corroborate_count_seeker/{id}', 'HomeController@corroborate_count_seeker')->name('corroborate_count_seeker');
 });

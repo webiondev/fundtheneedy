@@ -725,6 +725,18 @@ if(($request->email==auth()->user()->email)){
         return view('listcorroboration')->with('data', $data);
 
     }
+
+    public function corroborate_count_seeker($id){
+
+
+        $data=User::join('corroborate', 'users.id', '=', 'corroborate_by')
+
+            ->select('users.name','users.city','users.country','users.file', 'users.email','users.type', 'users.occupation', 'corroborate.date')->where('need_id', '=', $id)->get();
+
+        return view('listcorroboration')->with('data', $data);
+
+    }
+
     public function showlocal(Request $request)
 
     {
