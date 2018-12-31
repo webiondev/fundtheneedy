@@ -492,7 +492,7 @@ if(($request->email==auth()->user()->email)){
 
         $count_corroboration=DB::table('corroborate')->where('need_id', $id)->groupBy('need_id')->count();
 
-        return view('profile_this')->with('data', array($data, $count_corroboration));
+        return view('seeker_profile_this')->with('data', array($data, $count_corroboration));
 
     }
     public function askseekeracc($id1,$id2){
