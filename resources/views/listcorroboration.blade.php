@@ -7,7 +7,10 @@
 
         <div class="container">
             <h3 class="site-title">{{__('global.corroborators')}}</h3>
-
+            @if($data->isEmpty())
+                                <b>{{__('global.no_corroborators')}}</b><br>
+           		     <p>{{__('global.check_later')}}</p>
+             @endif
             @foreach($data as $data_)
                 <div class="row">
                     <div class="col-md-9">

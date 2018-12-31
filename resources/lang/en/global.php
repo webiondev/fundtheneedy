@@ -137,5 +137,6 @@ return [
 'email_verified'=>'Email Verified',
 'created_at'=>'Created on',
 'other_seekers'=>'Others like me',
+'no_corroborators'='No one has corroborated your claim yet',
 
 ];
