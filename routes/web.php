@@ -138,7 +138,7 @@ Route::post('/addplea', 'HomeController@addplea')->name('addplea');
 Route::get('/donorall', 'HomeController@listdonor')->name('donorall');
 Route::get('/thisdonationdetails/{id}', 'HomeController@thisdonationdetails')->name('thisdonationdetails');
 Route::get('/otherseekers', 'HomeController@otherseekers')->name('otherseekers');
-Route::get('/seeker_profile_this', 'HomeController@seeker_profile_this')->name('seeker_profile_this');
+Route::get('/seeker_profile_this/{id}', 'HomeController@seeker_profile_this')->name('seeker_profile_this');
 Route::get('/showlocalseeker', 'HomeController@showlocalseeker')->name('localseeker');
 Route::get('/showcategoryseeker', 'HomeController@showcategoryseeker')->name('categoryseeker');
 });
