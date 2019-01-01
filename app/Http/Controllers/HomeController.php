@@ -762,7 +762,7 @@ if(($request->email==auth()->user()->email)){
 
         $data = User::join('need', 'users.id', '=', 'need.user_id')
 
-            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->orwhere('goods','>','0')
+            ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->where('goods','>','0')
             ->get();
 
 
