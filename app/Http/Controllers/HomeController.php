@@ -765,7 +765,7 @@ if(($request->email==auth()->user()->email)){
             ->select('users.id','users.name','users.email','users.city','users.country','users.occupation', 'need.*') ->where('country', '=', $request->country)->whereNull('need.deleted_at')->orderBy('need.created_at', 'DESC')->where('amount','>',0)->orwhere('goods','>','0')
             ->get();
 
-dd($data[0]);
+dd($data);
 
         if(empty($data[0]))
            return  redirect()->back()->with('message', __('global.no_seekers_found').' '.$request->country);
