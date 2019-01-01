@@ -312,7 +312,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu text-left" role="menu">
-                            <li><a href="{{Route('profile_this', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
+                            <li><a href="{{Route('seeker_profile_this', $data_->id)}}"  role="button">{{__('global.know_more')}}</a></li>
                           @if(auth()->user()->type=='giver')
                         <li><a href="{{Route('askseekeracc', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_bank')}}</a></li>
                         <li> <a href="{{Route('askseekerinfo', array($data_->user_id,$data_->id))}}"  role="button">{{__('global.ask_address_contact')}}</a></li>
