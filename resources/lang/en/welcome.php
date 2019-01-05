@@ -76,7 +76,7 @@ return [
     'terms_2'=>'Seekers must be careful in giving their personal information to recieve aid. This world goes a lot further with trust also. Seekers must maintain a proffesional relationship with the Givers.',
     'terms_3'=>'Givers must only give aid and must not ask anything in exchange. Givers must maintain a proffesional relationship with the Seekers.',
     'copyright'=>'Copyright',
-    'fundtheneedy_2018'=>'Fundtheneedy 2019',
+    'fundtheneedy_2018'=>'Fundtheneedy 2018-2019',
     'rahman'=>'A Mohammad Rahman Production',
     'hadith'=>'The Prophet (pbuh) said, \'The best of people is he who<br> gives away his hard-earned money [in charity]\'(Kanz Al-Ummal)',
 
