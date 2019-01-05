@@ -1017,28 +1017,23 @@ if(($request->email==auth()->user()->email)){
 
     public function stat(){
 
-       $stat = new Lavacharts;
-       $need_stat=$stat->DataTable();
 
-        DB::raw('(insert into `stat` (`count`, `category`, `country`, `user_id` ) select count(`category`), `category`, `country`, `user_id` from `need` INNER JOIN `users` on `need`.`user_id` =`users`.`id` group by `category`;)');
+       $data = DB::table('need')
+   ->select(DB::raw('count(distinct(user_id)), category'))
+
+   ->groupBy('category')
+   ->get();
+   // $data=User::select("country as 0", "id as 1")->get()->toArray();
+   //  $lava=new Lavacharts;
+   //  $needstat=$lava->DataTable();
+   //  $needstat->addStringColumn("Need")
+   //            ->addNumberColumn("Category1")
+   //            ->addNumberColumn("Category2")
+   //            ->addRows($data);
+   //            $lava->GeoChart("National Need Stat", $needstat);
 
 
-        $data= Stat::select("country as 0","category as 1", "count as 2")->get()->toArray();
-
-
-
-
-        $need_stat->addStringColumn('country')
-          ->addStringColumn('category')
-          ->addNumberColumn('count');
-
-
-        $need_stat->addRows($data);
-
-         $stat->GeoChart('need_stat', $need_stat);
-
-          return view('stat')->with('data', $stat);
-
+            return view('needstat')->with('data',$data);
      }
 
    public function pay_card($id){

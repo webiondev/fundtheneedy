@@ -10,6 +10,9 @@
 
 	@include('include.nav')
 
+      <script type="text/javascript" src="{{ asset('js/fusioncharts.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('js/fusioncharts.charts.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('js/fusioncharts.theme.fint.js') }}"></script>
     @yield('content')
 
 
